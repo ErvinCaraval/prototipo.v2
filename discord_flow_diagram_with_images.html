@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord - Diagrama de Flujo con Imágenes Reales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #2c2f33 0%, #23272a 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .module {
+            margin-bottom: 80px;
+        }
+
+        .module-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #5865F2;
+            display: flex;
+            align-items: center;
+        }
+
+        .module-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #5865F2;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .flow-container {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .flow-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .screen {
+            background: white;
+            border: 3px solid #e1e5e9;
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 200px;
+        }
+
+        .screen:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #5865F2;
+        }
+
+        .screen-image {
+            width: 180px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #f0f0f0;
+        }
+
+        .screen-number {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #5865F2;
+            margin-bottom: 8px;
+        }
+
+        .screen-name {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .arrow {
+            color: #5865F2;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .main-flow {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .main-flow-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .flow-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .flow-item {
+            background: white;
+            border: 3px solid #5865F2;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 8px 24px rgba(88, 101, 242, 0.15);
+            position: relative;
+        }
+
+        .flow-item.primary {
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        .flow-item.secondary {
+            background: white;
+            color: #1a1a1a;
+            border-color: #dee2e6;
+        }
+
+        .flow-arrow {
+            color: #5865F2;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #5865F2;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #5865F2;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #5865F2;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        .real-images-notice {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .real-images-title {
+            font-weight: 600;
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .real-images-content {
+            color: #155724;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .flow-row {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .screen-image {
+                width: 150px;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Discord</h1>
+            <p>Diagrama de Flujo Completo - 20 Pantallas con Imágenes Reales</p>
+        </div>
+        
+        <div class="content">
+            <div class="real-images-notice">
+                <div class="real-images-title">🖼️ Imágenes Reales de Discord</div>
+                <div class="real-images-content">
+                    Este diagrama utiliza pantallazos reales tomados directamente de la aplicación Discord móvil, 
+                    mostrando las interfaces auténticas y flujos de navegación reales de la aplicación.
+                </div>
+            </div>
+
+            <!-- Módulo: Registro/Inicio de Sesión -->
+            <div class="module">
+                <h2 class="module-title">📱 Registro/Inicio de Sesión</h2>
+                <div class="flow-container">
+                    <div class="flow-row">
+                        <div class="screen">
+                            <img src="Discord/registro/1.png" alt="Pantalla 1 - Inicio de Discord" class="screen-image">
+                            <div class="screen-number">Pantalla 1</div>
+                            <div class="screen-name">Pantalla de Inicio</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/registro/2.png" alt="Pantalla 2 - Registro" class="screen-image">
+                            <div class="screen-number">Pantalla 2</div>
+                            <div class="screen-name">Registro</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/registro/3.png" alt="Pantalla 3 - Verificación" class="screen-image">
+                            <div class="screen-number">Pantalla 3</div>
+                            <div class="screen-name">Verificación</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/registro/4.png" alt="Pantalla 4 - Configuración" class="screen-image">
+                            <div class="screen-number">Pantalla 4</div>
+                            <div class="screen-name">Configuración</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/registro/5.png" alt="Pantalla 5 - Perfil" class="screen-image">
+                            <div class="screen-number">Pantalla 5</div>
+                            <div class="screen-name">Perfil</div>
+                        </div>
+                    </div>
+                    <div class="flow-row">
+                        <div class="screen">
+                            <img src="Discord/registro/7.png" alt="Pantalla 6 - Finalización" class="screen-image">
+                            <div class="screen-number">Pantalla 6</div>
+                            <div class="screen-name">Finalización</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/home/8.png" alt="Pantalla 7 - Pantalla Principal" class="screen-image">
+                            <div class="screen-number">Pantalla 7</div>
+                            <div class="screen-name">Pantalla Principal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo: Notificaciones -->
+            <div class="module">
+                <h2 class="module-title">🔔 Notificaciones</h2>
+                <div class="flow-container">
+                    <div class="flow-row">
+                        <div class="screen">
+                            <img src="Discord/notifications/9.png" alt="Pantalla 8 - Lista de Notificaciones" class="screen-image">
+                            <div class="screen-number">Pantalla 8</div>
+                            <div class="screen-name">Lista de Notificaciones</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/notifications/10.png" alt="Pantalla 9 - Notificación Individual" class="screen-image">
+                            <div class="screen-number">Pantalla 9</div>
+                            <div class="screen-name">Notificación Individual</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/notifications/11.png" alt="Pantalla 10 - Configuración de Notificaciones" class="screen-image">
+                            <div class="screen-number">Pantalla 10</div>
+                            <div class="screen-name">Configuración de Notificaciones</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/notifications/12.png" alt="Pantalla 11 - Filtros" class="screen-image">
+                            <div class="screen-number">Pantalla 11</div>
+                            <div class="screen-name">Filtros</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/notifications/13.png" alt="Pantalla 12 - Configuración Avanzada" class="screen-image">
+                            <div class="screen-number">Pantalla 12</div>
+                            <div class="screen-name">Configuración Avanzada</div>
+                        </div>
+                    </div>
+                    <div class="flow-row">
+                        <div class="screen">
+                            <img src="Discord/notifications/14.png" alt="Pantalla 13 - Resumen" class="screen-image">
+                            <div class="screen-number">Pantalla 13</div>
+                            <div class="screen-name">Resumen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo: Perfil y Configuración -->
+            <div class="module">
+                <h2 class="module-title">👤 Perfil y Configuración</h2>
+                <div class="flow-container">
+                    <div class="flow-row">
+                        <div class="screen">
+                            <img src="Discord/you/15.png" alt="Pantalla 14 - Perfil de Usuario" class="screen-image">
+                            <div class="screen-number">Pantalla 14</div>
+                            <div class="screen-name">Perfil de Usuario</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/you/16.png" alt="Pantalla 15 - Editar Perfil" class="screen-image">
+                            <div class="screen-number">Pantalla 15</div>
+                            <div class="screen-name">Editar Perfil</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/you/17.png" alt="Pantalla 16 - Configuración de Privacidad" class="screen-image">
+                            <div class="screen-number">Pantalla 16</div>
+                            <div class="screen-name">Configuración de Privacidad</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/you/18.png" alt="Pantalla 17 - Configuración General" class="screen-image">
+                            <div class="screen-number">Pantalla 17</div>
+                            <div class="screen-name">Configuración General</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/you/19.png" alt="Pantalla 18 - Temas y Apariencia" class="screen-image">
+                            <div class="screen-number">Pantalla 18</div>
+                            <div class="screen-name">Temas y Apariencia</div>
+                        </div>
+                    </div>
+                    <div class="flow-row">
+                        <div class="screen">
+                            <img src="Discord/you/20.png" alt="Pantalla 19 - Configuración de Audio" class="screen-image">
+                            <div class="screen-number">Pantalla 19</div>
+                            <div class="screen-name">Configuración de Audio</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="screen">
+                            <img src="Discord/you/21.png" alt="Pantalla 20 - Cerrar Sesión" class="screen-image">
+                            <div class="screen-number">Pantalla 20</div>
+                            <div class="screen-name">Cerrar Sesión</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo Principal -->
+            <div class="main-flow">
+                <h2 class="main-flow-title">🔄 Flujo Principal de Navegación</h2>
+                <div class="flow-diagram">
+                    <div class="flow-level">
+                        <div class="flow-item primary">Registro/Login</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-level">
+                        <div class="flow-item primary">Pantalla Principal</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-level">
+                        <div class="flow-item secondary">Notificaciones</div>
+                        <div class="flow-item secondary">Perfil</div>
+                        <div class="flow-item secondary">Configuración</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-level">
+                        <div class="flow-item secondary">Gestión de Notificaciones</div>
+                        <div class="flow-item secondary">Editar Perfil</div>
+                        <div class="flow-item secondary">Configurar Preferencias</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Características Especiales -->
+            <div class="main-flow">
+                <h2 class="main-flow-title">✨ Características Especiales de Discord</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">🏠 Servidores</div>
+                        <div class="feature-description">Sistema único de servidores para comunidades, con roles, permisos y canales organizados por categorías.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">📢 Canales de Voz</div>
+                        <div class="feature-description">Canales de voz persistentes donde los usuarios pueden unirse y salir libremente sin necesidad de llamadas.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">🎮 Integración de Juegos</div>
+                        <div class="feature-description">Integración directa con juegos, mostrando qué juega cada usuario y permitiendo unirse directamente.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">🤖 Bots</div>
+                        <div class="feature-description">Ecosistema extenso de bots para moderación, música, juegos y automatización de servidores.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">💎 Nitro</div>
+                        <div class="feature-description">Suscripción premium con animaciones personalizadas, emojis globales y mejor calidad de streaming.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">🔒 Roles y Permisos</div>
+                        <div class="feature-description">Sistema avanzado de roles con permisos granulares para moderación y organización de servidores.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">Total de Pantallas Reales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Módulos Principales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Pantallas de Registro</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Pantallas de Notificaciones</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Pantallas de Perfil</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Imágenes Reales</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

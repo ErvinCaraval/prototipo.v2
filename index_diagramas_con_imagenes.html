@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramas de Flujo con Imágenes - Análisis de Aplicaciones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .app-card.whatsapp {
+            border-color: #25D366;
+        }
+
+        .app-card.whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .app-card.messenger {
+            border-color: #0084FF;
+        }
+
+        .app-card.messenger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #0084FF 0%, #0066CC 100%);
+        }
+
+        .app-card.session {
+            border-color: #6366F1;
+        }
+
+        .app-card.session::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+        }
+
+        .app-card.discord {
+            border-color: #5865F2;
+        }
+
+        .app-card.discord::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .app-card.whatsapp .app-icon {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+
+        .app-card.messenger .app-icon {
+            background: linear-gradient(135deg, #0084FF 0%, #0066CC 100%);
+            color: white;
+        }
+
+        .app-card.session .app-icon {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+            color: white;
+        }
+
+        .app-card.discord .app-icon {
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+        }
+
+        .app-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .app-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .app-description {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .view-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .view-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .view-button.secondary {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #6c757d;
+            border: 2px solid #dee2e6;
+        }
+
+        .view-button.secondary:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            color: #495057;
+        }
+
+        .recommendation {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border-left: 6px solid #25D366;
+        }
+
+        .recommendation-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .recommendation-title::before {
+            content: '🎯';
+            margin-right: 15px;
+            font-size: 2rem;
+        }
+
+        .recommendation-content {
+            color: #6c757d;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .highlight-content {
+            color: #856404;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .comparison-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .app-name {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .whatsapp-name { color: #25D366; }
+        .discord-name { color: #5865F2; }
+        .messenger-name { color: #0084FF; }
+        .session-name { color: #6366F1; }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .table-container {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Diagramas de Flujo con Imágenes</h1>
+            <p>Análisis completo de flujos de usuario con pantallazos reales. Visualización profesional de navegación y estructura de pantallas con imágenes de las aplicaciones.</p>
+        </div>
+        
+        <div class="content">
+            <div class="highlight">
+                <div class="highlight-title">🖼️ Nuevo: Diagramas con Imágenes Reales</div>
+                <div class="highlight-content">
+                    Ahora puedes ver los diagramas de flujo con las imágenes reales de los pantallazos de cada aplicación. 
+                    Esto te permite visualizar exactamente cómo se ven las pantallas y entender mejor los flujos de navegación.
+                </div>
+            </div>
+
+            <div class="apps-grid">
+                <!-- WhatsApp -->
+                <div class="app-card whatsapp">
+                    <div class="app-icon">📱</div>
+                    <h2 class="app-title">WhatsApp</h2>
+                    <div class="app-stats">
+                        <div class="stat">
+                            <div class="stat-number">44</div>
+                            <div class="stat-label">Pantallas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Módulos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">17</div>
+                            <div class="stat-label">Llamadas</div>
+                        </div>
+                    </div>
+                    <p class="app-description">
+                        Aplicación de mensajería completa con múltiples módulos: chats, llamadas, community y updates. 
+                        Cumple todos los requisitos del proyecto con 44 pantallas analizadas e imágenes reales.
+                    </p>
+                    <div class="button-group">
+                        <a href="whatsapp_flow_diagram_with_images.html" class="view-button">Ver con Imágenes</a>
+                        <a href="whatsapp_flow_diagram_figma_style.html" class="view-button secondary">Ver Texto</a>
+                    </div>
+                </div>
+
+                <!-- Discord -->
+                <div class="app-card discord">
+                    <div class="app-icon">🎮</div>
+                    <h2 class="app-title">Discord</h2>
+                    <div class="app-stats">
+                        <div class="stat">
+                            <div class="stat-number">21</div>
+                            <div class="stat-label">Pantallas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Módulos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Servidores</div>
+                        </div>
+                    </div>
+                    <p class="app-description">
+                        Plataforma de comunicación para comunidades con servidores, canales de voz y mensajería. 
+                        Sistema único de servidores con roles y permisos avanzados. <strong>¡Con imágenes reales!</strong>
+                    </p>
+                    <div class="button-group">
+                        <a href="discord_flow_diagram_with_images.html" class="view-button">Ver con Imágenes</a>
+                    </div>
+                </div>
+
+                <!-- Messenger -->
+                <div class="app-card messenger">
+                    <div class="app-icon">💬</div>
+                    <h2 class="app-title">Messenger</h2>
+                    <div class="app-stats">
+                        <div class="stat">
+                            <div class="stat-number">21</div>
+                            <div class="stat-label">Pantallas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Módulos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Menú</div>
+                        </div>
+                    </div>
+                    <p class="app-description">
+                        Plataforma de mensajería con enfoque en historiales y notificaciones. 
+                        Sistema de menú extenso con 12 pantallas de navegación e imágenes reales.
+                    </p>
+                    <div class="button-group">
+                        <a href="messenger_flow_diagram_with_images.html" class="view-button">Ver con Imágenes</a>
+                        <a href="messenger_flow_diagram_figma_style.html" class="view-button secondary">Ver Texto</a>
+                    </div>
+                </div>
+
+                <!-- Session -->
+                <div class="app-card session">
+                    <div class="app-icon">⚙️</div>
+                    <h2 class="app-title">Session</h2>
+                    <div class="app-stats">
+                        <div class="stat">
+                            <div class="stat-number">11</div>
+                            <div class="stat-label">Pantallas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Módulos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">Menú</div>
+                        </div>
+                    </div>
+                    <p class="app-description">
+                        Aplicación minimalista con enfoque en simplicidad. 
+                        Interfaz directa con navegación por menús bien estructurada e imágenes reales.
+                    </p>
+                    <div class="button-group">
+                        <a href="session_flow_diagram_with_images.html" class="view-button">Ver con Imágenes</a>
+                        <a href="session_flow_diagram_figma_style.html" class="view-button secondary">Ver Texto</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla Comparativa -->
+            <div class="comparison-table">
+                <h2 class="comparison-title">📊 Comparación de Aplicaciones</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aplicación</th>
+                                <th>Pantallas</th>
+                                <th>Módulos</th>
+                                <th>Cumple 40+</th>
+                                <th>Características Únicas</th>
+                                <th>Recomendación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="app-name whatsapp-name">WhatsApp</td>
+                                <td>44</td>
+                                <td>5</td>
+                                <td>✅</td>
+                                <td>Community, Updates, Llamadas</td>
+                                <td>🥇 Primera</td>
+                            </tr>
+                            <tr>
+                                <td class="app-name discord-name">Discord</td>
+                                <td>20</td>
+                                <td>3</td>
+                                <td>❌</td>
+                                <td>Servidores, Canales de Voz, Bots</td>
+                                <td>🥈 Segunda</td>
+                            </tr>
+                            <tr>
+                                <td class="app-name messenger-name">Messenger</td>
+                                <td>21</td>
+                                <td>5</td>
+                                <td>❌</td>
+                                <td>Historiales, Notificaciones</td>
+                                <td>🥉 Tercera</td>
+                            </tr>
+                            <tr>
+                                <td class="app-name session-name">Session</td>
+                                <td>11</td>
+                                <td>2</td>
+                                <td>❌</td>
+                                <td>Simplicidad, Enfoque</td>
+                                <td>Cuarta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recomendación -->
+            <div class="recommendation">
+                <h2 class="recommendation-title">Recomendación Final</h2>
+                <p class="recommendation-content">
+                    <strong>WhatsApp es la opción recomendada</strong> para el proyecto de optimización. 
+                    Cumple todos los requisitos con 44 pantallas (más de las 40 requeridas) y ofrece 
+                    múltiples oportunidades de mejora en UX/UI, navegación y accesibilidad.
+                    <br><br>
+                    <strong>Discord con imágenes reales:</strong> Aunque no cumple el requisito de 40+ pantallas (20), 
+                    es la única aplicación con pantallazos reales de la aplicación, mostrando interfaces auténticas 
+                    que son perfectas para análisis visual de UX/UI real.
+                    <br><br>
+                    <strong>Nuevo:</strong> Ahora puedes ver los diagramas con imágenes reales de los pantallazos, 
+                    lo que te permite analizar visualmente cada pantalla y entender mejor los flujos de usuario.
+                </p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-title">✅ Cumple Requisitos</div>
+                        <div class="feature-description">44 pantallas > 40 requeridas</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">🎯 Múltiples Módulos</div>
+                        <div class="feature-description">5 módulos bien diferenciados</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">👥 Accesibilidad</div>
+                        <div class="feature-description">Aplicación universalmente conocida</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">🚀 Oportunidades</div>
+                        <div class="feature-description">Muchas áreas de mejora identificadas</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">🖼️ Imágenes Reales</div>
+                        <div class="feature-description">Pantallazos reales para análisis visual</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-title">📊 Análisis Completo</div>
+                        <div class="feature-description">Flujos detallados con navegación</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz Comparativa Benchmark - Apps de Mensajería</title>
+    <style>
+            body { font-family: 'Inter', Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+            .container { max-width: 1200px; margin: 40px auto; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); padding: 48px; }
+            h1 { color: #333; text-align: center; font-size: 2.7rem; margin-bottom: 10px; }
+            .subtitle { text-align: center; color: #6c63ff; font-size: 1.2rem; margin-bottom: 30px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 30px; font-size: 1.1rem; }
+            th, td { padding: 16px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+            th { background: #f3e8ff; color: #6c63ff; font-weight: 700; }
+            tr:nth-child(even) { background: #fafafa; }
+            tr:hover { background: #e0f7fa; }
+            .app-name { font-weight: 700; }
+            .criterio { text-align: left; }
+            .legend { background: #e0f7fa; color: #009688; border-radius: 8px; padding: 12px 18px; margin-bottom: 18px; font-size: 1rem; text-align: center; }
+            .score-low { background: #ffeaea; color: #d32f2f; font-weight: 700; }
+            .score-mid { background: #fff9c4; color: #fbc02d; font-weight: 700; }
+            .score-high { background: #e0f7fa; color: #388e3c; font-weight: 700; }
+            .definiciones { background: #f3e8ff; border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+            .definiciones h2 { color: #6c63ff; font-size: 1.3rem; margin-bottom: 18px; }
+            .definiciones ul { margin: 0; padding-left: 20px; }
+            .definiciones li { margin-bottom: 12px; font-size: 1.05rem; color: #333; }
+            .criterio-titulo { font-weight: 700; color: #6c63ff; }
+            @media (max-width: 900px) {
+                .container { padding: 16px; }
+                table { font-size: 0.95rem; }
+                .definiciones { padding: 12px; }
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="definiciones">
+                <h2>Definición de Criterios</h2>
+                <ul>
+                    <li><span class="criterio-titulo">UX/UI:</span> Experiencia y diseño visual para el usuario. Evalúa facilidad, estética y coherencia de la interfaz.</li>
+                    <li><span class="criterio-titulo">Seguridad:</span> Protección de datos y comunicaciones frente a amenazas y accesos no autorizados.</li>
+                    <li><span class="criterio-titulo">Privacidad:</span> Capacidad de la app para proteger la información personal y respetar la confidencialidad.</li>
+                    <li><span class="criterio-titulo">Escalabilidad:</span> Facilidad para crecer y soportar más usuarios o funciones sin perder rendimiento.</li>
+                    <li><span class="criterio-titulo">Multiplataforma:</span> Disponibilidad y funcionamiento en diferentes sistemas operativos y dispositivos.</li>
+                    <li><span class="criterio-titulo">Comunidad:</span> Tamaño, actividad y soporte de la base de usuarios y desarrolladores.</li>
+                    <li><span class="criterio-titulo">Actualizaciones:</span> Frecuencia y calidad de mejoras, correcciones y nuevas funciones.</li>
+                    <li><span class="criterio-titulo">Integración:</span> Capacidad para conectarse con otras apps, servicios y herramientas.</li>
+                    <li><span class="criterio-titulo">Facilidad de uso:</span> Qué tan intuitiva y accesible es la app para cualquier usuario.</li>
+                    <li><span class="criterio-titulo">Soporte:</span> Disponibilidad de ayuda, documentación y atención al usuario.</li>
+                </ul>
+            </div>
+        <h1>Matriz Comparativa Benchmark</h1>
+        <div class="subtitle">Comparación de 10 criterios clave entre aplicaciones de mensajería</div>
+        <div class="legend">Valores de 1 a 10. Los criterios se basan en análisis de UX/UI, seguridad, privacidad y funcionalidades según el proyecto y fuentes públicas.</div>
+            <div style="background:#fff9c4;color:#333;border-radius:8px;padding:12px 18px;margin-bottom:18px;font-size:1rem;text-align:center;">
+                <strong>¿Cómo interpretar la enumeración?</strong><br>
+                <span style="color:#d32f2f;font-weight:700;">1-6:</span> Bajo desempeño o presencia en el criterio.<br>
+                <span style="color:#fbc02d;font-weight:700;">7-8:</span> Desempeño medio, cumple pero puede mejorar.<br>
+                <span style="color:#388e3c;font-weight:700;">9-10:</span> Alto desempeño, sobresale claramente en el criterio.
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="criterio">Aplicación</th>
+                    <th>UX/UI</th>
+                    <th>Seguridad</th>
+                    <th>Privacidad</th>
+                    <th>Escalabilidad</th>
+                    <th>Multiplataforma</th>
+                    <th>Comunidad</th>
+                    <th>Actualizaciones</th>
+                    <th>Integración</th>
+                    <th>Facilidad de uso</th>
+                    <th>Soporte</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td class="app-name" style="color:#25D366;">WhatsApp</td>
+                        <td class="score-high">9</td><td class="score-high">8</td><td class="score-mid">7</td><td class="score-high">9</td><td class="score-high">10</td><td class="score-high">10</td><td class="score-high">9</td><td class="score-high">8</td><td class="score-high">10</td><td class="score-high">9</td>
+                    </tr>
+                    <tr>
+                        <td class="app-name" style="color:#5865F2;">Discord</td>
+                        <td class="score-high">8</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-high">10</td><td class="score-high">9</td><td class="score-high">10</td><td class="score-high">8</td><td class="score-high">9</td><td class="score-high">8</td><td class="score-high">8</td>
+                    </tr>
+                    <tr>
+                        <td class="app-name" style="color:#0084FF;">Messenger</td>
+                        <td class="score-high">8</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-high">9</td><td class="score-high">9</td><td class="score-high">9</td><td class="score-high">8</td><td class="score-high">8</td><td class="score-high">9</td><td class="score-high">8</td>
+                    </tr>
+                    <tr>
+                        <td class="app-name" style="color:#6366F1;">Session</td>
+                        <td class="score-mid">7</td><td class="score-high">9</td><td class="score-high">10</td><td class="score-mid">7</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-high">8</td><td class="score-mid">7</td>
+                    </tr>
+                    <tr>
+                        <td class="app-name" style="color:#a259ff;">Bitchat</td>
+                        <td class="score-low">6</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-low">6</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td>
+                    </tr>
+                    <tr>
+                        <td class="app-name" style="color:#009688;">Signal</td>
+                        <td class="score-high">8</td><td class="score-high">10</td><td class="score-high">10</td><td class="score-high">8</td><td class="score-high">8</td><td class="score-mid">7</td><td class="score-high">8</td><td class="score-mid">7</td><td class="score-high">8</td><td class="score-high">8</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

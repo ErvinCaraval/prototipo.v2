@@ -30,6 +30,16 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 - **Características:** Aplicación minimalista con enfoque en simplicidad
 - **Recomendación:** **Cuarta opción**
 
+### 5. 🟣 Bitchat (Competidor Indirecto)
+- **Archivo:** `bitchat_flow_diagram_with_images.html`
+- **Módulos:** Registro/Inicio de Sesión, Pantallas de Inicio
+- **Características:** Enfoque en navegación y registro. Competidor indirecto en el ecosistema de mensajería.
+
+### 6. 🔵 Signal (Competidor Indirecto)
+- **Archivo:** `signal_flow_diagram_with_images.html`
+- **Módulos:** Registro/Inicio de Sesión, Chats, Llamadas, Historias
+- **Características:** Privacidad y seguridad, variedad de módulos. Competidor indirecto centrado en privacidad.
+
 ## 🚀 Cómo Acceder al Proyecto
 
 ### 📁 Estructura de Archivos
@@ -39,7 +49,8 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 ├── 📄 whatsapp_flow_diagram_with_images.html
 ├── 📄 discord_flow_diagram_with_images.html
 ├── 📄 messenger_flow_diagram_with_images.html
-├── 📄 session_flow_diagram_with_images.html
+├── 📄 bitchat_flow_diagram_with_images.html
+├── 📄 signal_flow_diagram_with_images.html
 ├── 📁 wasapt/                              # Imágenes de WhatsApp
 ├── 📁 Discord/                             # Imágenes reales de Discord
 ├── 📁 messenger/                           # Imágenes de Messenger
@@ -92,6 +103,12 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 - **Oportunidades de mejora** en UX/UI
 - **Accesibilidad** para usuarios potenciales
 - **Calidad de imágenes** y visualización
+
+### 🟣 Bitchat y 🔵 Signal como Competidores Indirectos
+
+Se han añadido los diagramas de flujo de Bitchat y Signal para ampliar el análisis comparativo. Estas aplicaciones representan alternativas relevantes en el ecosistema de mensajería, permitiendo identificar diferencias y oportunidades de mejora frente a los líderes del mercado.
+
+Puedes acceder a sus diagramas desde la página principal `index_diagramas_con_imagenes.html` o abriendo directamente los archivos `bitchat_flow_diagram_with_images.html` y `signal_flow_diagram_with_images.html`.
 
 ## 🔍 Cómo Navegar por los Diagramas
 
@@ -150,6 +167,7 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 - **¿Por qué Discord tiene menos pantallas?** Solo se incluyeron las imágenes reales disponibles
 - **¿Se pueden agregar más aplicaciones?** Sí, siguiendo la misma estructura
 - **¿Las imágenes son reales?** Solo Discord tiene pantallazos reales, las demás son simuladas
+- **¿Qué son Bitchat y Signal?** Son aplicaciones de mensajería consideradas competidores indirectos, incluidas para ampliar el análisis comparativo y explorar flujos alternativos.
 
 ### 🔄 Actualizaciones
 - **Versión actual:** 1.0

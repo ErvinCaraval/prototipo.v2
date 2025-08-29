@@ -7,18 +7,22 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 ## 📋 Aplicaciones Incluidas
 
 ### 1. 📱 WhatsApp (Competidor Indirecto, 44 pantallas)
+### 1. 📱 WhatsApp (Competidor Indirecto, 44 pantallas)
 - **Archivo:** `whatsapp_flow_diagram_with_images.html`
 - **Módulos:** Registro/Inicio de Sesión, Chats, Llamadas, Community, Updates
-- **Características:** Cumple requisitos de 40+ pantallas, múltiples oportunidades de mejora. Considerada competidor indirecto por su relevancia y liderazgo en el sector.
+- **Características:** Aplicación líder y competidor indirecto principal. Cumple requisitos de 40+ pantallas, múltiples oportunidades de mejora y sirve como referencia comparativa en el sector.
 - **Recomendación:** 🥇 **Primera opción** para el proyecto
 
 ### 2. 🎮 Discord (20 pantallas)
-- **Archivo:** `discord_flow_diagram_with_images.html`
-- **Módulos:** Registro/Inicio de Sesión, Notificaciones, Perfil y Configuración
-- **Características:** **Imágenes reales** de la aplicación Discord móvil
+### 6. 🟣 Bitchat
+- **Archivo:** `bitchat_flow_diagram_with_images.html`
+- **Módulos:** Registro/Inicio de Sesión, Pantallas de Inicio
+- **Características:** Plataforma alternativa de mensajería. Útil para análisis de flujos y registro. No considerada competidor indirecto.
 - **Recomendación:** 🥈 **Segunda opción** - Única con pantallazos reales
 
-### 3. 💬 Messenger (21 pantallas)
+## 💡 Competidores Indirectos
+- **WhatsApp:** Principal competidor indirecto por su liderazgo, cantidad de pantallas y relevancia en el sector.
+- **Signal:** Alternativa centrada en privacidad y seguridad, útil para comparar flujos alternativos.
 - **Archivo:** `messenger_flow_diagram_with_images.html`
 - **Módulos:** Registro/Inicio de Sesión, Chats, Historiales, Notificaciones, Menú Principal
 - **Características:** Enfoque en historiales y notificaciones

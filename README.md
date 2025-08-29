@@ -6,10 +6,10 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 
 ## 📋 Aplicaciones Incluidas
 
-### 1. 📱 WhatsApp (44 pantallas)
+### 1. 📱 WhatsApp (Competidor Indirecto, 44 pantallas)
 - **Archivo:** `whatsapp_flow_diagram_with_images.html`
 - **Módulos:** Registro/Inicio de Sesión, Chats, Llamadas, Community, Updates
-- **Características:** Cumple requisitos de 40+ pantallas, múltiples oportunidades de mejora
+- **Características:** Cumple requisitos de 40+ pantallas, múltiples oportunidades de mejora. Considerada competidor indirecto por su relevancia y liderazgo en el sector.
 - **Recomendación:** 🥇 **Primera opción** para el proyecto
 
 ### 2. 🎮 Discord (20 pantallas)
@@ -31,11 +31,14 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 - **Recomendación:** **Cuarta opción**
 
 ### 5. 🟣 Bitchat (Competidor Indirecto)
-- **Archivo:** `bitchat_flow_diagram_with_images.html`
-- **Módulos:** Registro/Inicio de Sesión, Pantallas de Inicio
-- **Características:** Enfoque en navegación y registro. Competidor indirecto en el ecosistema de mensajería.
 
 ### 6. 🔵 Signal (Competidor Indirecto)
+### 6. 🟣 Bitchat
+- **Archivo:** `bitchat_flow_diagram_with_images.html`
+- **Módulos:** Registro/Inicio de Sesión, Pantallas de Inicio
+- **Características:** Plataforma alternativa de mensajería. Útil para análisis de flujos y registro.
+
+### 7. �🔵 Signal (Competidor Indirecto)
 - **Archivo:** `signal_flow_diagram_with_images.html`
 - **Módulos:** Registro/Inicio de Sesión, Chats, Llamadas, Historias
 - **Características:** Privacidad y seguridad, variedad de módulos. Competidor indirecto centrado en privacidad.
@@ -44,11 +47,12 @@ Este proyecto contiene diagramas de flujo completos de aplicaciones de mensajer�
 
 ### 📁 Estructura de Archivos
 ```
-📁 Proyecto/
+├── � wasapt_flow_diagram_with_images.html
+├── 📄 bitchat_flow_diagram_with_images.html
 ├── 📄 index_diagramas_con_imagenes.html    # Página principal de navegación
-├── 📄 whatsapp_flow_diagram_with_images.html
+Ahora puedes analizar los diagramas de Wasapt y Signal como competidores indirectos, útiles para comparar flujos y estrategias de UX/UI alternativas. Bitchat queda como alternativa para análisis adicional.
 ├── 📄 discord_flow_diagram_with_images.html
-├── 📄 messenger_flow_diagram_with_images.html
+**¿Qué son Wasapt y Signal?** Son aplicaciones de mensajería consideradas competidores indirectos, incluidas para ampliar el análisis comparativo y explorar flujos alternativos. Bitchat queda como alternativa para análisis adicional.
 ├── 📄 bitchat_flow_diagram_with_images.html
 ├── 📄 signal_flow_diagram_with_images.html
 ├── 📁 wasapt/                              # Imágenes de WhatsApp

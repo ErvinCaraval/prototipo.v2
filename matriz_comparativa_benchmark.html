@@ -16,9 +16,16 @@
             .app-name { font-weight: 700; }
             .criterio { text-align: left; }
             .legend { background: #e0f7fa; color: #009688; border-radius: 8px; padding: 12px 18px; margin-bottom: 18px; font-size: 1rem; text-align: center; }
-            .score-low { background: #ffeaea; color: #d32f2f; font-weight: 700; }
-            .score-mid { background: #fff9c4; color: #fbc02d; font-weight: 700; }
-            .score-high { background: #e0f7fa; color: #388e3c; font-weight: 700; }
+            .score-1 { background: #ffeaea; color: #b71c1c; font-weight: 700; }
+            .score-2 { background: #ffd6d6; color: #c62828; font-weight: 700; }
+            .score-3 { background: #ffe0b2; color: #ef6c00; font-weight: 700; }
+            .score-4 { background: #fff3e0; color: #f57c00; font-weight: 700; }
+            .score-5 { background: #fffde7; color: #fbc02d; font-weight: 700; }
+            .score-6 { background: #f0f4c3; color: #afb42b; font-weight: 700; }
+            .score-7 { background: #e1f5fe; color: #0288d1; font-weight: 700; }
+            .score-8 { background: #b2ebf2; color: #00838f; font-weight: 700; }
+            .score-9 { background: #c8e6c9; color: #388e3c; font-weight: 700; }
+            .score-10 { background: #e1bee7; color: #6a1b9a; font-weight: 700; }
             .definiciones { background: #f3e8ff; border-radius: 12px; padding: 24px; margin-bottom: 32px; }
             .definiciones h2 { color: #6c63ff; font-size: 1.3rem; margin-bottom: 18px; }
             .definiciones ul { margin: 0; padding-left: 20px; }
@@ -34,28 +41,148 @@
 <body>
     <div class="container">
             <div class="definiciones">
-                    <h2>Definición de Criterios</h2>
-                    <ul>
-                        <li><span class="criterio-titulo">Accesibilidad:</span> El diseño y los textos deben ser claros, sencillos, adaptables a todo tipo de usuarios y compatibles con tecnologías de asistencia.</li>
-                        <li><span class="criterio-titulo">Inclusividad:</span> El lenguaje debe ser respetuoso, inclusivo, libre de sesgos y culturalmente neutro, evitando estereotipos o exclusiones.</li>
-                        <li><span class="criterio-titulo">Microcopias efectivas:</span> Los mensajes breves (como errores o instrucciones) deben ser claros, empáticos y guiar al usuario en caso de equivocaciones.</li>
-                        <li><span class="criterio-titulo">CTAs efectivos:</span> Los llamados a la acción deben ser visibles, específicos, relevantes y motivar al usuario sin ambigüedades.</li>
-                        <li><span class="criterio-titulo">Buenas prácticas en UX Writing:</span> El texto debe estar centrado en el usuario, ser coherente con el diseño visual y mantener un tono adecuado a la marca.</li>
-                        <li><span class="criterio-titulo">Concisión:</span> El contenido debe ser breve, directo y eliminar redundancias, evitando frases innecesarias o demasiado largas.</li>
-                        <li><span class="criterio-titulo">Consistencia:</span> El estilo, tono y terminología deben mantenerse uniformes en todo el producto, creando coherencia en la experiencia.</li>
-                        <li><span class="criterio-titulo">Claridad:</span> Los textos deben ser comprensibles a primera lectura, sin ambigüedades, permitiendo una rápida interpretación.</li>
-                        <li><span class="criterio-titulo">Empatía:</span> El contenido debe mostrar comprensión hacia el usuario, usar un tono cercano y ofrecer ayuda sin culparlo por errores.</li>
-                        <li><span class="criterio-titulo">Retroalimentación (Feedback):</span> El sistema debe responder a las acciones del usuario con mensajes claros, rápidos y útiles (confirmaciones, estados de carga, validaciones), evitando dejar al usuario en incertidumbre.</li>
-                    </ul>
-            </div>
-        <h1>Matriz Comparativa Benchmark</h1>
-        <div class="subtitle">Comparación de 10 criterios clave entre aplicaciones de mensajería</div>
-        <div class="legend">Valores de 1 a 10. Los criterios se basan en análisis de UX/UI, seguridad, privacidad y funcionalidades según el proyecto y fuentes públicas.</div>
-            <div style="background:#fff9c4;color:#333;border-radius:8px;padding:12px 18px;margin-bottom:18px;font-size:1rem;text-align:center;">
-                <strong>¿Cómo interpretar la enumeración?</strong><br>
-                <span style="color:#d32f2f;font-weight:700;">1-6:</span> Bajo desempeño o presencia en el criterio.<br>
-                <span style="color:#fbc02d;font-weight:700;">7-8:</span> Desempeño medio, cumple pero puede mejorar.<br>
-                <span style="color:#388e3c;font-weight:700;">9-10:</span> Alto desempeño, sobresale claramente en el criterio.
+                <h2>Definición de Criterios y Significado de Calificaciones UX</h2>
+                <table style="width:100%;border-collapse:collapse;font-size:1rem;">
+                    <thead>
+                        <tr>
+                            <th style="background:#f3e8ff;color:#6c63ff;">Criterio</th>
+                            <th style="background:#f3e8ff;color:#6c63ff;">Definición</th>
+                            <th style="background:#f3e8ff;color:#6c63ff;">¿Qué significa cada calificación UX?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="criterio-titulo">Accesibilidad</span></td>
+                            <td>Evalúa si la app es usable por personas con diferentes capacidades físicas, visuales o cognitivas. Considera contraste de colores, tamaño de fuente, soporte para lectores de pantalla, navegación por teclado, textos alternativos en imágenes y facilidad de interacción táctil. Una app accesible permite que cualquier usuario, sin importar sus limitaciones, pueda enviar, leer y gestionar mensajes sin barreras.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Barreras graves: textos ilegibles, sin soporte a accesibilidad, navegación imposible para usuarios con discapacidad.</li>
+                                    <li><b>3-4:</b> Accesibilidad mínima: algunos elementos adaptados, pero la mayoría no lo están.</li>
+                                    <li><b>5-6:</b> Cumple lo esencial: navegación y lectura posibles, pero con dificultades para ciertos usuarios.</li>
+                                    <li><b>7-8:</b> Buena accesibilidad: la mayoría de funciones y pantallas son usables por todos.</li>
+                                    <li><b>9-10:</b> Accesibilidad ejemplar: experiencia fluida, sin barreras, soporte completo a tecnologías de asistencia.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Inclusividad</span></td>
+                            <td>Analiza si la app utiliza un lenguaje y diseño que no excluye a ningún grupo social, cultural, de género o edad. Considera el uso de iconografía neutra, mensajes sin estereotipos, opciones de personalización y respeto a la diversidad. Una app inclusiva hace que cualquier usuario se sienta bienvenido y representado en la experiencia de mensajería.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Lenguaje o imágenes excluyentes, presencia de estereotipos o discriminación.</li>
+                                    <li><b>3-4:</b> Diversidad poco considerada, algunos textos o flujos problemáticos.</li>
+                                    <li><b>5-6:</b> Inclusividad aceptable, pero con áreas de mejora.</li>
+                                    <li><b>7-8:</b> Lenguaje y diseño inclusivo en la mayoría de la app.</li>
+                                    <li><b>9-10:</b> Inclusividad total, experiencia neutra y respetuosa en todos los aspectos.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Microcopias efectivas</span></td>
+                            <td>Evalúa la calidad de los mensajes breves que aparecen en la app: textos de error, instrucciones, confirmaciones y ayudas contextuales. Una microcopia efectiva es clara, empática, anticipa dudas y ayuda al usuario a completar tareas o corregir errores sin frustración.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Microcopias ausentes, confusas o que generan más dudas.</li>
+                                    <li><b>3-4:</b> Mensajes poco claros, ambiguos o poco útiles.</li>
+                                    <li><b>5-6:</b> Microcopias funcionales pero poco empáticas o genéricas.</li>
+                                    <li><b>7-8:</b> Mensajes claros, útiles y empáticos en la mayoría de los casos.</li>
+                                    <li><b>9-10:</b> Microcopias sobresalientes, anticipan necesidades y guían con empatía y precisión.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">CTAs efectivos</span></td>
+                            <td>Analiza la visibilidad, claridad y relevancia de los llamados a la acción (botones, enlaces, gestos). Un CTA efectivo guía al usuario hacia la siguiente acción, es fácil de identificar, tiene un texto claro y motiva a interactuar sin ambigüedad ni confusión.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> CTAs invisibles, confusos o irrelevantes, el usuario no sabe cómo avanzar.</li>
+                                    <li><b>3-4:</b> CTAs poco claros, genéricos o mal ubicados.</li>
+                                    <li><b>5-6:</b> CTAs funcionales pero poco atractivos o motivadores.</li>
+                                    <li><b>7-8:</b> CTAs claros, visibles y motivadores en la mayoría de los flujos.</li>
+                                    <li><b>9-10:</b> CTAs sobresalientes, guían y motivan de forma natural, intuitiva y efectiva.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">UX Writing</span></td>
+                            <td>Evalúa la calidad y coherencia de los textos en la app: tono, estilo, alineación con la marca y claridad. Un buen UX Writing se centra en el usuario, es consistente en toda la app y facilita la comprensión de funciones y mensajes, mejorando la experiencia de mensajería.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Textos incoherentes, tono inadecuado, desconectados del diseño y la marca.</li>
+                                    <li><b>3-4:</b> Falta de coherencia, tono poco definido o variable.</li>
+                                    <li><b>5-6:</b> UX Writing aceptable pero mejorable, algunos textos poco claros.</li>
+                                    <li><b>7-8:</b> Textos coherentes, alineados con la marca y fáciles de entender.</li>
+                                    <li><b>9-10:</b> UX Writing ejemplar, tono perfecto, coherencia total y experiencia textual memorable.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Concisión</span></td>
+                            <td>Analiza si los textos y mensajes de la app son breves, directos y sin redundancias. Una app concisa facilita la lectura y la acción, evitando sobrecargar al usuario con información innecesaria o repetitiva, lo que es clave en la mensajería móvil.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Textos extensos, redundantes o innecesarios, dificultan la acción.</li>
+                                    <li><b>3-4:</b> Falta de concisión, frases largas o repetitivas.</li>
+                                    <li><b>5-6:</b> Concisión aceptable, pero con margen de mejora.</li>
+                                    <li><b>7-8:</b> Textos breves y directos en la mayoría de los casos.</li>
+                                    <li><b>9-10:</b> Concisión ejemplar, cada palabra aporta valor y facilita la experiencia.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Consistencia</span></td>
+                            <td>Evalúa si el estilo visual, el tono de los textos y la terminología se mantienen uniformes en toda la app. La consistencia genera confianza y facilita el aprendizaje, ya que el usuario reconoce patrones y sabe qué esperar en cada pantalla o función.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Inconsistencias graves en estilo, tono o términos, generan confusión.</li>
+                                    <li><b>3-4:</b> Variaciones notables en tono, estilo o términos.</li>
+                                    <li><b>5-6:</b> Consistencia aceptable, pero con detalles a mejorar.</li>
+                                    <li><b>7-8:</b> Consistencia en la mayoría de los textos y pantallas.</li>
+                                    <li><b>9-10:</b> Consistencia total, experiencia uniforme y coherente en toda la app.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Claridad</span></td>
+                            <td>Analiza si los textos, instrucciones y mensajes de la app son comprensibles a la primera lectura, sin ambigüedades ni tecnicismos innecesarios. La claridad es clave para que el usuario sepa siempre qué hacer y cómo usar cada función de mensajería.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Textos ambiguos, confusos o difíciles de entender.</li>
+                                    <li><b>3-4:</b> Claridad insuficiente, requiere releer o adivinar.</li>
+                                    <li><b>5-6:</b> Claridad aceptable, pero mejorable.</li>
+                                    <li><b>7-8:</b> Textos claros y comprensibles en la mayoría de los casos.</li>
+                                    <li><b>9-10:</b> Claridad total, comprensión inmediata y sin dudas en toda la app.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Empatía</span></td>
+                            <td>Evalúa si la app demuestra comprensión hacia el usuario, especialmente en situaciones de error o duda. Un tono empático, mensajes de apoyo y ayuda contextual hacen que el usuario se sienta acompañado y no culpable por equivocaciones, mejorando la confianza y satisfacción.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Falta de empatía, tono frío, distante o culpabilizador.</li>
+                                    <li><b>3-4:</b> Empatía ocasional, pero no constante ni en todos los flujos.</li>
+                                    <li><b>5-6:</b> Empatía aceptable, pero mejorable.</li>
+                                    <li><b>7-8:</b> Tono empático y cercano en la mayoría de los textos y situaciones.</li>
+                                    <li><b>9-10:</b> Empatía ejemplar, el usuario siempre se siente comprendido y apoyado.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="criterio-titulo">Feedback</span></td>
+                            <td>Analiza la calidad y rapidez de la retroalimentación que la app da al usuario: confirmaciones, estados de carga, validaciones y mensajes de error. Un buen feedback evita la incertidumbre, informa sobre el estado de las acciones y ayuda a corregir errores de forma clara y oportuna.</td>
+                            <td>
+                                <ul style="margin:0;padding-left:18px;text-align:left;">
+                                    <li><b>1-2:</b> Sin feedback o feedback confuso, el usuario no sabe qué ocurre.</li>
+                                    <li><b>3-4:</b> Feedback tardío, poco útil o incompleto.</li>
+                                    <li><b>5-6:</b> Feedback funcional pero mejorable, a veces insuficiente.</li>
+                                    <li><b>7-8:</b> Feedback claro, útil y oportuno en la mayoría de los casos.</li>
+                                    <li><b>9-10:</b> Feedback inmediato, claro y siempre útil, el usuario nunca queda en duda.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         <table>
             <thead>
@@ -71,32 +198,33 @@
                         <th>Claridad</th>
                         <th>Empatía</th>
                         <th>Feedback</th>
+                        <th>Calificación final</th>
                     </tr>
             </thead>
             <tbody>
                     <tr>
                         <td class="app-name" style="color:#25D366;">WhatsApp</td>
-                        <td class="score-high">9</td><td class="score-high">8</td><td class="score-mid">7</td><td class="score-high">9</td><td class="score-high">10</td><td class="score-high">10</td><td class="score-high">9</td><td class="score-high">8</td><td class="score-high">10</td><td class="score-high">9</td>
+                        <td class="score-9">9</td><td class="score-8">8</td><td class="score-7">7</td><td class="score-9">9</td><td class="score-10">10</td><td class="score-10">10</td><td class="score-9">9</td><td class="score-8">8</td><td class="score-10">10</td><td class="score-9">9</td><td class="score-89">89</td>
                     </tr>
                     <tr>
                         <td class="app-name" style="color:#5865F2;">Discord</td>
-                        <td class="score-high">8</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-high">10</td><td class="score-high">9</td><td class="score-high">10</td><td class="score-high">8</td><td class="score-high">9</td><td class="score-high">8</td><td class="score-high">8</td>
+                        <td class="score-8">8</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-10">10</td><td class="score-9">9</td><td class="score-10">10</td><td class="score-8">8</td><td class="score-9">9</td><td class="score-8">8</td><td class="score-8">8</td><td class="score-83">83</td>
                     </tr>
                     <tr>
                         <td class="app-name" style="color:#0084FF;">Messenger</td>
-                        <td class="score-high">8</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-high">9</td><td class="score-high">9</td><td class="score-high">9</td><td class="score-high">8</td><td class="score-high">8</td><td class="score-high">9</td><td class="score-high">8</td>
+                        <td class="score-8">8</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-9">9</td><td class="score-9">9</td><td class="score-9">9</td><td class="score-8">8</td><td class="score-8">8</td><td class="score-9">9</td><td class="score-8">8</td><td class="score-81">81</td>
                     </tr>
                     <tr>
                         <td class="app-name" style="color:#6366F1;">Session</td>
-                        <td class="score-mid">7</td><td class="score-high">9</td><td class="score-high">10</td><td class="score-mid">7</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-high">8</td><td class="score-mid">7</td>
+                        <td class="score-7">7</td><td class="score-9">9</td><td class="score-10">10</td><td class="score-7">7</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-8">8</td><td class="score-7">7</td><td class="score-74">74</td>
                     </tr>
                     <tr>
                         <td class="app-name" style="color:#a259ff;">Bitchat</td>
-                        <td class="score-low">6</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td><td class="score-low">6</td><td class="score-low">6</td><td class="score-mid">7</td><td class="score-low">6</td>
+                        <td class="score-6">6</td><td class="score-6">6</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-6">6</td><td class="score-6">6</td><td class="score-7">7</td><td class="score-6">6</td><td class="score-62">62</td>
                     </tr>
                     <tr>
                         <td class="app-name" style="color:#009688;">Signal</td>
-                        <td class="score-high">8</td><td class="score-high">10</td><td class="score-high">10</td><td class="score-high">8</td><td class="score-high">8</td><td class="score-mid">7</td><td class="score-high">8</td><td class="score-mid">7</td><td class="score-high">8</td><td class="score-high">8</td>
+                        <td class="score-8">8</td><td class="score-10">10</td><td class="score-10">10</td><td class="score-8">8</td><td class="score-8">8</td><td class="score-7">7</td><td class="score-8">8</td><td class="score-7">7</td><td class="score-8">8</td><td class="score-8">8</td><td class="score-82">82</td>
                     </tr>
             </tbody>
         </table>

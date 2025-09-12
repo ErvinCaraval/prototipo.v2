@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Informe Universitario - Benchmark de Aplicaciones de Mensajería</title>
+    <style>
+        body {
+            font-family: 'Latin Modern Roman', 'Times New Roman', Times, serif;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        .container {
+            max-width: 900px;
+            margin: 60px auto 40px auto;
+            background: #fff;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 60px 70px 40px 70px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .authors {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: bold;
+            margin-top: 38px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 28px;
+            margin-bottom: 8px;
+        }
+        h4 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 18px;
+            margin-bottom: 6px;
+        }
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #222;
+        }
+        ul {
+            margin-bottom: 18px;
+            margin-left: 18px;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        .resultados, .justificacion {
+            background: #f7f7f7;
+            border-left: 3px solid #6c63ff;
+            padding: 18px 24px;
+            margin-bottom: 28px;
+            font-size: 1.02rem;
+        }
+        .diagram-img {
+            max-width: 80%;
+            margin: 18px auto 18px auto;
+            display: block;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .tabla-benchmark {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.98rem;
+        }
+        .tabla-benchmark th, .tabla-benchmark td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        .tabla-benchmark th {
+            background: #f2f2f2;
+            color: #222;
+            font-weight: bold;
+        }
+        .tabla-benchmark .app-name {
+            font-weight: bold;
+        }
+        .caption {
+            text-align: center;
+            font-size: 0.98rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        @media (max-width: 900px) {
+            .container { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Benchmark y Análisis Comparativo de Aplicaciones de Mensajería</h1>
+        <div class="authors">
+            Ervin Caravali Ibarra (Código: 201925648)<br>
+            Juan Esteban Guerrero Camacho (Código: 202040798)
+        </div>
+        <h2>Resumen</h2>
+        <p>Este artículo presenta un análisis comparativo de seis aplicaciones de mensajería instantánea, evaluando criterios de experiencia de usuario (UX), accesibilidad, inclusividad y otros aspectos relevantes. El estudio se fundamenta en una matriz comparativa y en la revisión de literatura y documentación técnica, con el objetivo de justificar la selección de Bitchat como plataforma a mejorar en el contexto del proyecto.</p>
+        <h2>Resumen de Criterios de Evaluación y Calificación</h2>
+        <p>Las aplicaciones fueron evaluadas según los siguientes criterios, cada uno calificado en una escala de 1 a 10, donde 1 representa desempeño deficiente y 10 desempeño ejemplar:</p>
+        <ul>
+            <li><b>Accesibilidad:</b> Facilidad de uso para personas con diferentes capacidades, considerando contraste, tamaño de fuente, soporte para tecnologías de asistencia, etc.</li>
+            <li><b>Inclusividad:</b> Uso de lenguaje y diseño que no excluye a ningún grupo social, cultural, de género o edad.</li>
+            <li><b>Microcopias:</b> Calidad de los mensajes breves (errores, instrucciones, ayudas contextuales).</li>
+            <li><b>CTAs:</b> Claridad y relevancia de los llamados a la acción (botones, enlaces).</li>
+            <li><b>UX Writing:</b> Coherencia, tono y claridad de los textos en la app.</li>
+            <li><b>Concisión:</b> Brevedad y precisión de los textos y mensajes.</li>
+            <li><b>Consistencia:</b> Uniformidad en estilo visual, tono y terminología.</li>
+            <li><b>Claridad:</b> Comprensibilidad de textos e instrucciones.</li>
+            <li><b>Empatía:</b> Tono comprensivo y apoyo al usuario en situaciones de error o duda.</li>
+            <li><b>Feedback:</b> Calidad y rapidez de la retroalimentación (confirmaciones, estados, errores).</li>
+        </ul>
+        <p>La calificación final de cada aplicación es la suma de los puntajes obtenidos en los diez criterios, permitiendo una comparación objetiva y visual entre las distintas plataformas.</p>
+        <h2>1. Introducción</h2>
+        <p>La mensajería instantánea constituye un pilar fundamental en la comunicación digital contemporánea. El presente trabajo busca analizar, desde una perspectiva académica y técnica, las principales aplicaciones del sector, identificando fortalezas y debilidades en sus interfaces y experiencia de usuario. El análisis se orienta a fundamentar la elección de Bitchat como caso de estudio para la mejora de interfaces y flujos de interacción.</p>
+        <h2>2. Metodología</h2>
+        <p>La metodología empleada combina la evaluación de criterios de UX mediante una matriz comparativa y la investigación documental sobre las aplicaciones seleccionadas. Se analizaron WhatsApp, Discord, Messenger, Signal, Session y Bitchat bajo diez criterios: accesibilidad, inclusividad, microcopias, CTAs, UX writing, concisión, consistencia, claridad, empatía y feedback. Cada criterio fue calificado en una escala de 1 a 10, complementando la valoración con observaciones cualitativas.</p>
+        <h2>3. Descripción de los Competidores</h2>
+        <h3>WhatsApp (Competidor Directo)</h3>
+        <ul>
+            <li><b>Descripción:</b> WhatsApp, propiedad de Meta, es la aplicación de mensajería más utilizada globalmente, con más de 2 mil millones de usuarios. Ofrece mensajería, llamadas, grupos y canales, destacando por su interfaz intuitiva y eficiente.</li>
+            <li><b>Motivo de selección:</b> Referente funcional y de UX, representa el estándar a superar en el sector.</li>
+        </ul>
+        <h3>Discord (Competidor Directo)</h3>
+        <ul>
+            <li><b>Descripción:</b> Discord es una plataforma orientada a comunidades, con servidores, canales de voz y texto, integración de bots y personalización avanzada. Su diseño moderno facilita la gestión de grandes grupos.</li>
+            <li><b>Motivo de selección:</b> Su enfoque en interacción grupal y gestión avanzada aporta perspectivas valiosas para el análisis de flujos y UX.</li>
+        </ul>
+        <h3>Messenger (Competidor Directo)</h3>
+        <ul>
+            <li><b>Descripción:</b> Messenger, también de Meta, está integrado con Facebook y permite mensajería, videollamadas, envío de archivos y grupos. Destaca por su sistema de notificaciones y funciones multimedia.</li>
+            <li><b>Motivo de selección:</b> Relevancia en el ecosistema digital y enfoque en historiales y notificaciones.</li>
+        </ul>
+        <h3>Signal (Competidor Indirecto)</h3>
+        <ul>
+            <li><b>Descripción:</b> Signal es reconocida por su enfoque en privacidad y seguridad, con cifrado de extremo a extremo y código abierto. Su interfaz es minimalista y funcional.</li>
+            <li><b>Motivo de selección:</b> Propuesta centrada en privacidad, permite analizar alternativas de seguridad en la mensajería.</li>
+        </ul>
+        <h3>Session (Competidor Indirecto)</h3>
+        <ul>
+            <li><b>Descripción:</b> Session es una app descentralizada que prioriza el anonimato y la simplicidad. No requiere número de teléfono y utiliza una red distribuida para proteger la identidad del usuario.</li>
+            <li><b>Motivo de selección:</b> Arquitectura descentralizada y propuesta minimalista, ofrece enfoques alternativos para la experiencia de usuario.</li>
+        </ul>
+        <h3>Bitchat (App Proyecto)</h3>
+        <ul>
+            <li><b>Descripción:</b> Bitchat es una plataforma alternativa de mensajería, con énfasis en navegación y registro de usuarios. Presenta oportunidades de mejora en experiencia de usuario y robustez funcional.</li>
+            <li><b>Motivo de selección:</b> Potencial de crecimiento y base ideal para implementar innovaciones en UX y diseño de interfaces.</li>
+        </ul>
+        <h2>4. Justificación de la Selección de Bitchat</h2>
+        <div class="justificacion">
+            <p>Bitchat fue seleccionada como plataforma a mejorar por su estructura flexible y enfoque en navegación y registro. A diferencia de las aplicaciones líderes, presenta inconsistencias en la experiencia de usuario y la interfaz, lo que la convierte en un caso idóneo para aplicar mejoras significativas en accesibilidad, inclusividad y claridad. El rediseño propuesto busca demostrar el impacto de la optimización profesional en la satisfacción y retención de usuarios, así como en la competitividad frente a aplicaciones consolidadas.</p>
+            <p>La elección de Bitchat responde también a la necesidad de explorar soluciones innovadoras en mensajería, partiendo de una base que aún no ha alcanzado su máximo potencial. El objetivo es elevar los estándares de calidad, incorporando buenas prácticas de UX y accesibilidad, y posicionar a Bitchat como alternativa viable en el mercado.</p>
+        </div>
+        <h2>5. Resultados e Interpretación de la Matriz Comparativa</h2>
+        <div class="resultados">
+            <div class="caption">Tabla 1. Calificaciones por criterio y aplicación</div>
+            <table class="tabla-benchmark">
+                <thead>
+                    <tr>
+                        <th>Aplicación</th>
+                        <th>Accesibilidad</th>
+                        <th>Inclusividad</th>
+                        <th>Microcopias</th>
+                        <th>CTAs</th>
+                        <th>UX Writing</th>
+                        <th>Concisión</th>
+                        <th>Consistencia</th>
+                        <th>Claridad</th>
+                        <th>Empatía</th>
+                        <th>Feedback</th>
+                        <th>Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="app-name" style="color:#25D366;">WhatsApp</td><td>9</td><td>8</td><td>7</td><td>9</td><td>10</td><td>10</td><td>9</td><td>8</td><td>10</td><td>9</td><td>89</td></tr>
+                    <tr><td class="app-name" style="color:#5865F2;">Discord</td><td>8</td><td>7</td><td>6</td><td>10</td><td>9</td><td>10</td><td>8</td><td>9</td><td>8</td><td>8</td><td>83</td></tr>
+                    <tr><td class="app-name" style="color:#0084FF;">Messenger</td><td>8</td><td>7</td><td>6</td><td>9</td><td>9</td><td>9</td><td>8</td><td>8</td><td>9</td><td>8</td><td>81</td></tr>
+                    <tr><td class="app-name" style="color:#6366F1;">Session</td><td>7</td><td>9</td><td>10</td><td>7</td><td>7</td><td>6</td><td>7</td><td>6</td><td>8</td><td>7</td><td>74</td></tr>
+                    <tr><td class="app-name" style="color:#a259ff;">Bitchat</td><td>6</td><td>6</td><td>7</td><td>6</td><td>7</td><td>6</td><td>6</td><td>6</td><td>7</td><td>6</td><td>62</td></tr>
+                    <tr><td class="app-name" style="color:#009688;">Signal</td><td>8</td><td>10</td><td>10</td><td>8</td><td>8</td><td>7</td><td>8</td><td>7</td><td>8</td><td>8</td><td>82</td></tr>
+                </tbody>
+            </table>
+            <h4>Análisis de Resultados</h4>
+            <p>La matriz comparativa evidencia que WhatsApp lidera en la mayoría de los criterios, especialmente en accesibilidad, claridad y empatía. Discord y Messenger muestran fortalezas en CTAs, consistencia y notificaciones, aunque presentan áreas de mejora en microcopias y UX writing. Signal y Session sobresalen en privacidad y simplicidad, respectivamente, pero requieren mejoras en accesibilidad y claridad. Bitchat, con la calificación más baja, revela debilidades en todos los criterios clave, especialmente en accesibilidad, inclusividad y consistencia, lo que justifica la necesidad de un rediseño profundo.</p>
+            <ul>
+                <li><b>WhatsApp:</b> Referente en experiencia de usuario, accesibilidad y empatía.</li>
+                <li><b>Discord:</b> Destaca en CTAs y gestión de comunidades, pero puede mejorar en microcopias.</li>
+                <li><b>Messenger:</b> Fuerte en notificaciones y UX writing, integración social.</li>
+                <li><b>Signal:</b> Líder en privacidad, pero menos inclusivo y accesible.</li>
+                <li><b>Session:</b> Minimalismo y simplicidad, pero menor claridad y consistencia.</li>
+                <li><b>Bitchat:</b> Requiere mejoras en todos los criterios para ser competitiva.</li>
+            </ul>
+        </div>
+        <h2>6. Diagramas de Interpretación y Análisis</h2>
+        <div class="caption">Figura 1. Distribución de calificaciones por criterio</div>
+        <div class="diagram-img" style="background:#fff;padding:20px;border:1px solid #e0e0e0;overflow-x:auto;">
+        <!-- SVG: Diagrama de líneas mejorado -->
+        <svg width="1100" height="340" viewBox="0 0 1100 340">
+            <rect x="0" y="0" width="1100" height="340" fill="#fff" stroke="#e0e0e0"/>
+            <text x="550" y="30" text-anchor="middle" font-size="20" font-family="serif">Distribución de calificaciones por criterio</text>
+            <!-- Ejes -->
+            <line x1="80" y1="60" x2="80" y2="280" stroke="#222" stroke-width="2"/>
+            <line x1="80" y1="280" x2="1020" y2="280" stroke="#222" stroke-width="2"/>
+            <!-- Etiquetas X -->
+            <text x="140" y="310" font-size="14" transform="rotate(-25 140,310)">Accesibilidad</text>
+            <text x="220" y="310" font-size="14" transform="rotate(-25 220,310)">Inclusividad</text>
+            <text x="300" y="310" font-size="14" transform="rotate(-25 300,310)">Microcopias</text>
+            <text x="380" y="310" font-size="14" transform="rotate(-25 380,310)">CTAs</text>
+            <text x="460" y="310" font-size="14" transform="rotate(-25 460,310)">UX Writing</text>
+            <text x="540" y="310" font-size="14" transform="rotate(-25 540,310)">Concisión</text>
+            <text x="620" y="310" font-size="14" transform="rotate(-25 620,310)">Consistencia</text>
+            <text x="700" y="310" font-size="14" transform="rotate(-25 700,310)">Claridad</text>
+            <text x="780" y="310" font-size="14" transform="rotate(-25 780,310)">Empatía</text>
+            <text x="860" y="310" font-size="14" transform="rotate(-25 860,310)">Feedback</text>
+            <!-- Etiquetas Y -->
+            <text x="60" y="285" font-size="13">0</text>
+            <text x="60" y="245" font-size="13">2</text>
+            <text x="60" y="205" font-size="13">4</text>
+            <text x="60" y="165" font-size="13">6</text>
+            <text x="60" y="125" font-size="13">8</text>
+            <text x="60" y="85" font-size="13">10</text>
+            <!-- WhatsApp -->
+            <polyline points="140,125 220,145 300,165 380,125 460,85 540,85 620,125 700,145 780,85 860,125" fill="none" stroke="#25D366" stroke-width="3"/>
+            <circle cx="140" cy="125" r="4" fill="#25D366"/>
+            <circle cx="220" cy="145" r="4" fill="#25D366"/>
+            <circle cx="300" cy="165" r="4" fill="#25D366"/>
+            <circle cx="380" cy="125" r="4" fill="#25D366"/>
+            <circle cx="460" cy="85" r="4" fill="#25D366"/>
+            <circle cx="540" cy="85" r="4" fill="#25D366"/>
+            <circle cx="620" cy="125" r="4" fill="#25D366"/>
+            <circle cx="700" cy="145" r="4" fill="#25D366"/>
+            <circle cx="780" cy="85" r="4" fill="#25D366"/>
+            <circle cx="860" cy="125" r="4" fill="#25D366"/>
+            <!-- Discord -->
+            <polyline points="140,145 220,165 300,205 380,85 460,125 540,85 620,165 700,125 780,145 860,165" fill="none" stroke="#5865F2" stroke-width="2"/>
+            <!-- Messenger -->
+            <polyline points="140,145 220,165 300,205 380,125 460,125 540,125 620,165 700,165 780,125 860,165" fill="none" stroke="#0084FF" stroke-width="2"/>
+            <!-- Signal -->
+            <polyline points="140,145 220,85 300,85 380,145 460,125 540,165 620,125 700,205 780,145 860,145" fill="none" stroke="#009688" stroke-width="2"/>
+            <!-- Session -->
+            <polyline points="140,165 220,125 300,85 380,165 460,165 540,205 620,165 700,205 780,125 860,205" fill="none" stroke="#6366F1" stroke-width="2"/>
+            <!-- Bitchat -->
+            <polyline points="140,205 220,205 300,165 380,205 460,165 540,205 620,205 700,205 780,165 860,205" fill="none" stroke="#a259ff" stroke-width="2"/>
+            <!-- Leyenda -->
+            <rect x="950" y="60" width="120" height="140" fill="#fff" stroke="#e0e0e0"/>
+            <text x="960" y="80" font-size="13" fill="#25D366">● WhatsApp</text>
+            <text x="960" y="100" font-size="13" fill="#5865F2">― Discord</text>
+            <text x="960" y="120" font-size="13" fill="#0084FF">― Messenger</text>
+            <text x="960" y="140" font-size="13" fill="#009688">― Signal</text>
+            <text x="960" y="160" font-size="13" fill="#6366F1">― Session</text>
+            <text x="960" y="180" font-size="13" fill="#a259ff">― Bitchat</text>
+        </svg>
+        </div>
+        <div class="caption">Figura 2. Calificación final comparativa</div>
+        <div class="diagram-img" style="background:#fff;padding:20px;border:1px solid #e0e0e0;overflow-x:auto;">
+        <!-- SVG: Diagrama de barras mejorado -->
+        <svg width="900" height="340" viewBox="0 0 900 340">
+            <rect x="0" y="0" width="900" height="340" fill="#fff" stroke="#e0e0e0"/>
+            <text x="450" y="30" text-anchor="middle" font-size="20" font-family="serif">Calificación final comparativa</text>
+            <!-- Eje Y -->
+            <line x1="80" y1="60" x2="80" y2="280" stroke="#222" stroke-width="2"/>
+            <text x="60" y="285" font-size="13">0</text>
+            <text x="60" y="245" font-size="13">20</text>
+            <text x="60" y="205" font-size="13">40</text>
+            <text x="60" y="165" font-size="13">60</text>
+            <text x="60" y="125" font-size="13">80</text>
+            <text x="60" y="85" font-size="13">100</text>
+            <!-- Barras -->
+            <rect x="140" y="100" width="80" height="180" fill="#25D366"/>
+            <text x="180" y="95" text-anchor="middle" font-size="14" fill="#25D366">WhatsApp (89)</text>
+            <rect x="260" y="120" width="80" height="160" fill="#5865F2"/>
+            <text x="300" y="115" text-anchor="middle" font-size="14" fill="#5865F2">Discord (83)</text>
+            <rect x="380" y="140" width="80" height="140" fill="#0084FF"/>
+            <text x="420" y="135" text-anchor="middle" font-size="14" fill="#0084FF">Messenger (81)</text>
+            <rect x="500" y="120" width="80" height="160" fill="#009688"/>
+            <text x="540" y="115" text-anchor="middle" font-size="14" fill="#009688">Signal (82)</text>
+            <rect x="620" y="180" width="80" height="100" fill="#6366F1"/>
+            <text x="660" y="175" text-anchor="middle" font-size="14" fill="#6366F1">Session (74)</text>
+            <rect x="740" y="220" width="80" height="60" fill="#a259ff"/>
+            <text x="780" y="215" text-anchor="middle" font-size="14" fill="#a259ff">Bitchat (62)</text>
+            <!-- Etiquetas X -->
+            <text x="180" y="310" font-size="14">WhatsApp</text>
+            <text x="300" y="310" font-size="14">Discord</text>
+            <text x="420" y="310" font-size="14">Messenger</text>
+            <text x="540" y="310" font-size="14">Signal</text>
+            <text x="660" y="310" font-size="14">Session</text>
+            <text x="780" y="310" font-size="14">Bitchat</text>
+        </svg>
+        </div>
+    <h2>7. Conclusiones</h2>
+    <p><b>1. WhatsApp se posiciona como el referente absoluto en experiencia de usuario, accesibilidad y empatía.</b> Su liderazgo se fundamenta en la integración de buenas prácticas de diseño, textos claros y una interfaz inclusiva, lo que se refleja en la máxima puntuación obtenida en la matriz comparativa. Las demás aplicaciones deben tomar como modelo sus estrategias de UX y comunicación.</p>
+    <p><b>2. Discord y Messenger destacan en funcionalidades específicas, pero presentan áreas de mejora en microcopias y coherencia textual.</b> Discord sobresale en gestión de comunidades y CTAs efectivos, mientras que Messenger es fuerte en notificaciones y UX writing. Sin embargo, ambas requieren mayor atención en la claridad y empatía de sus mensajes para optimizar la experiencia global.</p>
+    <p><b>3. Signal y Session aportan valor en privacidad y simplicidad, pero sacrifican accesibilidad y claridad.</b> Aunque su enfoque en seguridad y anonimato es relevante, la experiencia de usuario se ve limitada por interfaces menos intuitivas y textos menos inclusivos. Se recomienda equilibrar la protección de datos con una comunicación más clara y accesible.</p>
+    <p><b>4. Bitchat evidencia debilidades estructurales en todos los criterios evaluados.</b> La baja puntuación en accesibilidad, inclusividad y consistencia revela la necesidad urgente de un rediseño integral. Mejorar estos aspectos no solo elevará la satisfacción del usuario, sino que permitirá a Bitchat competir en igualdad de condiciones con las aplicaciones líderes.</p>
+    <p><b>5. La matriz comparativa demuestra que la excelencia en UX no depende únicamente de la cantidad de funciones, sino de la calidad de la comunicación y la empatía con el usuario.</b> Las aplicaciones que invierten en microcopias efectivas, CTAs claros y textos inclusivos logran mayor retención y preferencia.</p>
+    <p><b>6. Recomendación final:</b> Se recomienda priorizar la mejora de Bitchat en los siguientes aspectos: accesibilidad (contraste, tamaño de fuente, soporte a tecnologías de asistencia), inclusividad (lenguaje neutro y representativo), consistencia visual y textual, y claridad en la comunicación. La implementación de estas mejoras permitirá posicionar a Bitchat como una alternativa competitiva y moderna en el mercado de mensajería.</p>
+    </div>
+</body>
+</html>

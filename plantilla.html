@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla optimización</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --header-bg: #f7f7f7;
+      --card-bg: #fff;
+      --card-border: #e0e0e0;
+      --cell-bg: #f4f8f4;
+      --cell-border: #dbeee2;
+      --cell-title-bg: #d8f5e0;
+      --cell-title-color: #222;
+      --main-font: 'Inter', Arial, sans-serif;
+      --header-font-size: 1.3rem;
+      --cell-font-size: 1rem;
+      --cell-radius: 10px;
+      --cell-padding: 12px 10px;
+    }
+    body {
+      font-family: var(--main-font);
+      background: var(--header-bg);
+      margin: 0;
+      padding: 0;
+    }
+    .opt-table {
+      width: 98vw;
+      margin: 30px auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--card-bg);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .opt-table th {
+      background: var(--cell-title-bg);
+      color: var(--cell-title-color);
+      font-weight: 700;
+      font-size: var(--header-font-size);
+      padding: 18px 8px;
+      border-bottom: 2px solid var(--card-border);
+      text-align: center;
+    }
+    .opt-table td {
+      background: var(--cell-bg);
+      border-bottom: 1px solid var(--cell-border);
+      font-size: var(--cell-font-size);
+      padding: var(--cell-padding);
+      border-radius: var(--cell-radius);
+      text-align: center;
+      vertical-align: top;
+    }
+    .opt-table .img-col {
+      background: var(--card-bg);
+      border-radius: var(--cell-radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 8px;
+      min-width: 120px;
+    }
+    .opt-table .img-col img {
+      width: 80px;
+      height: auto;
+      border-radius: 8px;
+      background: #eee;
+      border: 1px solid #ccc;
+      margin-bottom: 6px;
+    }
+    .opt-table .cell-title {
+      background: var(--cell-title-bg);
+      color: var(--cell-title-color);
+      font-weight: 600;
+      border-radius: var(--cell-radius);
+      padding: 8px 0;
+      margin-bottom: 6px;
+    }
+    @media (max-width: 900px) {
+      .opt-table th, .opt-table td { font-size: 0.95rem; padding: 8px 2px; }
+      .opt-table .img-col img { width: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <table class="opt-table">
+    <thead>
+      <tr>
+        <th>ANTES</th>
+        <th>DESPUÉS</th>
+    <th>Accesibilidad</th>
+    <th>Inclusividad</th>
+    <th>Microcopias efectivas</th>
+    <th>CTAs efectivos</th>
+    <th>UX Writing</th>
+    <th>Concisión</th>
+    <th>Consistencia</th>
+    <th>Claridad</th>
+    <th>Empatía</th>
+    <th>Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="img-col"><img src="bitchat/registro/1.png" alt="Antes 1"></td>
+    <td class="img-col"><img src="bitchat/registro/1.png" alt="Después 1" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 1</td>
+        <td>Descripción de consistencia para pantalla 1</td>
+        <td>Descripción de claridad para pantalla 1</td>
+        <td>Descripción de empatía para pantalla 1</td>
+        <td>Descripción de accesibilidad para pantalla 1</td>
+        <td>Descripción de inclusividad para pantalla 1</td>
+        <td>Descripción de microcopias para pantalla 1</td>
+        <td>Descripción de CTAs para pantalla 1</td>
+        <td>Descripción de UX writing para pantalla 1</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 1</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/registro/2.png" alt="Antes 2"></td>
+    <td class="img-col"><img src="bitchat/registro/2.png" alt="Después 2" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 2</td>
+        <td>Descripción de consistencia para pantalla 2</td>
+        <td>Descripción de claridad para pantalla 2</td>
+        <td>Descripción de empatía para pantalla 2</td>
+        <td>Descripción de accesibilidad para pantalla 2</td>
+        <td>Descripción de inclusividad para pantalla 2</td>
+        <td>Descripción de microcopias para pantalla 2</td>
+        <td>Descripción de CTAs para pantalla 2</td>
+        <td>Descripción de UX writing para pantalla 2</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 2</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/registro/3.png" alt="Antes 3"></td>
+    <td class="img-col"><img src="bitchat/registro/3.png" alt="Después 3" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 3</td>
+        <td>Descripción de consistencia para pantalla 3</td>
+        <td>Descripción de claridad para pantalla 3</td>
+        <td>Descripción de empatía para pantalla 3</td>
+        <td>Descripción de accesibilidad para pantalla 3</td>
+        <td>Descripción de inclusividad para pantalla 3</td>
+        <td>Descripción de microcopias para pantalla 3</td>
+        <td>Descripción de CTAs para pantalla 3</td>
+        <td>Descripción de UX writing para pantalla 3</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 3</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/registro/4.png" alt="Antes 4"></td>
+    <td class="img-col"><img src="bitchat/registro/4.png" alt="Después 4" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 4</td>
+        <td>Descripción de consistencia para pantalla 4</td>
+        <td>Descripción de claridad para pantalla 4</td>
+        <td>Descripción de empatía para pantalla 4</td>
+        <td>Descripción de accesibilidad para pantalla 4</td>
+        <td>Descripción de inclusividad para pantalla 4</td>
+        <td>Descripción de microcopias para pantalla 4</td>
+        <td>Descripción de CTAs para pantalla 4</td>
+        <td>Descripción de UX writing para pantalla 4</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 4</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/registro/5.png" alt="Antes 5"></td>
+    <td class="img-col"><img src="bitchat/registro/5.png" alt="Después 5" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 5</td>
+        <td>Descripción de consistencia para pantalla 5</td>
+        <td>Descripción de claridad para pantalla 5</td>
+        <td>Descripción de empatía para pantalla 5</td>
+        <td>Descripción de accesibilidad para pantalla 5</td>
+        <td>Descripción de inclusividad para pantalla 5</td>
+        <td>Descripción de microcopias para pantalla 5</td>
+        <td>Descripción de CTAs para pantalla 5</td>
+        <td>Descripción de UX writing para pantalla 5</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 5</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/registro/6.png" alt="Antes 6"></td>
+    <td class="img-col"><img src="bitchat/registro/6.png" alt="Después 6" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 6</td>
+        <td>Descripción de consistencia para pantalla 6</td>
+        <td>Descripción de claridad para pantalla 6</td>
+        <td>Descripción de empatía para pantalla 6</td>
+        <td>Descripción de accesibilidad para pantalla 6</td>
+        <td>Descripción de inclusividad para pantalla 6</td>
+        <td>Descripción de microcopias para pantalla 6</td>
+        <td>Descripción de CTAs para pantalla 6</td>
+        <td>Descripción de UX writing para pantalla 6</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 6</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/home/7.png" alt="Antes 7"></td>
+    <td class="img-col"><img src="bitchat/home/7.png" alt="Después 7" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 7</td>
+        <td>Descripción de consistencia para pantalla 7</td>
+        <td>Descripción de claridad para pantalla 7</td>
+        <td>Descripción de empatía para pantalla 7</td>
+        <td>Descripción de accesibilidad para pantalla 7</td>
+        <td>Descripción de inclusividad para pantalla 7</td>
+        <td>Descripción de microcopias para pantalla 7</td>
+        <td>Descripción de CTAs para pantalla 7</td>
+        <td>Descripción de UX writing para pantalla 7</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 7</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/home/8.png" alt="Antes 8"></td>
+    <td class="img-col"><img src="bitchat/home/8.png" alt="Después 8" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 8</td>
+        <td>Descripción de consistencia para pantalla 8</td>
+        <td>Descripción de claridad para pantalla 8</td>
+        <td>Descripción de empatía para pantalla 8</td>
+        <td>Descripción de accesibilidad para pantalla 8</td>
+        <td>Descripción de inclusividad para pantalla 8</td>
+        <td>Descripción de microcopias para pantalla 8</td>
+        <td>Descripción de CTAs para pantalla 8</td>
+        <td>Descripción de UX writing para pantalla 8</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 8</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/home/9.png" alt="Antes 9"></td>
+    <td class="img-col"><img src="bitchat/home/9.png" alt="Después 9" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 9</td>
+        <td>Descripción de consistencia para pantalla 9</td>
+        <td>Descripción de claridad para pantalla 9</td>
+        <td>Descripción de empatía para pantalla 9</td>
+        <td>Descripción de accesibilidad para pantalla 9</td>
+        <td>Descripción de inclusividad para pantalla 9</td>
+        <td>Descripción de microcopias para pantalla 9</td>
+        <td>Descripción de CTAs para pantalla 9</td>
+        <td>Descripción de UX writing para pantalla 9</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 9</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/home/10.png" alt="Antes 10"></td>
+    <td class="img-col"><img src="bitchat/home/10.png" alt="Después 10" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 10</td>
+        <td>Descripción de consistencia para pantalla 10</td>
+        <td>Descripción de claridad para pantalla 10</td>
+        <td>Descripción de empatía para pantalla 10</td>
+        <td>Descripción de accesibilidad para pantalla 10</td>
+        <td>Descripción de inclusividad para pantalla 10</td>
+        <td>Descripción de microcopias para pantalla 10</td>
+        <td>Descripción de CTAs para pantalla 10</td>
+        <td>Descripción de UX writing para pantalla 10</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 10</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/11.png" alt="Antes 11"></td>
+    <td class="img-col"><img src="bitchat/utilidades/11.png" alt="Después 11" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 11</td>
+        <td>Descripción de consistencia para pantalla 11</td>
+        <td>Descripción de claridad para pantalla 11</td>
+        <td>Descripción de empatía para pantalla 11</td>
+        <td>Descripción de accesibilidad para pantalla 11</td>
+        <td>Descripción de inclusividad para pantalla 11</td>
+        <td>Descripción de microcopias para pantalla 11</td>
+        <td>Descripción de CTAs para pantalla 11</td>
+        <td>Descripción de UX writing para pantalla 11</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 11</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/12.png" alt="Antes 12"></td>
+    <td class="img-col"><img src="bitchat/utilidades/12.png" alt="Después 12" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 12</td>
+        <td>Descripción de consistencia para pantalla 12</td>
+        <td>Descripción de claridad para pantalla 12</td>
+        <td>Descripción de empatía para pantalla 12</td>
+        <td>Descripción de accesibilidad para pantalla 12</td>
+        <td>Descripción de inclusividad para pantalla 12</td>
+        <td>Descripción de microcopias para pantalla 12</td>
+        <td>Descripción de CTAs para pantalla 12</td>
+        <td>Descripción de UX writing para pantalla 12</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 12</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/13.png" alt="Antes 13"></td>
+    <td class="img-col"><img src="bitchat/utilidades/13.png" alt="Después 13" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 13</td>
+        <td>Descripción de consistencia para pantalla 13</td>
+        <td>Descripción de claridad para pantalla 13</td>
+        <td>Descripción de empatía para pantalla 13</td>
+        <td>Descripción de accesibilidad para pantalla 13</td>
+        <td>Descripción de inclusividad para pantalla 13</td>
+        <td>Descripción de microcopias para pantalla 13</td>
+        <td>Descripción de CTAs para pantalla 13</td>
+        <td>Descripción de UX writing para pantalla 13</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 13</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/14.png" alt="Antes 14"></td>
+    <td class="img-col"><img src="bitchat/utilidades/14.png" alt="Después 14" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 14</td>
+        <td>Descripción de consistencia para pantalla 14</td>
+        <td>Descripción de claridad para pantalla 14</td>
+        <td>Descripción de empatía para pantalla 14</td>
+        <td>Descripción de accesibilidad para pantalla 14</td>
+        <td>Descripción de inclusividad para pantalla 14</td>
+        <td>Descripción de microcopias para pantalla 14</td>
+        <td>Descripción de CTAs para pantalla 14</td>
+        <td>Descripción de UX writing para pantalla 14</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 14</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/15.png" alt="Antes 15"></td>
+    <td class="img-col"><img src="bitchat/utilidades/15.png" alt="Después 15" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 15</td>
+        <td>Descripción de consistencia para pantalla 15</td>
+        <td>Descripción de claridad para pantalla 15</td>
+        <td>Descripción de empatía para pantalla 15</td>
+        <td>Descripción de accesibilidad para pantalla 15</td>
+        <td>Descripción de inclusividad para pantalla 15</td>
+        <td>Descripción de microcopias para pantalla 15</td>
+        <td>Descripción de CTAs para pantalla 15</td>
+        <td>Descripción de UX writing para pantalla 15</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 15</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/16.png" alt="Antes 16"></td>
+    <td class="img-col"><img src="bitchat/utilidades/16.png" alt="Después 16" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 16</td>
+        <td>Descripción de consistencia para pantalla 16</td>
+        <td>Descripción de claridad para pantalla 16</td>
+        <td>Descripción de empatía para pantalla 16</td>
+        <td>Descripción de accesibilidad para pantalla 16</td>
+        <td>Descripción de inclusividad para pantalla 16</td>
+        <td>Descripción de microcopias para pantalla 16</td>
+        <td>Descripción de CTAs para pantalla 16</td>
+        <td>Descripción de UX writing para pantalla 16</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 16</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/17.png" alt="Antes 17"></td>
+    <td class="img-col"><img src="bitchat/utilidades/17.png" alt="Después 17" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 17</td>
+        <td>Descripción de consistencia para pantalla 17</td>
+        <td>Descripción de claridad para pantalla 17</td>
+        <td>Descripción de empatía para pantalla 17</td>
+        <td>Descripción de accesibilidad para pantalla 17</td>
+        <td>Descripción de inclusividad para pantalla 17</td>
+        <td>Descripción de microcopias para pantalla 17</td>
+        <td>Descripción de CTAs para pantalla 17</td>
+        <td>Descripción de UX writing para pantalla 17</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 17</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/18.png" alt="Antes 18"></td>
+    <td class="img-col"><img src="bitchat/utilidades/18.png" alt="Después 18" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 18</td>
+        <td>Descripción de consistencia para pantalla 18</td>
+        <td>Descripción de claridad para pantalla 18</td>
+        <td>Descripción de empatía para pantalla 18</td>
+        <td>Descripción de accesibilidad para pantalla 18</td>
+        <td>Descripción de inclusividad para pantalla 18</td>
+        <td>Descripción de microcopias para pantalla 18</td>
+        <td>Descripción de CTAs para pantalla 18</td>
+        <td>Descripción de UX writing para pantalla 18</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 18</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/19.png" alt="Antes 19"></td>
+    <td class="img-col"><img src="bitchat/utilidades/19.png" alt="Después 19" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 19</td>
+        <td>Descripción de consistencia para pantalla 19</td>
+        <td>Descripción de claridad para pantalla 19</td>
+        <td>Descripción de empatía para pantalla 19</td>
+        <td>Descripción de accesibilidad para pantalla 19</td>
+        <td>Descripción de inclusividad para pantalla 19</td>
+        <td>Descripción de microcopias para pantalla 19</td>
+        <td>Descripción de CTAs para pantalla 19</td>
+        <td>Descripción de UX writing para pantalla 19</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 19</td>
+      </tr>
+      <tr>
+        <td class="img-col"><img src="bitchat/verificacion/20.png" alt="Antes 20"></td>
+    <td class="img-col"><img src="bitchat/verificacion/20.png" alt="Después 20" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
+        <td>Descripción de concisión para pantalla 20</td>
+        <td>Descripción de consistencia para pantalla 20</td>
+        <td>Descripción de claridad para pantalla 20</td>
+        <td>Descripción de empatía para pantalla 20</td>
+        <td>Descripción de accesibilidad para pantalla 20</td>
+        <td>Descripción de inclusividad para pantalla 20</td>
+        <td>Descripción de microcopias para pantalla 20</td>
+        <td>Descripción de CTAs para pantalla 20</td>
+        <td>Descripción de UX writing para pantalla 20</td>
+        <td>Descripción de diseño centrado en el usuario para pantalla 20</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

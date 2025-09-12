@@ -84,6 +84,22 @@
 
 ---
 
+## Cambios y Mejoras Recientes en el Proyecto
+
+- **Reorganización de criterios:**
+  Las columnas de criterios en los reportes y tablas han sido reorganizadas para coincidir con el orden y definiciones de la matriz comparativa (`matriz_comparativa_benchmark.html`). Ahora se muestran: Accesibilidad, Inclusividad, Microcopias efectivas, CTAs efectivos, UX Writing, Concisión, Consistencia, Claridad, Empatía y Feedback.
+
+- **Visualización de mejoras en pantallas:**
+  En el reporte de optimización (`plantilla.html`), la columna "DESPUÉS" ahora muestra las mismas imágenes que "ANTES" pero con un borde y sombra violeta para resaltar visualmente las mejoras propuestas en cada pantalla. Esto permite comparar el estado original y el optimizado de cada pantalla.
+
+- **Nuevo reporte profesional:**
+  Se ha añadido un reporte profesional de optimización (`plantilla.html`) que sigue la plantilla visual del proyecto y utiliza capturas reales de Bitchat. Este reporte facilita la evaluación visual y textual de cada pantalla según los criterios trabajados.
+
+- **Documentación actualizada:**
+  Esta sección se irá actualizando conforme se agreguen nuevas funcionalidades, mejoras visuales o cambios en la estructura del proyecto.
+
+---
+
 ##  Detalles adicionales
 
 - **Imágenes:**  

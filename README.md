@@ -96,7 +96,7 @@
   Se ha añadido un reporte profesional de optimización (`plantilla.html`) que sigue la plantilla visual del proyecto y utiliza capturas reales de Bitchat. Este reporte facilita la evaluación visual y textual de cada pantalla según los criterios trabajados.
 
 - **Documentación actualizada:**
-  Esta sección se irá actualizando conforme se agreguen nuevas funcionalidades, mejoras visuales o cambios en la estructura del proyecto.
+  Esta sección se irá actualizando conforme se agreguen nuevas funcionalidades, mejoras visuales o cambios en la estructura del proyecto.........
 
 ---
 

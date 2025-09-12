@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index_diagramas_con_imagenes.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

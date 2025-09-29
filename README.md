@@ -7,7 +7,7 @@
    Este archivo es la **página de inicio** y el punto de entrada para navegar por todos los diagramas y comparativas.
 
 2. **Navegación entre aplicaciones:**  
-   Desde la página principal, encontrarás tarjetas para cada aplicación de mensajería. Haz clic en los botones “Ver con Imágenes” para abrir el diagrama de flujo correspondiente.
+   Desde la página principal, encontrarás tarjetas para cada aplicación de mensajería. Haz clic en los botones “Ver con Imágenes” para abrir el diagrama de flujo correspondiente...
 
 3. **Visualización de diagramas:**  
    Cada archivo HTML de diagrama (`*_flow_diagram_with_images.html`) muestra el flujo de pantallas de la app seleccionada, con imágenes y flechas que representan la navegación real.

@@ -68,8 +68,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
             pointer-events: none;
             stroke-linecap: round;
         }
@@ -193,7 +191,6 @@
 
         function drawConnectors() {
             svgLayer.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs>';
-            const canvasRect = canvas.getBoundingClientRect();
 
             connections.forEach(([startId, endId]) => {
                 const startNode = document.getElementById(startId);
@@ -214,12 +211,12 @@
         }
         
         screensData.forEach(createNodeElement);
-        svgLayer.style.position = 'absolute';
-        svgLayer.style.top = '0';
-        svgLayer.style.left = '0';
-        svgLayer.setAttribute('width', '100%');
-        svgLayer.setAttribute('height', '100%');
-        canvas.insertBefore(svgLayer, canvas.firstChild);
+        
+        // Set a large size for the SVG layer and move it to the end of the canvas
+        // This ensures it renders on top of the nodes and lines are not clipped
+        canvas.appendChild(svgLayer);
+        svgLayer.setAttribute('width', '5000'); // Large enough for all coordinates
+        svgLayer.setAttribute('height', '5000');
 
         viewport.addEventListener('mousedown', (e) => {
             if (state.isDraggingNode) return;

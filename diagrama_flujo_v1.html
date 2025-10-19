@@ -25,10 +25,9 @@
         #canvas {
             position: absolute;
             transform-origin: 0 0;
-            transition: transform 0.6s cubic-bezier(0.2, 1, 0.2, 1); /* Only for programmatic pan */
         }
         .canvas-panning {
-            transition: none; /* Disable transition during manual pan/drag */
+            transition: none;
         }
         .screen-node {
             position: absolute;
@@ -55,7 +54,7 @@
             width: 100%;
             border-radius: 8px;
             display: block;
-            pointer-events: none; /* Prevents image from interfering with drag events */
+            pointer-events: none;
         }
         .screen-title {
             font-size: 14px;
@@ -69,8 +68,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
             pointer-events: none;
             stroke-linecap: round;
         }
@@ -194,7 +191,6 @@
 
         function drawConnectors() {
             svgLayer.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs>';
-            const canvasRect = canvas.getBoundingClientRect();
 
             connections.forEach(([startId, endId]) => {
                 const startNode = document.getElementById(startId);
@@ -215,14 +211,10 @@
         }
         
         screensData.forEach(createNodeElement);
-        // Position the SVG layer correctly on the canvas
-        svgLayer.style.position = 'absolute';
-        svgLayer.style.top = '0';
-        svgLayer.style.left = '0';
-        svgLayer.setAttribute('width', '100%');
-        svgLayer.setAttribute('height', '100%');
-        canvas.insertBefore(svgLayer, canvas.firstChild);
-
+        
+        canvas.appendChild(svgLayer);
+        svgLayer.setAttribute('width', '5000');
+        svgLayer.setAttribute('height', '5000');
 
         viewport.addEventListener('mousedown', (e) => {
             if (state.isDraggingNode) return;
@@ -274,7 +266,6 @@
             updateCanvasTransform();
         });
 
-        // Initial setup
         const initialPanX = (-100 * state.scale) + (window.innerWidth / 4);
         const initialPanY = (-300 * state.scale) + (window.innerHeight / 3);
         state.panX = initialPanX;

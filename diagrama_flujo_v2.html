@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Flujo v2 (CORRECCIÓN FINAL)</title>
+    <title>Diagrama de Flujo v2 (Flujo Correcto)</title>
     <style>
         body, html { margin: 0; padding: 0; overflow: hidden; width: 100%; height: 100%; background-color: #F4F6F9; font-family: sans-serif; }
         #viewport { width: 100%; height: 100%; cursor: grab; position: relative; }
@@ -18,7 +18,7 @@
             padding: 15px;
             cursor: move;
             user-select: none;
-            z-index: 1; /* Nodos en la capa 1 */
+            z-index: 10;
         }
         .screen-node:hover {
             box-shadow: 0 15px 40px rgba(24, 169, 153, 0.2), 0 3px 8px rgba(24, 169, 153, 0.1);
@@ -33,11 +33,11 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 2; /* Flechas en la capa 2, POR ENCIMA de los nodos */
+            z-index: 5;
         }
         .connector-line {
-            stroke: red; /* ROJO PARA VERLAS SÍ O SÍ */
-            stroke-width: 3;
+            stroke: #A9B1BD; /* Color gris estético */
+            stroke-width: 2.5; /* Grosor adecuado */
             fill: none;
             marker-end: url(#arrowhead);
         }
@@ -67,8 +67,8 @@
     </div>
     <div id="viewport">
         <div id="canvas">
-            <!-- Nodos se insertarán aquí por JS -->
-            <svg id="connector-layer"><defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="red" /></marker></defs></svg>
+            <svg id="connector-layer"><defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs></svg>
+             <!-- Nodos se insertarán aquí por JS -->
         </div>
     </div>
 
@@ -99,12 +99,17 @@
             { id: 's19', img: 'PANTALLAS BITCHAT LAST-v2/19.png', title: '19. Chat (con respuestas)', x: 3300, y: 1700 },
             { id: 's20', img: 'PANTALLAS BITCHAT LAST-v2/20.png', title: '20. Verificación (Exitosa)', x: 900, y: -200 },
         ];
-        const connections = [ ['s1','s2'], ['s2','s3'], ['s3','s4'], ['s4','s5'], ['s5','s6'], ['s6','s7'], ['s7','s8'], ['s8','s9'], ['s9','s10'], ['s7','s11'], ['s7','s12'], ['s12','s19'], ['s9','s14'], ['s14','s15'], ['s14','s16'], ['s14','s17'], ['s9','s18'], ['s8','s13'], ['s3','s20'] ];
+
+        const connections = [
+            ['s1','s2'], ['s2','s3'], ['s3','s4'], ['s4','s5'], ['s5','s6'], // Secuencia
+            ['s6','s7'], ['s6','s8'], ['s6','s9'], ['s6','s10'], ['s6','s11'], ['s6','s12'], ['s6','s13'], 
+            ['s6','s14'], ['s6','s15'], ['s6','s16'], ['s6','s17'], ['s6','s18'], ['s6','s19'], ['s6','s20'] // Conexiones desde 6
+        ];
 
         let state = { scale: 0.7, panX: 0, panY: 0, isPanning: false, isDraggingNode: false, draggedNode: null, dragOffsetX: 0, dragOffsetY: 0, panStartX: 0, panStartY: 0 };
 
         function drawConnectors() {
-            let svgContent = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="red" /></marker></defs>';
+            let svgContent = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs>';
             connections.forEach(([startId, endId]) => {
                 const startNode = document.getElementById(startId); const endNode = document.getElementById(endId);
                 if (!startNode || !endNode) return;

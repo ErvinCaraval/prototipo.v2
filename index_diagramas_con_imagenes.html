@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,445 +15,324 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #fff;
             padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
             text-align: center;
         }
 
+        .header {
+            margin-bottom: 40px;
+        }
+
         .header h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
         }
 
         .header p {
             font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
+            opacity: 0.8;
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
         }
 
-        .content {
-            padding: 60px 40px;
+        .delivery-frame {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+        .delivery-frame h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
         }
 
-        .app-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .app-card.whatsapp {
-            border-color: #25D366;
-        }
-
-        .app-card.whatsapp::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-        }
-
-        .app-card.messenger {
-            border-color: #0084FF;
-        }
-
-        .app-card.messenger::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #0084FF 0%, #0066CC 100%);
-        }
-
-        .app-card.session {
-            border-color: #6366F1;
-        }
-
-        .app-card.session::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
-        }
-
-        .app-card.discord {
-            border-color: #5865F2;
-        }
-
-        .app-card.discord::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
+        .container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .app-card.whatsapp .app-icon {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white;
-        }
-
-        .app-card.messenger .app-icon {
-            background: linear-gradient(135deg, #0084FF 0%, #0066CC 100%);
-            color: white;
-        }
-
-        .app-card.session .app-icon {
-            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
-            color: white;
-        }
-
-        .app-card.discord .app-icon {
-            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
-            color: white;
-        }
-
-        .app-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-        }
-
-        .app-stats {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: #6c757d;
-            font-weight: 500;
-        }
-
-        .app-description {
-            color: #6c757d;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .view-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            width: 280px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            margin: 0 0 5px 0;
+            color: #764ba2;
+        }
+
+        .card-header .tag {
+            font-size: 0.8rem;
+            padding: 4px 8px;
             border-radius: 12px;
             font-weight: 600;
+            display: inline-block;
+        }
+
+        .tag.direct {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+
+        .tag.indirect {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .tag.proposal {
+            background-color: #b3e5fc;
+            color: #0277bd;
+        }
+        
+        .tag.analysis {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            padding: 20px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #eee;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-block;
             border: none;
             cursor: pointer;
-            font-size: 0.9rem;
         }
 
-        .view-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        .btn:hover {
+            opacity: 0.9;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .view-button.secondary {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #6c757d;
-            border: 2px solid #dee2e6;
-        }
-
-        .view-button.secondary:hover {
-            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
-            color: #495057;
-        }
-
-        .comparison-table {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .comparison-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .table-container {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .app-name {
-            font-weight: 600;
-            color: #1a1a1a;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Diagramas de Flujo con Imágenes</h1>
-            <p>Análisis completo de flujos de usuario, matriz comparativa, benchmark e informes.</p>
-        </div>
-        
-        <div class="content">
-            <div class="apps-grid">
-                <!-- WhatsApp -->
-                <div class="app-card whatsapp">
-                    <div class="app-icon">📱</div>
-                    <h2 class="app-title">WhatsApp <span style="font-size:1rem;color:#25D366;">(Competidor Directo)</span></h2>
-                    <p class="app-description">Líder del mercado. Analizamos sus módulos de registro, chats, llamadas, community y updates.</p>
-                    <div class="button-group">
-                        <a href="whatsapp_flow_diagram_with_images.html" class="view-button">Ver Diagrama</a>
-                    </div>
-                </div>
 
-                <!-- Discord -->
-                <div class="app-card discord">
-                    <div class="app-icon">🎮</div>
-                    <h2 class="app-title">Discord <span style="font-size:1rem;color:#25D366;">(Competidor Directo)</span></h2>
-                    <p class="app-description">Plataforma para comunidades con un sistema único de servidores, roles y permisos avanzados.</p>
-                    <div class="button-group">
-                        <a href="discord_flow_diagram_with_images.html" class="view-button">Ver Diagrama</a>
-                    </div>
-                </div>
+    <div class="header">
+        <h1>Análisis Competitivo y Propuesta de Diseño</h1>
+        <p>Una colección de diagramas de flujo, análisis comparativos y manuales de estilo para el desarrollo de la aplicación Bitchat.</p>
+    </div>
 
-                <!-- Messenger -->
-                <div class="app-card messenger">
-                    <div class="app-icon">💬</div>
-                    <h2 class="app-title">Messenger <span style="font-size:1rem;color:#25D366;">(Competidor Directo)</span></h2>
-                    <p class="app-description">Mensajería con enfoque en historiales, notificaciones y un menú de navegación extenso.</p>
-                    <div class="button-group">
-                        <a href="messenger_flow_diagram_with_images.html" class="view-button">Ver Diagrama</a>
-                    </div>
+    <!-- Entrega 1 -->
+    <div class="delivery-frame">
+        <h2>Entrega 1</h2>
+        <div class="container">
+            <!-- WhatsApp -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>WhatsApp</h3>
+                    <span class="tag direct">Competidor Directo</span>
                 </div>
-                
-                <!-- Session -->
-                <div class="app-card session">
-                    <div class="app-icon">⚙️</div>
-                    <h2 class="app-title">Session <span style="font-size:1rem;color:#009688;">(Competidor Indirecto)</span></h2>
-                    <p class="app-description">Aplicación minimalista con enfoque en simplicidad y una interfaz directa bien estructurada.</p>
-                    <div class="button-group">
-                        <a href="session_flow_diagram_with_images.html" class="view-button">Ver Diagrama</a>
-                    </div>
+                <div class="card-content">
+                    <p>Diagrama de flujo que muestra la navegación y funciones principales de WhatsApp.</p>
                 </div>
-
-                <!-- Signal -->
-                <div class="app-card" style="border-color:#009688;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#009688 0%,#4caf50 100%);color:white;">🔵</div>
-                    <h2 class="app-title">Signal <span style="font-size:1rem;color:#009688;">(Competidor Indirecto)</span></h2>
-                    <p class="app-description">App centrada en privacidad y seguridad. Relevante para analizar flujos alternativos.</p>
-                    <div class="button-group">
-                        <a href="signal_flow_diagram_with_images.html" class="view-button">Ver Diagrama</a>
-                    </div>
-                </div>
-
-                <!-- Bitchat (Original) -->
-                <div class="app-card" style="border-color:#a259ff;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#a259ff 0%,#6e45e2 100%);color:white;">🟣</div>
-                    <h2 class="app-title">Bitchat <span style="font-size:1rem;color:#a259ff;">(App Propuesta)</span></h2>
-                    <p class="app-description">Plataforma alternativa con enfoque en navegación y registro. Este es el flujo original de la app.</p>
-                    <div class="button-group">
-                        <a href="bitchat_flow_diagram_with_images.html" class="view-button">Ver Diagrama Original</a>
-                    </div>
-                </div>
-
-                <!-- Diagrama de Flujo v1 -->
-                <div class="app-card" style="border-color:#45b6fe;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#45b6fe 0%,#2b82ff 100%);color:white; font-weight:bold;">V1</div>
-                    <h2 class="app-title">Diagrama de Flujo v1</h2>
-                    <p class="app-description">Diseño conceptual inicial basado en la lluvia de ideas y el manual de voz y tono. La primera estructura del proyecto.</p>
-                    <div class="button-group">
-                        <a href="diagrama_flujo_v1.html" class="view-button">Ver Diagrama v1</a>
-                    </div>
-                </div>
-
-                <!-- Diagrama de Flujo v2 -->
-                <div class="app-card" style="border-color:#32d5c3;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#32d5c3 0%,#18a999 100%);color:white; font-weight:bold;">V2</div>
-                    <h2 class="app-title">Diagrama de Flujo v2</h2>
-                    <p class="app-description">Versión mejorada del flujo, refinada a partir de la evaluación con usuarios. Incluye optimizaciones de usabilidad.</p>
-                    <div class="button-group">
-                        <a href="diagrama_flujo_v2.html" class="view-button">Ver Diagrama v2</a>
-                    </div>
-                </div>
-
-                <!-- Matriz Comparativa -->
-                <div class="app-card" style="border-color:#6c63ff;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#6c63ff 0%,#009688 100%);color:white;">📊</div>
-                    <h2 class="app-title">Matriz Comparativa</h2>
-                    <p class="app-description">Benchmark visual de 6 apps según 10 criterios clave de UX, seguridad y funcionalidad.</p>
-                    <div class="button-group">
-                       <a href="matriz_comparativa_benchmark.html" class="view-button">Ver Matriz</a>
-                       <a href="reporte_benchmark_profesional.html" class="view-button secondary">Ver Informe</a>
-                    </div>
-                </div>
-
-                <!-- Plantilla de Optimización -->
-                <div class="app-card" style="border-color:#6c757d;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#6c757d 0%,#343a40 100%);color:white;">📑</div>
-                    <h2 class="app-title">Plantilla de Optimización</h2>
-                    <p class="app-description">Propuesta de rediseño de pantallas para Bitchat, mostrando el antes y el después de la optimización.</p>
-                    <div class="button-group">
-                        <a href="plantilla.html" class="view-button">Ver Plantilla</a>
-                    </div>
-                </div>
-
-                <!-- Manual de Voz y Tono -->
-                <div class="app-card" style="border-color:#a259ff;">
-                    <div class="app-icon" style="background:linear-gradient(135deg,#a259ff 0%,#6e45e2 100%);color:white;">📖</div>
-                    <h2 class="app-title">Manual de Voz y Tono</h2>
-                    <p class="app-description">Consulta el manual de voz y tono que define la personalidad y el estilo de comunicación de Bitchat.</p>
-                    <a href="informe_academico_bitchat.html" class="view-button">Ver Manual</a>
-                </div>
-
-            </div>
-
-            <!-- Tabla Comparativa -->
-            <div class="comparison-table">
-                <h2 class="comparison-title">📊 Comparación Rápida de Aplicaciones</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Aplicación</th>
-                                <th>Pantallas</th>
-                                <th>Módulos</th>
-                                <th>Características Destacadas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="app-name">WhatsApp</td>
-                                <td>44</td>
-                                <td>5</td>
-                                <td>Community, Updates, Llamadas</td>
-                            </tr>
-                            <tr>
-                                <td class="app-name">Discord</td>
-                                <td>21</td>
-                                <td>3</td>
-                                <td>Servidores, Canales de Voz, Bots</td>
-                            </tr>
-                            <tr>
-                                <td class="app-name">Messenger</td>
-                                <td>21</td>
-                                <td>5</td>
-                                <td>Historiales, Notificaciones Extensas</td>
-                            </tr>
-                            <tr>
-                                <td class="app-name">Session</td>
-                                <td>20</td>
-                                <td>3</td>
-                                <td>Simplicidad y enfoque en la privacidad</td>
-                            </tr>
-                             <tr>
-                                <td class="app-name">Signal</td>
-                                <td>23</td>
-                                <td>4</td>
-                                <td>Privacidad y seguridad como eje central</td>
-                            </tr>
-                            <tr>
-                                <td class="app-name" style="color:#a259ff;font-weight:600;">Bitchat</td>
-                                <td>20</td>
-                                <td>4</td>
-                                <td>Navegación simplificada y registro directo</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card-footer">
+                    <a href="whatsapp_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
                 </div>
             </div>
 
+            <!-- Discord -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Discord</h3>
+                    <span class="tag direct">Competidor Directo</span>
+                </div>
+                <div class="card-content">
+                    <p>Análisis del flujo de usuario en Discord, enfocado en la interacción y creación de comunidades.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="discord_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- Messenger -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Messenger</h3>
+                    <span class="tag direct">Competidor Directo</span>
+                </div>
+                <div class="card-content">
+                    <p>Flujo de navegación de Facebook Messenger, detallando sus características integradas.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="messenger_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- Session -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Session</h3>
+                    <span class="tag indirect">Competidor Indirecto</span>
+                </div>
+                <div class="card-content">
+                    <p>Diagrama de Session, una app con enfoque en la privacidad y el minimalismo.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="session_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- Signal -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Signal</h3>
+                    <span class="tag indirect">Competidor Indirecto</span>
+                </div>
+                <div class="card-content">
+                    <p>Flujo de Signal, destacando su arquitectura centrada en la seguridad y la privacidad del usuario.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="signal_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- BitChat -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>BitChat</h3>
+                    <span class="tag proposal">App Propuesta</span>
+                </div>
+                <div class="card-content">
+                    <p>Diagrama de flujo de la aplicación propuesta, Bitchat, mostrando su arquitectura y navegación.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="bitchat_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- Plantilla de Optimización -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Plantilla de Optimización</h3>
+                    <span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>Reporte profesional de optimización con capturas de Bitchat y análisis de UX.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="plantilla.html" class="btn">Ver Reporte</a>
+                </div>
+            </div>
+
+            <!-- Matriz Comparativa -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Matriz Comparativa</h3>
+                    <span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>Tabla comparativa que evalúa todas las apps según criterios de UX, accesibilidad y funcionalidad.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="matriz_comparativa_benchmark.html" class="btn">Ver Matriz</a>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Entrega 2 -->
+    <div class="delivery-frame">
+        <h2>Entrega 2</h2>
+        <div class="container">
+            <!-- Diagrama de Flujo v1 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Diagrama de Flujo v1</h3>
+                    <span class="tag analysis">Diseño</span>
+                </div>
+                <div class="card-content">
+                    <p>Primera versión del diagrama de flujo interactivo de la aplicación Bitchat.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="diagrama_flujo_v1.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- Diagrama de Flujo v2 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Diagrama de Flujo v2</h3>
+                    <span class="tag analysis">Diseño</span>
+                </div>
+                <div class="card-content">
+                    <p>Segunda versión mejorada del diagrama de flujo, con más detalles y estructura refinada.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="diagrama_flujo_v2.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+
+            <!-- Manual de Voz y Tono -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Manual de Voz y Tono</h3>
+                    <span class="tag analysis">Documentación</span>
+                </div>
+                <div class="card-content">
+                    <p>Define la personalidad de la marca y guía la comunicación en la app y materiales de marketing.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="informe_academico_bitchat.html" class="btn">Ver Manual</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

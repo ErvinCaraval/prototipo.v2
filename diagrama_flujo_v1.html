@@ -12,11 +12,6 @@
     color: #333;
     margin: 0;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
   }
   .container {
     position: relative;
@@ -46,34 +41,59 @@
   .leader-line {
     z-index: 5;
   }
+  .category {
+    position: absolute;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  .category h2 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
 
 <div class="container" id="container">
-  <div id="item-1" class="draggable" style="left: 50px; top: 200px;"><img src="PANTALLAS BITCHAT LAST-v1/1.png" alt="Imagen 1"></div>
-  <div id="item-2" class="draggable" style="left: 250px; top: 200px;"><img src="PANTALLAS BITCHAT LAST-v1/2.png" alt="Imagen 2"></div>
-  <div id="item-3" class="draggable" style="left: 450px; top: 200px;"><img src="PANTALLAS BITCHAT LAST-v1/3.png" alt="Imagen 3"></div>
-  <div id="item-4" class="draggable" style="left: 650px; top: 200px;"><img src="PANTALLAS BITCHAT LAST-v1/4.png" alt="Imagen 4"></div>
-  <div id="item-5" class="draggable" style="left: 850px; top: 200px;"><img src="PANTALLAS BITCHAT LAST-v1/5.png" alt="Imagen 5"></div>
-  <div id="item-6" class="draggable" style="left: 1050px; top: 200px;"><img src="PANTALLAS BITCHAT LAST-v1/6.png" alt="Imagen 6"></div>
-  
-  <div id="item-7" class="draggable" style="left: 1250px; top: 50px;"><img src="PANTALLAS BITCHAT LAST-v1/7.png" alt="Imagen 7"></div>
-  <div id="item-8" class="draggable" style="left: 1250px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/8.png" alt="Imagen 8"></div>
-  <div id="item-9" class="draggable" style="left: 1250px; top: 250px;"><img src="PANTALLAS BITCHAT LAST-v1/9.png" alt="Imagen 9"></div>
-  <div id="item-10" class="draggable" style="left: 1250px; top: 350px;"><img src="PANTALLAS BITCHAT LAST-v1/10.png" alt="Imagen 10"></div>
-  <div id="item-14" class="draggable" style="left: 1250px; top: 450px;"><img src="PANTALLAS BITCHAT LAST-v1/14.png" alt="Imagen 14"></div>
-  <div id="item-20" class="draggable" style="left: 1250px; top: 550px;"><img src="PANTALLAS BITCHAT LAST-v1/20.png" alt="Imagen 20"></div>
+  <div class="category" style="left: 30px; top: 30px; width: 1200px; height: 320px;">
+    <h2>Categoría 1: Secuencia principal</h2>
+    <div id="item-1" class="draggable" style="left: 50px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/1.png" alt="Imagen 1"></div>
+    <div id="item-2" class="draggable" style="left: 250px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/2.png" alt="Imagen 2"></div>
+    <div id="item-3" class="draggable" style="left: 450px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/3.png" alt="Imagen 3"></div>
+    <div id="item-4" class="draggable" style="left: 650px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/4.png" alt="Imagen 4"></div>
+    <div id="item-5" class="draggable" style="left: 850px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/5.png" alt="Imagen 5"></div>
+    <div id="item-6" class="draggable" style="left: 1050px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/6.png" alt="Imagen 6"></div>
+  </div>
 
-  <div id="item-11" class="draggable" style="left: 1450px; top: 300px;"><img src="PANTALLAS BITCHAT LAST-v1/11.png" alt="Imagen 11"></div>
-  <div id="item-12" class="draggable" style="left: 1450px; top: 400px;"><img src="PANTALLAS BITCHAT LAST-v1/12.png" alt="Imagen 12"></div>
-  <div id="item-13" class="draggable" style="left: 1450px; top: 500px;"><img src="PANTALLAS BITCHAT LAST-v1/13.png" alt="Imagen 13"></div>
+  <div class="category" style="left: 1250px; top: 30px; width: 220px; height: 950px;">
+    <h2>Categoría 2: Conexiones desde 6</h2>
+    <div id="item-7" class="draggable" style="left: 50px; top: 80px;"><img src="PANTALLAS BITCHAT LAST-v1/7.png" alt="Imagen 7"></div>
+    <div id="item-8" class="draggable" style="left: 50px; top: 230px;"><img src="PANTALLAS BITCHAT LAST-v1/8.png" alt="Imagen 8"></div>
+    <div id="item-9" class="draggable" style="left: 50px; top: 380px;"><img src="PANTALLAS BITCHAT LAST-v1/9.png" alt="Imagen 9"></div>
+    <div id="item-10" class="draggable" style="left: 50px; top: 530px;"><img src="PANTALLAS BITCHAT LAST-v1/10.png" alt="Imagen 10"></div>
+    <div id="item-14" class="draggable" style="left: 50px; top: 680px;"><img src="PANTALLAS BITCHAT LAST-v1/14.png" alt="Imagen 14"></div>
+    <div id="item-20" class="draggable" style="left: 50px; top: 830px;"><img src="PANTALLAS BITCHAT LAST-v1/20.png" alt="Imagen 20"></div>
+  </div>
+
+  <div class="category" style="left: 1500px; top: 430px; width: 220px; height: 500px;">
+    <h2>Categoría 3: Conexiones desde 10</h2>
+    <div id="item-11" class="draggable" style="left: 50px; top: 80px;"><img src="PANTALLAS BITCHAT LAST-v1/11.png" alt="Imagen 11"></div>
+    <div id="item-12" class="draggable" style="left: 50px; top: 230px;"><img src="PANTALLAS BITCHAT LAST-v1/12.png" alt="Imagen 12"></div>
+    <div id="item-13" class="draggable" style="left: 50px; top: 380px;"><img src="PANTALLAS BITCHAT LAST-v1/13.png" alt="Imagen 13"></div>
+  </div>
   
-  <div id="item-15" class="draggable" style="left: 1450px; top: 50px;"><img src="PANTALLAS BITCHAT LAST-v1/15.png" alt="Imagen 15"></div>
-  <div id="item-16" class="draggable" style="left: 1450px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/16.png" alt="Imagen 16"></div>
-  <div id="item-17" class="draggable" style="left: 1650px; top: 50px;"><img src="PANTALLAS BITCHAT LAST-v1/17.png" alt="Imagen 17"></div>
-  <div id="item-18" class="draggable" style="left: 1650px; top: 150px;"><img src="PANTALLAS BITCHAT LAST-v1/18.png" alt="Imagen 18"></div>
-  <div id="item-19" class="draggable" style="left: 1850px; top: 100px;"><img src="PANTALLAS BITCHAT LAST-v1/19.png" alt="Imagen 19"></div>
+  <div class="category" style="left: 1500px; top: 30px; width: 450px; height: 380px;">
+    <h2>Categoría 4: Conexiones desde 14</h2>
+    <div id="item-15" class="draggable" style="left: 50px; top: 80px;"><img src="PANTALLAS BITCHAT LAST-v1/15.png" alt="Imagen 15"></div>
+    <div id="item-16" class="draggable" style="left: 250px; top: 80px;"><img src="PANTALLAS BITCHAT LAST-v1/16.png" alt="Imagen 16"></div>
+    <div id="item-17" class="draggable" style="left: 50px; top: 230px;"><img src="PANTALLAS BITCHAT LAST-v1/17.png" alt="Imagen 17"></div>
+    <div id="item-18" class="draggable" style="left: 250px; top: 230px;"><img src="PANTALLAS BITCHAT LAST-v1/18.png" alt="Imagen 18"></div>
+    <div id="item-19" class="draggable" style="left: 150px; top: 380px; transform: translateX(-50%);"><img src="PANTALLAS BITCHAT LAST-v1/19.png" alt="Imagen 19"></div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/leader-line-new@1.1.9/leader-line.min.js"></script>
@@ -88,24 +108,15 @@ document.addEventListener('DOMContentLoaded', function() {
         lines = [];
 
         const connections = [
-            { from: '#item-1', to: '#item-2' },
-            { from: '#item-2', to: '#item-3' },
-            { from: '#item-3', to: '#item-4' },
-            { from: '#item-4', to: '#item-5' },
-            { from: '#item-5', to: '#item-6' },
-            { from: '#item-6', to: '#item-7' },
-            { from: '#item-6', to: '#item-8' },
-            { from: '#item-6', to: '#item-9' },
-            { from: '#item-6', to: '#item-10' },
-            { from: '#item-6', to: '#item-14' },
-            { from: '#item-6', to: '#item-20' },
-            { from: '#item-10', to: '#item-11' },
-            { from: '#item-10', to: '#item-12' },
-            { from: '#item-10', to: '#item-13' },
-            { from: '#item-14', to: '#item-15' },
-            { from: '#item-14', to: '#item-16' },
-            { from: '#item-14', to: '#item-17' },
-            { from: '#item-14', to: '#item-18' },
+            { from: '#item-1', to: '#item-2' }, { from: '#item-2', to: '#item-3' },
+            { from: '#item-3', to: '#item-4' }, { from: '#item-4', to: '#item-5' },
+            { from: '#item-5', to: '#item-6' }, { from: '#item-6', to: '#item-7' },
+            { from: '#item-6', to: '#item-8' }, { from: '#item-6', to: '#item-9' },
+            { from: '#item-6', to: '#item-10' }, { from: '#item-6', to: '#item-14' },
+            { from: '#item-6', to: '#item-20' }, { from: '#item-10', to: '#item-11' },
+            { from: '#item-10', to: '#item-12' }, { from: '#item-10', to: '#item-13' },
+            { from: '#item-14', to: '#item-15' }, { from: '#item-14', to: '#item-16' },
+            { from: '#item-14', to: '#item-17' }, { from: '#item-14', to: '#item-18' },
             { from: '#item-14', to: '#item-19' }
         ];
 
@@ -115,12 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (fromElement && toElement) {
                 lines.push(
                     new LeaderLine(fromElement, toElement, {
-                        color: 'rgba(0, 0, 0, 0.7)',
-                        size: 2,
-                        path: 'fluid',
-                        startSocket: 'right',
-                        endSocket: 'left',
-                        endPlug: 'arrow1'
+                        color: 'rgba(0, 0, 0, 0.7)', size: 2, path: 'fluid',
+                        startSocket: 'right', endSocket: 'left', endPlug: 'arrow1'
                     })
                 );
             }
@@ -132,29 +139,23 @@ document.addEventListener('DOMContentLoaded', function() {
         el.onmousedown = dragMouseDown;
 
         function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            pos3 = e.clientX;
-            pos4 = e.clientY;
+            e = e || window.event; e.preventDefault();
+            pos3 = e.clientX; pos4 = e.clientY;
             document.onmouseup = closeDragElement;
             document.onmousemove = elementDrag;
         }
 
         function elementDrag(e) {
-            e = e || window.event;
-            e.preventDefault();
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
+            e = e || window.event; e.preventDefault();
+            pos1 = pos3 - e.clientX; pos2 = pos4 - e.clientY;
+            pos3 = e.clientX; pos4 = e.clientY;
             el.style.top = (el.offsetTop - pos2) + "px";
             el.style.left = (el.offsetLeft - pos1) + "px";
             lines.forEach(line => line.position());
         }
 
         function closeDragElement() {
-            document.onmouseup = null;
-            document.onmousemove = null;
+            document.onmouseup = null; document.onmousemove = null;
         }
     });
 

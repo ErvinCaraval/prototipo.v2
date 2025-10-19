@@ -3,195 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Flujo v1 - Bitchat (Estilo Figma)</title>
+    <title>Diagrama de Flujo Interactivo v1 - Bitchat</title>
     <style>
-        body {
-            background-color: #F0F2F5;
-            font-family: 'Inter', sans-serif;
+        body, html {
             margin: 0;
-            color: #333;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background-color: #F4F6F9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
+        #viewport {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+            position: relative;
+        }
+        #canvas {
+            position: absolute;
+            transform-origin: 0 0;
+        }
+        .screen-node {
+            position: absolute;
+            width: 300px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #E5EAF1;
+            padding: 15px;
+            transform: scale(1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .screen-node:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(94, 63, 211, 0.2);
+        }
+        .screen-node img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+        .screen-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #connector-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .connector-line {
+            stroke: #A9B1BD;
+            stroke-width: 2.5;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
         .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             background: linear-gradient(135deg, #6e45e2 0%, #a259ff 100%);
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
+            box-sizing: border-box;
+            z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
-        .header h1 {
-            font-size: 1.8rem;
-            margin: 0;
-        }
-
+        .header h1 { margin: 0; font-size: 1.5rem; }
         .back-button {
             background-color: rgba(255,255,255,0.2);
             color: white;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s;
         }
-
-        .back-button:hover {
-            background-color: rgba(255,255,255,0.4);
-        }
-
-        .canvas {
-            padding: 40px;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .flow-section {
-            background-color: #FFFFFF;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            display: inline-block;
-            vertical-align: top;
-            width: 100%;
-        }
-
-        .flow-section h2 {
-            font-size: 1.5rem;
-            color: #a259ff;
-            margin-bottom: 30px;
-            border-left: 4px solid #a259ff;
-            padding-left: 15px;
-        }
-
-        .flow-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
-
-        .screen-node {
-            flex-shrink: 0;
-            text-align: center;
-        }
-
-        .screen-card {
-            background: #fff;
-            border: 1px solid #E0E0E0;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 300px;
-        }
-        
-        .screen-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .screen-card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .screen-title {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #444;
-        }
-        
-        .connector {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-self: center;
-        }
-
-        .arrow {
-            font-size: 2.5rem;
-            color: #a259ff;
-            font-weight: bold;
-        }
+        .back-button:hover { background-color: rgba(255,255,255,0.4); }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>Diagrama de Flujo v1: Diseño Conceptual</h1>
+        <h1>Diagrama de Flujo Interactivo v1</h1>
         <a href="index_diagramas_con_imagenes.html" class="back-button">← Volver al Inicio</a>
     </div>
 
-    <div class="canvas">
-        <!-- Flujo de Registro -->
-        <div class="flow-section">
-            <h2>1. Flujo de Registro</h2>
-            <div class="flow-container">
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/1.png"><p class="screen-title">1. Bienvenida</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/2.png"><p class="screen-title">2. Correo</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/3.png"><p class="screen-title">3. Contraseña</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/4.png"><p class="screen-title">4. Alias</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/5.png"><p class="screen-title">5. Intereses</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/6.png"><p class="screen-title">6. Sugerencias</p></div></div>
-            </div>
-        </div>
-
-        <!-- Flujo Principal (Home) -->
-        <div class="flow-section">
-            <h2>2. Flujo Principal (Home)</h2>
-            <div class="flow-container">
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/7.png"><p class="screen-title">7. Home (Chats)</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/8.png"><p class="screen-title">8. Canales</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/9.png"><p class="screen-title">9. Perfil de Usuario</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/10.png"><p class="screen-title">10. Descubrir</p></div></div>
-            </div>
-        </div>
-
-        <!-- Flujo de Utilidades -->
-        <div class="flow-section">
-            <h2>3. Flujo de Utilidades</h2>
-            <div class="flow-container">
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/11.png"><p class="screen-title">11. Búsqueda</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/12.png"><p class="screen-title">12. Notificaciones</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/13.png"><p class="screen-title">13. Crear Canal</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/14.png"><p class="screen-title">14. Ajustes Generales</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/15.png"><p class="screen-title">15. Privacidad</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/16.png"><p class="screen-title">16. Cuenta</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                 <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/17.png"><p class="screen-title">17. Ayuda</p></div></div>
-                <div class="connector"><div class="arrow">→</div></div>
-                 <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/18.png"><p class="screen-title">18. Amigos</p></div></div>
-                 <div class="connector"><div class="arrow">→</div></div>
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/19.png"><p class="screen-title">19. Chat</p></div></div>
-            </div>
-        </div>
-
-        <!-- Flujo de Verificación -->
-        <div class="flow-section">
-            <h2>4. Flujo de Verificación</h2>
-            <div class="flow-container">
-                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v1/20.png"><p class="screen-title">20. Verificación de Correo</p></div></div>
-            </div>
+    <div id="viewport">
+        <svg id="connector-layer">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" />
+                </marker>
+            </defs>
+        </svg>
+        <div id="canvas">
+            <!-- Las 20 pantallas se añadirán aquí dinámicamente -->
         </div>
     </div>
 
+    <script>
+        const viewport = document.getElementById('viewport');
+        const canvas = document.getElementById('canvas');
+        const svgLayer = document.getElementById('connector-layer');
+
+        const screens = [
+            // Flujo Registro (6 pantallas)
+            { id: 's1',  img: 'PANTALLAS BITCHAT LAST-v1/1.png',  title: '1. Bienvenida', x: 100, y: 300 },
+            { id: 's2',  img: 'PANTALLAS BITCHAT LAST-v1/2.png',  title: '2. Correo', x: 500, y: 300 },
+            { id: 's3',  img: 'PANTALLAS BITCHAT LAST-v1/3.png',  title: '3. Contraseña', x: 900, y: 300 },
+            { id: 's4',  img: 'PANTALLAS BITCHAT LAST-v1/4.png',  title: '4. Alias', x: 1300, y: 300 },
+            { id: 's5',  img: 'PANTALLAS BITCHAT LAST-v1/5.png',  title: '5. Intereses', x: 1700, y: 300 },
+            { id: 's6',  img: 'PANTALLAS BITCHAT LAST-v1/6.png',  title: '6. Sugerencias', x: 2100, y: 300 },
+            // Flujo Home (4 pantallas)
+            { id: 's7',  img: 'PANTALLAS BITCHAT LAST-v1/7.png',  title: '7. Home (Chats)', x: 100, y: 1000 },
+            { id: 's8',  img: 'PANTALLAS BITCHAT LAST-v1/8.png',  title: '8. Canales', x: 500, y: 1000 },
+            { id: 's9',  img: 'PANTALLAS BITCHAT LAST-v1/9.png',  title: '9. Perfil de Usuario', x: 900, y: 1000 },
+            { id: 's10', img: 'PANTALLAS BITCHAT LAST-v1/10.png', title: '10. Descubrir', x: 1300, y: 1000 },
+            // Flujo Utilidades (9 pantallas)
+            { id: 's11', img: 'PANTALLAS BITCHAT LAST-v1/11.png', title: '11. Búsqueda', x: 100, y: 1700 },
+            { id: 's12', img: 'PANTALLAS BITCHAT LAST-v1/12.png', title: '12. Notificaciones', x: 500, y: 1700 },
+            { id: 's13', img: 'PANTALLAS BITCHAT LAST-v1/13.png', title: '13. Crear Canal', x: 900, y: 1700 },
+            { id: 's14', img: 'PANTALLAS BITCHAT LAST-v1/14.png', title: '14. Ajustes Generales', x: 1300, y: 1700 },
+            { id: 's15', img: 'PANTALLAS BITCHAT LAST-v1/15.png', title: '15. Privacidad', x: 1700, y: 1700 },
+            { id: 's16', img: 'PANTALLAS BITCHAT LAST-v1/16.png', title: '16. Cuenta', x: 2100, y: 1700 },
+            { id: 's17', img: 'PANTALLAS BITCHAT LAST-v1/17.png', title: '17. Ayuda', x: 2500, y: 1700 },
+            { id: 's18', img: 'PANTALLAS BITCHAT LAST-v1/18.png', title: '18. Amigos', x: 2900, y: 1700 },
+            { id: 's19', img: 'PANTALLAS BITCHAT LAST-v1/19.png', title: '19. Chat', x: 3300, y: 1700 },
+            // Flujo Verificación (1 pantalla)
+            { id: 's20', img: 'PANTALLAS BITCHAT LAST-v1/20.png', title: '20. Verificación', x: 2500, y: 300 },
+        ];
+        const connections = {
+            's1': 's2', 's2': 's3', 's3': 's4', 's4': 's5', 's5': 's6', 's6':'s7',
+            's7': 's8', 's8': 's9', 's9': 's10',
+            's10': 's11', 's11': 's12', 's12': 's13', 's13': 's14', 's14': 's15', 's15': 's16', 's16': 's17', 's17': 's18', 's18': 's19',
+            's3': 's20'
+        };
+
+        let state = { scale: 0.8, panX: 0, panY: 0, isPanning: false, startX: 0, startY: 0 };
+
+        function updateTransform() {
+            canvas.style.transform = `translate(${state.panX}px, ${state.panY}px) scale(${state.scale})`;
+            drawConnectors();
+        }
+
+        function createScreenNode(screen) {
+            const node = document.createElement('div');
+            node.className = 'screen-node';
+            node.id = screen.id;
+            node.style.left = screen.x + 'px';
+            node.style.top = screen.y + 'px';
+            node.innerHTML = `<img src="${screen.img}" alt="${screen.title}"><p class="screen-title">${screen.title}</p>`;
+            
+            node.addEventListener('click', () => {
+                const nextNodeId = connections[screen.id];
+                if (nextNodeId) {
+                    panToNode(nextNodeId);
+                }
+            });
+            
+            return node;
+        }
+
+        function drawConnectors() {
+            const svgDefs = svgLayer.querySelector('defs');
+            svgLayer.innerHTML = '';
+            if (svgDefs) svgLayer.appendChild(svgDefs);
+
+            Object.entries(connections).forEach(([startId, endId]) => {
+                const startNode = document.getElementById(startId);
+                const endNode = document.getElementById(endId);
+                if (startNode && endNode) {
+                    const startRect = startNode.getBoundingClientRect();
+                    const endRect = endNode.getBoundingClientRect();
+                    const viewportRect = viewport.getBoundingClientRect();
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', (startRect.left + startRect.right) / 2 - viewportRect.left);
+                    line.setAttribute('y1', (startRect.top + startRect.bottom) / 2 - viewportRect.top);
+                    line.setAttribute('x2', endRect.left - viewportRect.left - 10);
+                    line.setAttribute('y2', (endRect.top + endRect.bottom) / 2 - viewportRect.top);
+                    line.setAttribute('class', 'connector-line');
+                    svgLayer.appendChild(line);
+                }
+            });
+        }
+
+        function panToNode(nodeId) {
+            const node = document.getElementById(nodeId);
+            if (!node) return;
+            const targetX = -node.offsetLeft * state.scale + (viewport.offsetWidth / 2) - (node.offsetWidth * state.scale / 2);
+            const targetY = -node.offsetTop * state.scale + (viewport.offsetHeight / 2) - (node.offsetHeight * state.scale / 2);
+            smoothPan(targetX, targetY);
+        }
+
+        function smoothPan(targetX, targetY) {
+            const startX = state.panX, startY = state.panY;
+            const distanceX = targetX - startX, distanceY = targetY - startY;
+            const duration = 600;
+            let startTime = null;
+            function animationStep(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                const t = Math.min(progress / duration, 1);
+                const easedT = t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                state.panX = startX + distanceX * easedT;
+                state.panY = startY + distanceY * easedT;
+                updateTransform();
+                if (progress < duration) requestAnimationFrame(animationStep);
+            }
+            requestAnimationFrame(animationStep);
+        }
+
+        screens.forEach(screen => canvas.appendChild(createScreenNode(screen)));
+
+        viewport.addEventListener('mousedown', e => { e.preventDefault(); state.isPanning = true; state.startX = e.clientX - state.panX; state.startY = e.clientY - state.panY; viewport.style.cursor = 'grabbing'; });
+        viewport.addEventListener('mouseup', () => { state.isPanning = false; viewport.style.cursor = 'grab'; });
+        viewport.addEventListener('mouseleave', () => { state.isPanning = false; viewport.style.cursor = 'grab'; });
+        viewport.addEventListener('mousemove', e => { if (state.isPanning) { state.panX = e.clientX - state.startX; state.panY = e.clientY - state.startY; updateTransform(); } });
+        viewport.addEventListener('wheel', e => {
+            e.preventDefault();
+            const scaleAmount = -e.deltaY * 0.001;
+            const newScale = Math.max(0.3, Math.min(2, state.scale + scaleAmount));
+            const rect = viewport.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left, mouseY = e.clientY - rect.top;
+            state.panX -= mouseX * (newScale - state.scale) / state.scale;
+            state.panY -= mouseY * (newScale - state.scale) / state.scale;
+            state.scale = newScale;
+            updateTransform();
+        });
+
+        const initialPanX = (-100 * 0.8) + (window.innerWidth / 4);
+        const initialPanY = (-300 * 0.8) + (window.innerHeight / 3);
+        state.panX = initialPanX;
+        state.panY = initialPanY;
+        updateTransform();
+        window.addEventListener('resize', updateTransform);
+    </script>
 </body>
 </html>

@@ -17,32 +17,72 @@
         .legend { background: #f3e8ff; color: #a259ff; border-radius: 8px; padding: 12px 18px; margin-bottom: 18px; font-size: 1rem; }
         .divider { border-top: 2px solid #e0e0e0; margin: 40px 0 20px 0; }
         .back-link { position: absolute; top: 20px; left: 20px; background-color: #fff; color: #a259ff; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .nav-section { text-align: center; margin-top: 20px; }
-        .nav-button { display: inline-block; padding: 12px 25px; margin: 0 10px; background: linear-gradient(135deg, #a259ff 0%, #6e45e2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
-        .nav-button:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(110, 69, 226, 0.4); }
+
+        /* Card Styles */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid #a259ff;
+        }
+        .app-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+        .app-icon {
+            width: 60px; height: 60px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg,#a259ff 0%,#6e45e2 100%);
+            color: white;
+        }
+        .app-title { font-size: 1.5rem; font-weight: 700; color: #333; margin-bottom: 10px; }
+        .app-description { font-size: 1rem; color: #6c757d; line-height: 1.6; margin-bottom: 25px; }
+        .view-button {
+            display: inline-block; padding: 12px 20px;
+            background: linear-gradient(135deg, #a259ff 0%, #6e45e2 100%);
+            color: white; text-decoration: none; border-radius: 12px; font-weight: 600;
+            transition: all 0.3s ease; border: none; cursor: pointer;
+        }
+        .view-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(162, 89, 255, 0.3); }
     </style>
 </head>
 <body>
     <a href="index_diagramas_con_imagenes.html" class="back-link">&#8592; Volver al Índice</a>
     <h1>Bitchat - Diagrama de Flujo con Imágenes</h1>
+    
     <div class="section">
-        <div class="legend">Flujos visuales con flechas</div>
-        <h2>Introducción</h2>
-        <p>Bitchat es una plataforma de mensajería alternativa. A continuación se muestran los diagramas de flujo visuales de sus principales módulos y pantallas, con flechas que representan la navegación entre ellas.</p>
-        <div class="nav-section">
-            <a href="diagrama_flujo_v1.html" class="nav-button">Ver Diagrama v1</a>
-            <a href="diagrama_flujo_v2.html" class="nav-button">Ver Diagrama v2</a>
+        <div class="legend">Versiones del Flujo de Diseño</div>
+        <h2>Evolución del Diagrama de Bitchat</h2>
+        <p>Explora las diferentes versiones del diagrama de flujo, desde los conceptos iniciales hasta el diseño refinado tras la evaluación con usuarios.</p>
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-icon">V1</div>
+                <h3 class="app-title">Diagrama de Flujo v1</h3>
+                <p class="app-description">Diseño inicial basado en la lluvia de ideas y el manual de voz y tono. Refleja la primera estructura conceptual de la aplicación.</p>
+                <a href="diagrama_flujo_v1.html" class="view-button">Ver Diagrama v1</a>
+            </div>
+            <div class="app-card">
+                <div class="app-icon">V2</div>
+                <h3 class="app-title">Diagrama de Flujo v2</h3>
+                <p class="app-description">Versión refinada tras la evaluación con usuarios. Incluye mejoras de usabilidad y un flujo más intuitivo basado en feedback real.</p>
+                <a href="diagrama_flujo_v2.html" class="view-button">Ver Diagrama v2</a>
+            </div>
         </div>
     </div>
+
     <div class="section">
-        <div class="module-title">Pantallas de Inicio</div>
+        <div class="module-title">Flujo Principal de la App (Imágenes Originales)</div>
         <div class="images-flow">
-            <img src="bitchat/home/7.png" alt="Inicio 7">
-            <span class="arrow">→</span>
-            <img src="bitchat/home/8.png" alt="Inicio 8">
-            <span class="arrow">→</span>
-            <img src="bitchat/home/9.png" alt="Inicio 9">
-            <span class="arrow">→</span>
+            <img src="bitchat/home/7.png" alt="Inicio 7"><span class="arrow">→</span>
+            <img src="bitchat/home/8.png" alt="Inicio 8"><span class="arrow">→</span>
+            <img src="bitchat/home/9.png" alt="Inicio 9"><span class="arrow">→</span>
             <img src="bitchat/home/10.png" alt="Inicio 10">
         </div>
     </div>
@@ -50,16 +90,11 @@
     <div class="section">
         <div class="module-title">Registro de Usuario</div>
         <div class="images-flow">
-            <img src="bitchat/registro/1.png" alt="Registro 1">
-            <span class="arrow">→</span>
-            <img src="bitchat/registro/2.png" alt="Registro 2">
-            <span class="arrow">→</span>
-            <img src="bitchat/registro/3.png" alt="Registro 3">
-            <span class="arrow">→</span>
-            <img src="bitchat/registro/4.png" alt="Registro 4">
-            <span class="arrow">→</span>
-            <img src="bitchat/registro/5.png" alt="Registro 5">
-            <span class="arrow">→</span>
+            <img src="bitchat/registro/1.png" alt="Registro 1"><span class="arrow">→</span>
+            <img src="bitchat/registro/2.png" alt="Registro 2"><span class="arrow">→</span>
+            <img src="bitchat/registro/3.png" alt="Registro 3"><span class="arrow">→</span>
+            <img src="bitchat/registro/4.png" alt="Registro 4"><span class="arrow">→</span>
+            <img src="bitchat/registro/5.png" alt="Registro 5"><span class="arrow">→</span>
             <img src="bitchat/registro/6.png" alt="Registro 6">
         </div>
     </div>
@@ -67,22 +102,14 @@
     <div class="section">
         <div class="module-title">Utilidades</div>
         <div class="images-flow">
-            <img src="bitchat/utilidades/11.png" alt="Utilidad 1">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/12.png" alt="Utilidad 2">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/13.png" alt="Utilidad 3">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/14.png" alt="Utilidad 4">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/15.png" alt="Utilidad 5">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/16.png" alt="Utilidad 6">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/17.png" alt="Utilidad 7">
-            <span class="arrow">→</span>
-            <img src="bitchat/utilidades/18.png" alt="Utilidad 8">
-            <span class="arrow">→</span>
+            <img src="bitchat/utilidades/11.png" alt="Utilidad 1"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/12.png" alt="Utilidad 2"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/13.png" alt="Utilidad 3"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/14.png" alt="Utilidad 4"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/15.png" alt="Utilidad 5"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/16.png" alt="Utilidad 6"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/17.png" alt="Utilidad 7"><span class="arrow">→</span>
+            <img src="bitchat/utilidades/18.png" alt="Utilidad 8"><span class="arrow">→</span>
             <img src="bitchat/utilidades/19.png" alt="Utilidad 9">
         </div>
     </div>

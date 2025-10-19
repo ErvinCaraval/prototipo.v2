@@ -3,60 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Flujo Dinámico v2 - Bitchat</title>
+    <title>Diagrama de Flujo v2 (CORRECCIÓN FINAL)</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            background-color: #F4F6F9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-        #viewport {
-            width: 100%;
-            height: 100%;
-            cursor: grab;
-            position: relative;
-        }
-        #canvas {
-            position: absolute;
-            transform-origin: 0 0;
-        }
+        body, html { margin: 0; padding: 0; overflow: hidden; width: 100%; height: 100%; background-color: #F4F6F9; font-family: sans-serif; }
+        #viewport { width: 100%; height: 100%; cursor: grab; position: relative; }
+        #canvas { position: absolute; transform-origin: 0 0; width: 8000px; height: 8000px; }
         .screen-node {
             position: absolute;
             width: 300px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border: 1px solid #E5EAF1;
             padding: 15px;
             cursor: move;
             user-select: none;
+            z-index: 1; /* Nodos en la capa 1 */
         }
         .screen-node:hover {
             box-shadow: 0 15px 40px rgba(24, 169, 153, 0.2), 0 3px 8px rgba(24, 169, 153, 0.1);
         }
-        .screen-node.dragging {
-            cursor: grabbing;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            z-index: 1000; /* Bring dragged node to the very front */
-        }
-        .screen-node img {
-            width: 100%;
-            border-radius: 8px;
-            display: block;
-            pointer-events: none;
-        }
-        .screen-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-            margin-top: 10px;
-            text-align: center;
-            pointer-events: none;
-        }
+        .screen-node.dragging { cursor: grabbing; box-shadow: 0 20px 50px rgba(0,0,0,0.3); z-index: 1000; }
+        .screen-node img { width: 100%; border-radius: 8px; display: block; pointer-events: none; }
+        .screen-title { font-size: 14px; font-weight: 600; color: #333; margin-top: 10px; text-align: center; pointer-events: none; }
         #connector-layer {
             position: absolute;
             top: 0;
@@ -64,26 +33,27 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 2; /* Flechas en la capa 2, POR ENCIMA de los nodos */
         }
         .connector-line {
-            stroke: #A9B1BD;
-            stroke-width: 2.5;
+            stroke: red; /* ROJO PARA VERLAS SÍ O SÍ */
+            stroke-width: 3;
             fill: none;
             marker-end: url(#arrowhead);
         }
         .header {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #32d5c3 0%, #18a999 100%);
-            color: white;
-            padding: 15px 30px;
-            box-sizing: border-box;
-            z-index: 1001; /* Header on top of everything */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display:flex; 
+            justify-content:space-between; 
+            align-items:center; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background: linear-gradient(135deg, #32d5c3 0%, #18a999 100%); 
+            color: white; 
+            padding: 15px 30px; 
+            box-sizing: border-box; 
+            z-index: 1001;
         }
         .header h1 { margin: 0; font-size: 1.5rem; }
         .back-button { text-decoration: none; color: white; background-color: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; font-weight: 600; transition: background-color 0.3s; }
@@ -97,13 +67,15 @@
     </div>
     <div id="viewport">
         <div id="canvas">
-            <!-- Nodes and SVG layer will be injected here -->
+            <!-- Nodos se insertarán aquí por JS -->
+            <svg id="connector-layer"><defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="red" /></marker></defs></svg>
         </div>
     </div>
 
     <script>
         const viewport = document.getElementById('viewport');
         const canvas = document.getElementById('canvas');
+        const svgLayer = document.getElementById('connector-layer');
 
         const screensData = [
             { id: 's1',  img: 'PANTALLAS BITCHAT LAST-v2/1.png',  title: '1. Bienvenida (Mejorada)', x: 100, y: 300 },
@@ -127,15 +99,27 @@
             { id: 's19', img: 'PANTALLAS BITCHAT LAST-v2/19.png', title: '19. Chat (con respuestas)', x: 3300, y: 1700 },
             { id: 's20', img: 'PANTALLAS BITCHAT LAST-v2/20.png', title: '20. Verificación (Exitosa)', x: 900, y: -200 },
         ];
-        const connections = [
-            ['s1','s2'], ['s2','s3'], ['s3','s4'], ['s4','s5'], ['s5','s6'], ['s6','s7'], ['s7','s8'],
-            ['s8','s9'], ['s9','s10'], ['s7','s11'], ['s7','s12'], ['s12','s19'], ['s9','s14'], ['s14','s15'],
-            ['s14','s16'], ['s14','s17'], ['s9','s18'], ['s8','s13'], ['s3','s20']
-        ];
+        const connections = [ ['s1','s2'], ['s2','s3'], ['s3','s4'], ['s4','s5'], ['s5','s6'], ['s6','s7'], ['s7','s8'], ['s8','s9'], ['s9','s10'], ['s7','s11'], ['s7','s12'], ['s12','s19'], ['s9','s14'], ['s14','s15'], ['s14','s16'], ['s14','s17'], ['s9','s18'], ['s8','s13'], ['s3','s20'] ];
 
         let state = { scale: 0.7, panX: 0, panY: 0, isPanning: false, isDraggingNode: false, draggedNode: null, dragOffsetX: 0, dragOffsetY: 0, panStartX: 0, panStartY: 0 };
 
-        const nodeElements = screensData.map(screen => {
+        function drawConnectors() {
+            let svgContent = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="red" /></marker></defs>';
+            connections.forEach(([startId, endId]) => {
+                const startNode = document.getElementById(startId); const endNode = document.getElementById(endId);
+                if (!startNode || !endNode) return;
+                const startX = parseFloat(startNode.dataset.x) + startNode.offsetWidth / 2;
+                const startY = parseFloat(startNode.dataset.y) + startNode.offsetHeight / 2;
+                const endX = parseFloat(endNode.dataset.x) + endNode.offsetWidth / 2;
+                const endY = parseFloat(endNode.dataset.y) + endNode.offsetHeight / 2;
+                svgContent += `<path d="M ${startX} ${startY} L ${endX} ${endY}" class="connector-line" />`;
+            });
+            svgLayer.innerHTML = svgContent;
+        }
+
+        function updateCanvasTransform() { canvas.style.transform = `translate(${state.panX}px, ${state.panY}px) scale(${state.scale})`; }
+
+        screensData.forEach(screen => {
             const node = document.createElement('div');
             node.className = 'screen-node';
             node.id = screen.id;
@@ -143,104 +127,41 @@
             node.dataset.y = screen.y;
             node.style.transform = `translate(${screen.x}px, ${screen.y}px)`;
             node.innerHTML = `<img src="${screen.img}" alt="${screen.title}"><p class="screen-title">${screen.title}</p>`;
-            canvas.appendChild(node);
+            canvas.insertBefore(node, svgLayer);
 
             node.addEventListener('mousedown', e => {
                 e.stopPropagation();
-                state.isDraggingNode = true;
-                state.draggedNode = node;
-                node.classList.add('dragging');
+                state.isDraggingNode = true; state.draggedNode = node; node.classList.add('dragging');
                 state.dragOffsetX = (e.clientX / state.scale) - (state.panX / state.scale) - parseFloat(node.dataset.x);
                 state.dragOffsetY = (e.clientY / state.scale) - (state.panY / state.scale) - parseFloat(node.dataset.y);
                 viewport.style.cursor = 'grabbing';
             });
-            return node;
         });
 
-        const svgLayer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svgLayer.id = 'connector-layer';
-        svgLayer.setAttribute('width', '8000');
-        svgLayer.setAttribute('height', '8000');
-        svgLayer.style.transform = 'translate(-2000px, -2000px)';
-        canvas.appendChild(svgLayer);
-
-        function drawConnectors() {
-            svgLayer.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs>';
-            connections.forEach(([startId, endId]) => {
-                const startNode = document.getElementById(startId);
-                const endNode = document.getElementById(endId);
-                if (!startNode || !endNode) return;
-
-                const startX = parseFloat(startNode.dataset.x) + startNode.offsetWidth / 2 + 2000;
-                const startY = parseFloat(startNode.dataset.y) + startNode.offsetHeight / 2 + 2000;
-                const endX = parseFloat(endNode.dataset.x) + endNode.offsetWidth / 2 + 2000;
-                const endY = parseFloat(endNode.dataset.y) + endNode.offsetHeight / 2 + 2000;
-
-                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                path.setAttribute('d', `M ${startX} ${startY} L ${endX} ${endY}`);
-                path.setAttribute('class', 'connector-line');
-                svgLayer.appendChild(path);
-            });
-        }
-
-        function updateCanvasTransform() {
-            canvas.style.transform = `translate(${state.panX}px, ${state.panY}px) scale(${state.scale})`;
-        }
-
-        viewport.addEventListener('mousedown', e => {
-            if (state.isDraggingNode) return;
-            state.isPanning = true;
-            state.panStartX = e.clientX - state.panX;
-            state.panStartY = e.clientY - state.panY;
-            viewport.style.cursor = 'grabbing';
-        });
-
-        window.addEventListener('mouseup', () => {
-            if (state.isDraggingNode) {
-                state.draggedNode.classList.remove('dragging');
-                state.isDraggingNode = false;
-            }
-            state.isPanning = false;
-            viewport.style.cursor = 'grab';
-        });
-
+        viewport.addEventListener('mousedown', e => { if (state.isDraggingNode) return; state.isPanning = true; state.panStartX = e.clientX - state.panX; state.panStartY = e.clientY - state.panY; viewport.style.cursor = 'grabbing'; });
+        window.addEventListener('mouseup', () => { if (state.isDraggingNode) { state.draggedNode.classList.remove('dragging'); state.isDraggingNode = false; } state.isPanning = false; viewport.style.cursor = 'grab'; });
         window.addEventListener('mousemove', e => {
             if (state.isDraggingNode) {
                 const newX = (e.clientX / state.scale) - (state.panX / state.scale) - state.dragOffsetX;
                 const newY = (e.clientY / state.scale) - (state.panY / state.scale) - state.dragOffsetY;
-                state.draggedNode.dataset.x = newX;
-                state.draggedNode.dataset.y = newY;
+                state.draggedNode.dataset.x = newX; state.draggedNode.dataset.y = newY;
                 state.draggedNode.style.transform = `translate(${newX}px, ${newY}px)`;
                 drawConnectors();
-            } else if (state.isPanning) {
-                state.panX = e.clientX - state.panStartX;
-                state.panY = e.clientY - state.panStartY;
-                updateCanvasTransform();
-            }
+            } else if (state.isPanning) { state.panX = e.clientX - state.panStartX; state.panY = e.clientY - state.panStartY; updateCanvasTransform(); }
         });
-
         viewport.addEventListener('wheel', e => {
             e.preventDefault();
-            const scaleAmount = -e.deltaY * 0.001;
-            const newScale = Math.max(0.2, Math.min(2, state.scale + scaleAmount));
-            const rect = viewport.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
-            state.panX = mouseX - (mouseX - state.panX) * (newScale / state.scale);
-            state.panY = mouseY - (mouseY - state.panY) * (newScale / state.scale);
-            state.scale = newScale;
-            updateCanvasTransform();
+            const scaleAmount = -e.deltaY * 0.001; const newScale = Math.max(0.2, Math.min(2, state.scale + scaleAmount));
+            const rect = viewport.getBoundingClientRect(); const mouseX = e.clientX - rect.left; const mouseY = e.clientY - rect.top;
+            state.panX = mouseX - (mouseX - state.panX) * (newScale / state.scale); state.panY = mouseY - (mouseY - state.panY) * (newScale / state.scale);
+            state.scale = newScale; updateCanvasTransform(); drawConnectors();
         });
 
-        // Initial position & draw
-        state.panX = (-100 * state.scale) + (window.innerWidth / 3);
-        state.panY = (-300 * state.scale) + (window.innerHeight / 3);
-        updateCanvasTransform();
-        drawConnectors();
-
-        window.addEventListener('resize', () => {
-             updateCanvasTransform();
-             drawConnectors();
+        window.addEventListener('load', () => {
+            state.panX = (-100 * state.scale) + (window.innerWidth / 3); state.panY = (-300 * state.scale) + (window.innerHeight / 3);
+            updateCanvasTransform();
+            drawConnectors();
+            window.addEventListener('resize', drawConnectors);
         });
     </script>
 </body>

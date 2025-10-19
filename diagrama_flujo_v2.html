@@ -1,75 +1,197 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Flujo v2 - Bitchat</title>
+    <title>Diagrama de Flujo v2 - Bitchat (Estilo Figma)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #0d1b2a; color: #fff; padding: 20px; text-align: center; border-bottom: 5px solid #0a142f; }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { margin: 5px 0 0; color: #e4e4e4; }
-        main { padding: 20px; max-width: 1200px; margin: auto; }
-        .flow-container { display: flex; flex-direction: column; align-items: center; gap: 40px; }
-        .flow-step { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; max-width: 800px; width: 100%; transition: transform 0.2s; }
-        .flow-step:hover { transform: translateY(-5px); }
-        .flow-step h2 { background-color: #0a142f; color: #fff; margin: 0; padding: 15px; font-size: 1.5em; }
-        .flow-step-content { display: flex; align-items: center; padding: 20px; gap: 20px; }
-        .flow-step-content img { max-width: 300px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .flow-step-content p { margin: 0; flex: 1; text-align: left; font-size: 1.1em; line-height: 1.6; }
-        .arrow { font-size: 2em; color: #0a142f; text-align: center; margin: 20px 0; }
-        .back-link { position: absolute; top: 20px; left: 20px; background-color: #fff; color: #0d1b2a; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        body {
+            background-color: #F0F2F5;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #32d5c3 0%, #18a999 100%);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .back-button {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255,255,255,0.4);
+        }
+
+        .canvas {
+            padding: 40px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .flow-section {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+        }
+
+        .flow-section h2 {
+            font-size: 1.5rem;
+            color: #18a999;
+            margin-bottom: 30px;
+            border-left: 4px solid #18a999;
+            padding-left: 15px;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        .screen-node {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .screen-card {
+            background: #fff;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 300px;
+        }
+        
+        .screen-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .screen-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .screen-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #444;
+        }
+        
+        .connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .arrow {
+            font-size: 2.5rem;
+            color: #18a999;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <a href="index_diagramas_con_imagenes.html" class="back-link">&#8592; Volver</a>
-    <header>
-        <h1>Diagrama de Flujo v2</h1>
-        <p>Versión refinada tras la evaluación con usuarios.</p>
-    </header>
-    <main>
-        <div class="flow-container">
-            <div class="flow-step">
-                <h2>1. Pantalla de Carga Optimizada</h2>
-                <div class="flow-step-content">
-                    <img src="PANTALLAS BITCHAT LAST-v2/1.png" alt="Pantalla de Carga v2">
-                    <p>Inicio rediseñado para ser más rápido y atractivo, reflejando el feedback de los usuarios.</p>
-                </div>
-            </div>
-            <div class="arrow">&#8595;</div>
-            <div class="flow-step">
-                <h2>2. Inicio de Sesión Simplificado</h2>
-                <div class="flow-step-content">
-                    <img src="PANTALLAS BITCHAT LAST-v2/2.png" alt="Inicio de Sesión v2">
-                    <p>Proceso de login y registro más intuitivo, con opciones de acceso rápido (redes sociales).</p>
-                </div>
-            </div>
-            <div class="arrow">&#8595;</div>
-            <div class="flow-step">
-                <h2>3. Pantalla Principal (Chats)</h2>
-                <div class="flow-step-content">
-                    <img src="PANTALLAS BITCHAT LAST-v2/3.png" alt="Pantalla de Chats v2">
-                    <p>Interfaz de chats mejorada, con mayor claridad visual y acceso a funciones clave.</p>
-                </div>
-            </div>
-            <div class="arrow">&#8595;</div>
-            <div class="flow-step">
-                <h2>4. Perfil de Usuario</h2>
-                <div class="flow-step-content">
-                    <img src="PANTALLAS BITCHAT LAST-v2/19.png" alt="Perfil de Usuario v2">
-                    <p>Sección de perfil rediseñada para una mejor experiencia y personalización.</p>
-                </div>
-            </div>
-            <div class="arrow">&#8595;</div>
-            <div class="flow-step">
-                <h2>5. Ajustes Reorganizados</h2>
-                <div class="flow-step-content">
-                    <img src="PANTALLAS BITCHAT LAST-v2/20.png" alt="Ajustes v2">
-                    <p>Menú de ajustes reestructurado según las preferencias y el uso observado en las pruebas.</p>
-                </div>
+
+    <div class="header">
+        <h1>Diagrama de Flujo v2: Diseño Refinado</h1>
+        <a href="index_diagramas_con_imagenes.html" class="back-button">← Volver al Inicio</a>
+    </div>
+
+    <div class="canvas">
+        <!-- Flujo de Registro (v2) -->
+        <div class="flow-section">
+            <h2>1. Flujo de Registro (v2)</h2>
+            <div class="flow-container">
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/1.png"><p class="screen-title">1. Bienvenida (Mejorada)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/2.png"><p class="screen-title">2. Correo (Simplificado)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/3.png"><p class="screen-title">3. Contraseña (con feedback)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/4.png"><p class="screen-title">4. Alias (con sugerencias)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/5.png"><p class="screen-title">5. Intereses (Visual)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/6.png"><p class="screen-title">6. Sugerencias (Relevantes)</p></div></div>
             </div>
         </div>
-    </main>
+
+        <!-- Flujo Principal (Home v2) -->
+        <div class="flow-section">
+            <h2>2. Flujo Principal (Home v2)</h2>
+            <div class="flow-container">
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/7.png"><p class="screen-title">7. Home (con estados)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/8.png"><p class="screen-title">8. Canales (Rediseñado)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/9.png"><p class="screen-title">9. Perfil (con más opciones)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/10.png"><p class="screen-title">10. Descubrir (Personalizado)</p></div></div>
+            </div>
+        </div>
+
+        <!-- Flujo de Utilidades (v2) -->
+        <div class="flow-section">
+            <h2>3. Flujo de Utilidades (v2)</h2>
+            <div class="flow-container">
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/11.png"><p class="screen-title">11. Búsqueda (con filtros)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/12.png"><p class="screen-title">12. Notificaciones (Agrupadas)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/13.png"><p class="screen-title">13. Crear Canal (Paso a paso)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/14.png"><p class="screen-title">14. Ajustes (Reorganizado)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/15.png"><p class="screen-title">15. Privacidad (Más claro)</p></div></div>
+                <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/16.png"><p class="screen-title">16. Cuenta (con Seguridad)</p></div></div>
+                 <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/17.png"><p class="screen-title">17. Ayuda (Contextual)</p></div></div>
+                 <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/18.png"><p class="screen-title">18. Amigos (con búsqueda)</p></div></div>
+                 <div class="connector"><div class="arrow">→</div></div>
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/19.png"><p class="screen-title">19. Chat (con respuestas)</p></div></div>
+            </div>
+        </div>
+
+        <!-- Flujo de Verificación (v2) -->
+        <div class="flow-section">
+            <h2>4. Flujo de Verificación (v2)</h2>
+            <div class="flow-container">
+                <div class="screen-node"><div class="screen-card"><img src="PANTALLAS BITCHAT LAST-v2/20.png"><p class="screen-title">20. Verificación (Exitosa)</p></div></div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

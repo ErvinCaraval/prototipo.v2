@@ -1,63 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagrama de Flujo v2 (Flujo Correcto)</title>
+    <title>Diagrama de Flujo v2 (Inteligente)</title>
     <style>
-        body, html { margin: 0; padding: 0; overflow: hidden; width: 100%; height: 100%; background-color: #F4F6F9; font-family: sans-serif; }
+        body, html { margin: 0; padding: 0; overflow: hidden; width: 100%; height: 100%; background-color: #F4F6F9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         #viewport { width: 100%; height: 100%; cursor: grab; position: relative; }
-        #canvas { position: absolute; transform-origin: 0 0; width: 8000px; height: 8000px; }
+        #canvas { position: absolute; transform-origin: 0 0; }
         .screen-node {
             position: absolute;
             width: 300px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05);
             border: 1px solid #E5EAF1;
             padding: 15px;
             cursor: move;
             user-select: none;
             z-index: 10;
         }
-        .screen-node:hover {
-            box-shadow: 0 15px 40px rgba(24, 169, 153, 0.2), 0 3px 8px rgba(24, 169, 153, 0.1);
-        }
+        .screen-node:hover { box-shadow: 0 15px 40px rgba(24, 169, 153, 0.2), 0 3px 8px rgba(24, 169, 153, 0.1); }
         .screen-node.dragging { cursor: grabbing; box-shadow: 0 20px 50px rgba(0,0,0,0.3); z-index: 1000; }
         .screen-node img { width: 100%; border-radius: 8px; display: block; pointer-events: none; }
         .screen-title { font-size: 14px; font-weight: 600; color: #333; margin-top: 10px; text-align: center; pointer-events: none; }
-        #connector-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 5;
-        }
-        .connector-line {
-            stroke: #A9B1BD; /* Color gris estético */
-            stroke-width: 2.5; /* Grosor adecuado */
-            fill: none;
-            marker-end: url(#arrowhead);
-        }
-        .header {
-            position: absolute;
-            display:flex; 
-            justify-content:space-between; 
-            align-items:center; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            background: linear-gradient(135deg, #32d5c3 0%, #18a999 100%); 
-            color: white; 
-            padding: 15px 30px; 
-            box-sizing: border-box; 
-            z-index: 1001;
-        }
+        #connector-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+        .connector-line { stroke: #A9B1BD; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead-v2); }
+        .header { position: absolute; display:flex; justify-content:space-between; align-items:center; top: 0; left: 0; width: 100%; background: linear-gradient(135deg, #32d5c3 0%, #18a999 100%); color: white; padding: 15px 30px; box-sizing: border-box; z-index: 1001; }
         .header h1 { margin: 0; font-size: 1.5rem; }
         .back-button { text-decoration: none; color: white; background-color: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; font-weight: 600; transition: background-color 0.3s; }
         .back-button:hover { background-color: rgba(255,255,255,0.4); }
+        .category-title {
+            position: absolute;
+            font-size: 24px;
+            font-weight: 700;
+            color: #18a999;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -67,8 +47,7 @@
     </div>
     <div id="viewport">
         <div id="canvas">
-            <svg id="connector-layer"><defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs></svg>
-             <!-- Nodos se insertarán aquí por JS -->
+            <svg id="connector-layer"><defs><marker id="arrowhead-v2" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs></svg>
         </div>
     </div>
 
@@ -78,52 +57,127 @@
         const svgLayer = document.getElementById('connector-layer');
 
         const screensData = [
+            // Flujo de Registro
             { id: 's1',  img: 'PANTALLAS BITCHAT LAST-v2/1.png',  title: '1. Bienvenida (Mejorada)', x: 100, y: 300 },
             { id: 's2',  img: 'PANTALLAS BITCHAT LAST-v2/2.png',  title: '2. Correo (Simplificado)', x: 500, y: 300 },
             { id: 's3',  img: 'PANTALLAS BITCHAT LAST-v2/3.png',  title: '3. Contraseña (con feedback)', x: 900, y: 300 },
+            { id: 's20', img: 'PANTALLAS BITCHAT LAST-v2/20.png', title: '20. Verificación (Exitosa)', x: 900, y: -200 },
             { id: 's4',  img: 'PANTALLAS BITCHAT LAST-v2/4.png',  title: '4. Alias (con sugerencias)', x: 1300, y: 300 },
             { id: 's5',  img: 'PANTALLAS BITCHAT LAST-v2/5.png',  title: '5. Intereses (Visual)', x: 1700, y: 300 },
             { id: 's6',  img: 'PANTALLAS BITCHAT LAST-v2/6.png',  title: '6. Sugerencias (Relevantes)', x: 2100, y: 300 },
-            { id: 's7',  img: 'PANTALLAS BITCHAT LAST-v2/7.png',  title: '7. Home (con estados)', x: 100, y: 1000 },
-            { id: 's8',  img: 'PANTALLAS BITCHAT LAST-v2/8.png',  title: '8. Canales (Rediseñado)', x: 500, y: 1000 },
-            { id: 's9',  img: 'PANTALLAS BITCHAT LAST-v2/9.png',  title: '9. Perfil (con más opciones)', x: 900, y: 1000 },
-            { id: 's10', img: 'PANTALLAS BITCHAT LAST-v2/10.png', title: '10. Descubrir (Personalizado)', x: 1300, y: 1000 },
-            { id: 's11', img: 'PANTALLAS BITCHAT LAST-v2/11.png', title: '11. Búsqueda (con filtros)', x: 100, y: 1700 },
-            { id: 's12', img: 'PANTALLAS BITCHAT LAST-v2/12.png', title: '12. Notificaciones (Agrupadas)', x: 500, y: 1700 },
-            { id: 's13', img: 'PANTALLAS BITCHAT LAST-v2/13.png', title: '13. Crear Canal (Paso a paso)', x: 900, y: 1700 },
-            { id: 's14', img: 'PANTALLAS BITCHAT LAST-v2/14.png', title: '14. Ajustes (Reorganizado)', x: 1300, y: 1700 },
-            { id: 's15', img: 'PANTALLAS BITCHAT LAST-v2/15.png', title: '15. Privacidad (Más claro)', x: 1700, y: 1700 },
-            { id: 's16', img: 'PANTALLAS BITCHAT LAST-v2/16.png', title: '16. Cuenta (con Seguridad)', x: 2100, y: 1700 },
-            { id: 's17', img: 'PANTALLAS BITCHAT LAST-v2/17.png', title: '17. Ayuda (Contextual)', x: 2500, y: 1700 },
-            { id: 's18', img: 'PANTALLAS BITCHAT LAST-v2/18.png', title: '18. Amigos (con búsqueda)', x: 2900, y: 1700 },
-            { id: 's19', img: 'PANTALLAS BITCHAT LAST-v2/19.png', title: '19. Chat (con respuestas)', x: 3300, y: 1700 },
-            { id: 's20', img: 'PANTALLAS BITCHAT LAST-v2/20.png', title: '20. Verificación (Exitosa)', x: 900, y: -200 },
+            
+            // Navegación Principal y Funciones
+            { id: 's7',  img: 'PANTALLAS BITCHAT LAST-v2/7.png',  title: '7. Home (con estados)', x: 1400, y: 1000 },
+            { id: 's19', img: 'PANTALLAS BITCHAT LAST-v2/19.png', title: '19. Chat (con respuestas)', x: 1400, y: 1700 },
+            { id: 's8',  img: 'PANTALLAS BITCHAT LAST-v2/8.png',  title: '8. Canales (Rediseñado)', x: 1800, y: 1000 },
+            { id: 's13', img: 'PANTALLAS BITCHAT LAST-v2/13.png', title: '13. Crear Canal (Paso a paso)', x: 1800, y: 1700 },
+            { id: 's10', img: 'PANTALLAS BITCHAT LAST-v2/10.png', title: '10. Descubrir (Personalizado)', x: 2200, y: 1000 },
+            { id: 's11', img: 'PANTALLAS BITCHAT LAST-v2/11.png', title: '11. Búsqueda (con filtros)', x: 2600, y: 1000 },
+            
+            // Perfil y Ajustes
+            { id: 's9',  img: 'PANTALLAS BITCHAT LAST-v2/9.png',  title: '9. Perfil (con más opciones)', x: 3400, y: 600 },
+            { id: 's18', img: 'PANTALLAS BITCHAT LAST-v2/18.png', title: '18. Amigos (con búsqueda)', x: 3400, y: 1300 },
+            { id: 's14', img: 'PANTALLAS BITCHAT LAST-v2/14.png', title: '14. Ajustes (Reorganizado)', x: 3900, y: 600 },
+            { id: 's15', img: 'PANTALLAS BITCHAT LAST-v2/15.png', title: '15. Privacidad (Más claro)', x: 4400, y: 400 },
+            { id: 's16', img: 'PANTALLAS BITCHAT LAST-v2/16.png', title: '16. Cuenta (con Seguridad)', x: 4400, y: 800 },
+            { id: 's17', img: 'PANTALLAS BITCHAT LAST-v2/17.png', title: '17. Ayuda (Contextual)', x: 3900, y: 1300 },
+
+            // Notificaciones
+            { id: 's12', img: 'PANTALLAS BITCHAT LAST-v2/12.png', title: '12. Notificaciones (Agrupadas)', x: 3400, y: 0 }
+        ];
+
+        const categoriesData = [
+            { title: 'Flujo de Registro y Personalización', x: 100, y: 100 },
+            { title: 'Navegación Principal y Funciones Clave', x: 1400, y: 800 },
+            { title: 'Perfil, Amigos y Ajustes', x: 3400, y: -450 },
         ];
 
         const connections = [
-            ['s1','s2'], ['s2','s3'], ['s3','s4'], ['s4','s5'], ['s5','s6'], // Secuencia
-            ['s6','s7'], ['s6','s8'], ['s6','s9'], ['s6','s10'], ['s6','s11'], ['s6','s12'], ['s6','s13'], 
-            ['s6','s14'], ['s6','s15'], ['s6','s16'], ['s6','s17'], ['s6','s18'], ['s6','s19'], ['s6','s20'] // Conexiones desde 6
+            // Flujo de registro
+            ['s1','s2'], ['s2','s3'], ['s3','s4'], ['s4','s5'], ['s5','s6'],
+            // Flujos derivados
+            { from: 's3', to: 's20' }, // Verificación
+            // Conexiones desde la Home (s6)
+            { from: 's6', to: 's7', fromIcon: 'home' },     // A Home
+            { from: 's6', to: 's8', fromIcon: 'channels' }, // A Canales
+            { from: 's6', to: 's10', fromIcon: 'discover' },// A Descubrir
+            { from: 's6', to: 's11', fromIcon: 'search' },  // A Búsqueda
+            { from: 's6', to: 's9', fromIcon: 'profile' },  // A Perfil
+            { from: 's6', to: 's12', fromIcon: 'notif' },   // A Notificaciones
+            // Conexiones desde otras pantallas
+            { from: 's7', to: 's19' }, // De Home a Chat
+            { from: 's8', to: 's13' }, // De Canales a Crear Canal
+            { from: 's9', to: 's18' }, // De Perfil a Amigos
+            { from: 's9', to: 's14' }, // De Perfil a Ajustes
+            { from: 's14', to: 's15' },// De Ajustes a Privacidad
+            { from: 's14', to: 's16' },// De Ajustes a Cuenta
+            { from: 's14', to: 's17' },// De Ajustes a Ayuda
         ];
 
-        let state = { scale: 0.7, panX: 0, panY: 0, isPanning: false, isDraggingNode: false, draggedNode: null, dragOffsetX: 0, dragOffsetY: 0, panStartX: 0, panStartY: 0 };
+        let state = { scale: 0.6, panX: 0, panY: 0, isPanning: false, isDraggingNode: false, draggedNode: null, dragOffsetX: 0, dragOffsetY: 0, panStartX: 0, panStartY: 0 };
+
+        const iconCoordinates = {
+            // Coordenadas relativas al nodo de origen (0,0 es top-left, 1,1 es bottom-right)
+            home:     { x: 0.20, y: 0.95 }, // Bottom-left icon
+            channels: { x: 0.50, y: 0.95 }, // Bottom-center icon
+            discover: { x: 0.80, y: 0.95 }, // Bottom-right icon
+            search:   { x: 0.50, y: 0.15 }, // Top-center search bar
+            profile:  { x: 0.90, y: 0.10 }, // Top-right avatar
+            notif:    { x: 0.10, y: 0.10 }, // Top-left bell
+        };
 
         function drawConnectors() {
-            let svgContent = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#A9B1BD" /></marker></defs>';
-            connections.forEach(([startId, endId]) => {
-                const startNode = document.getElementById(startId); const endNode = document.getElementById(endId);
+            let svgContent = svgLayer.querySelector('defs').outerHTML; // Keep existing defs
+            connections.forEach(conn => {
+                const startId = Array.isArray(conn) ? conn[0] : conn.from;
+                const endId = Array.isArray(conn) ? conn[1] : conn.to;
+                const startNode = document.getElementById(startId);
+                const endNode = document.getElementById(endId);
                 if (!startNode || !endNode) return;
-                const startX = parseFloat(startNode.dataset.x) + startNode.offsetWidth / 2;
-                const startY = parseFloat(startNode.dataset.y) + startNode.offsetHeight / 2;
+
+                let startX = parseFloat(startNode.dataset.x) + startNode.offsetWidth / 2;
+                let startY = parseFloat(startNode.dataset.y) + startNode.offsetHeight / 2;
+                
+                if (conn.fromIcon && iconCoordinates[conn.fromIcon]) {
+                    const iconPos = iconCoordinates[conn.fromIcon];
+                    startX = parseFloat(startNode.dataset.x) + startNode.offsetWidth * iconPos.x;
+                    startY = parseFloat(startNode.dataset.y) + startNode.offsetHeight * iconPos.y;
+                }
+
                 const endX = parseFloat(endNode.dataset.x) + endNode.offsetWidth / 2;
                 const endY = parseFloat(endNode.dataset.y) + endNode.offsetHeight / 2;
-                svgContent += `<path d="M ${startX} ${startY} L ${endX} ${endY}" class="connector-line" />`;
+
+                // Simple curve for better aesthetics
+                const midX = startX + (endX - startX) * 0.5;
+                const midY = startY + (endY - startY) * 0.5;
+                const ctrlY1 = startY < endY ? startY - (startY - endY) * 0.2 : startY + (endY-startY) * 0.2;
+                const ctrlY2 = endY > startY ? endY + (startY - endY) * 0.2 : endY - (endY-startY) * 0.2;
+                
+                let pathD = `M ${startX} ${startY} L ${endX} ${endY}`;
+                if (Math.abs(startX - endX) > 50) { // Apply curve if nodes are not vertically aligned
+                   pathD = `M ${startX} ${startY} C ${startX} ${midY}, ${endX} ${midY}, ${endX} ${endY}`;
+                }
+
+
+                svgContent += `<path d="${pathD}" class="connector-line" />`;
             });
             svgLayer.innerHTML = svgContent;
         }
 
         function updateCanvasTransform() { canvas.style.transform = `translate(${state.panX}px, ${state.panY}px) scale(${state.scale})`; }
+        
+        // ---- INITIALIZATION ----
+        
+        // Create Category Titles
+        categoriesData.forEach(cat => {
+            const titleEl = document.createElement('div');
+            titleEl.className = 'category-title';
+            titleEl.textContent = cat.title;
+            titleEl.style.transform = `translate(${cat.x}px, ${cat.y}px)`;
+            canvas.appendChild(titleEl);
+        });
 
+        // Create Screen Nodes
         screensData.forEach(screen => {
             const node = document.createElement('div');
             node.className = 'screen-node';
@@ -137,33 +191,45 @@
             node.addEventListener('mousedown', e => {
                 e.stopPropagation();
                 state.isDraggingNode = true; state.draggedNode = node; node.classList.add('dragging');
-                state.dragOffsetX = (e.clientX / state.scale) - (state.panX / state.scale) - parseFloat(node.dataset.x);
-                state.dragOffsetY = (e.clientY / state.scale) - (state.panY / state.scale) - parseFloat(node.dataset.y);
+                const rect = node.getBoundingClientRect();
+                state.dragOffsetX = e.clientX - rect.left;
+                state.dragOffsetY = e.clientY - rect.top;
                 viewport.style.cursor = 'grabbing';
             });
         });
 
+        // Event Listeners
         viewport.addEventListener('mousedown', e => { if (state.isDraggingNode) return; state.isPanning = true; state.panStartX = e.clientX - state.panX; state.panStartY = e.clientY - state.panY; viewport.style.cursor = 'grabbing'; });
         window.addEventListener('mouseup', () => { if (state.isDraggingNode) { state.draggedNode.classList.remove('dragging'); state.isDraggingNode = false; } state.isPanning = false; viewport.style.cursor = 'grab'; });
         window.addEventListener('mousemove', e => {
             if (state.isDraggingNode) {
-                const newX = (e.clientX / state.scale) - (state.panX / state.scale) - state.dragOffsetX;
-                const newY = (e.clientY / state.scale) - (state.panY / state.scale) - state.dragOffsetY;
-                state.draggedNode.dataset.x = newX; state.draggedNode.dataset.y = newY;
+                const canvasRect = canvas.getBoundingClientRect();
+                const newX = (e.clientX - canvasRect.left) / state.scale - (state.dragOffsetX / state.scale);
+                const newY = (e.clientY - canvasRect.top) / state.scale - (state.dragOffsetY / state.scale);
+                state.draggedNode.dataset.x = newX;
+                state.draggedNode.dataset.y = newY;
                 state.draggedNode.style.transform = `translate(${newX}px, ${newY}px)`;
                 drawConnectors();
-            } else if (state.isPanning) { state.panX = e.clientX - state.panStartX; state.panY = e.clientY - state.panStartY; updateCanvasTransform(); }
+            } else if (state.isPanning) {
+                state.panX = e.clientX - state.panStartX;
+                state.panY = e.clientY - state.panStartY;
+                updateCanvasTransform();
+            }
         });
         viewport.addEventListener('wheel', e => {
             e.preventDefault();
-            const scaleAmount = -e.deltaY * 0.001; const newScale = Math.max(0.2, Math.min(2, state.scale + scaleAmount));
+            const scaleAmount = -e.deltaY * 0.001; const newScale = Math.max(0.1, Math.min(2, state.scale + scaleAmount));
             const rect = viewport.getBoundingClientRect(); const mouseX = e.clientX - rect.left; const mouseY = e.clientY - rect.top;
-            state.panX = mouseX - (mouseX - state.panX) * (newScale / state.scale); state.panY = mouseY - (mouseY - state.panY) * (newScale / state.scale);
-            state.scale = newScale; updateCanvasTransform(); drawConnectors();
+            state.panX = mouseX - (mouseX - state.panX) * (newScale / state.scale);
+            state.panY = mouseY - (mouseY - state.panY) * (newScale / state.scale);
+            state.scale = newScale;
+            updateCanvasTransform();
         });
 
+        // Initial Draw
         window.addEventListener('load', () => {
-            state.panX = (-100 * state.scale) + (window.innerWidth / 3); state.panY = (-300 * state.scale) + (window.innerHeight / 3);
+            state.panX = (window.innerWidth / 2) - (100 * state.scale); 
+            state.panY = (window.innerHeight / 2) - (300 * state.scale) - 100;
             updateCanvasTransform();
             drawConnectors();
             window.addEventListener('resize', drawConnectors);

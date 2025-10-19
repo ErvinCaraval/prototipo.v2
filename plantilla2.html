@@ -1,394 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plantilla optimización</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    :root {
-      --header-bg: #f7f7f7;
-      --card-bg: #fff;
-      --card-border: #e0e0e0;
-      --cell-bg: #f4f8f4;
-      --cell-border: #dbeee2;
-      --cell-title-bg: #d8f5e0;
-      --cell-title-color: #222;
-      --main-font: 'Inter', Arial, sans-serif;
-      --header-font-size: 1.3rem;
-      --cell-font-size: 1rem;
-      --cell-radius: 10px;
-      --cell-padding: 12px 10px;
-    }
-    body {
-      font-family: var(--main-font);
-      background: var(--header-bg);
-      margin: 0;
-      padding: 0;
-    }
-    .opt-table {
-      width: 98vw;
-      margin: 30px auto;
-      border-collapse: separate;
-      border-spacing: 0;
-      background: var(--card-bg);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-      border-radius: 18px;
-      overflow: hidden;
-    }
-    .opt-table th {
-      background: var(--cell-title-bg);
-      color: var(--cell-title-color);
-      font-weight: 700;
-      font-size: var(--header-font-size);
-      padding: 18px 8px;
-      border-bottom: 2px solid var(--card-border);
-      text-align: center;
-    }
-    .opt-table td {
-      background: var(--cell-bg);
-      border-bottom: 1px solid var(--cell-border);
-      font-size: var(--cell-font-size);
-      padding: var(--cell-padding);
-      border-radius: var(--cell-radius);
-      text-align: center;
-      vertical-align: top;
-    }
-    .opt-table .img-col {
-      background: var(--card-bg);
-      border-radius: var(--cell-radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 8px;
-      min-width: 120px;
-    }
-    .opt-table .img-col img {
-      width: 80px;
-      height: auto;
-      border-radius: 8px;
-      background: #eee;
-      border: 1px solid #ccc;
-      margin-bottom: 6px;
-    }
-    .opt-table .cell-title {
-      background: var(--cell-title-bg);
-      color: var(--cell-title-color);
-      font-weight: 600;
-      border-radius: var(--cell-radius);
-      padding: 8px 0;
-      margin-bottom: 6px;
-    }
-    @media (max-width: 900px) {
-      .opt-table th, .opt-table td { font-size: 0.95rem; padding: 8px 2px; }
-      .opt-table .img-col img { width: 48px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Optimización - Bitchat</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: left;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        h1, h2 {
+            color: #764ba2;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        p, li {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
-  <table class="opt-table">
-    <thead>
-      <tr>
-        <th>ANTES</th>
-        <th>DESPUÉS</th>
-    <th>Accesibilidad</th>
-    <th>Inclusividad</th>
-    <th>Microcopias efectivas</th>
-    <th>CTAs efectivos</th>
-    <th>UX Writing</th>
-    <th>Concisión</th>
-    <th>Consistencia</th>
-    <th>Claridad</th>
-    <th>Empatía</th>
-    <th>Feedback</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="img-col"><img src="bitchat/registro/1.png" alt="Antes 1"></td>
-     <td class="img-col"><img src="mejoras bitchat/1.png" alt="Después 1" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos extensos y con redundancias, dificultando la lectura y generando confusión.<br><b>DESPUÉS:</b> Textos breves, directos y sin redundancias, facilitando la comprensión y agilizando la interacción.</td>
-    <td><b>ANTES:</b> Estilos visuales y terminología variables, generando incertidumbre.<br><b>DESPUÉS:</b> Unificación total de estilos, iconografía y términos, generando confianza y orientación.</td>
-    <td><b>ANTES:</b> Instrucciones ambiguas y poco claras, provocando errores.<br><b>DESPUÉS:</b> Mensajes claros y precisos, asegurando que el usuario entienda a la primera.</td>
-    <td><b>ANTES:</b> Mensajes de error fríos y culpabilizadores.<br><b>DESPUÉS:</b> Mensajes empáticos y comprensivos, transmitiendo apoyo y acompañamiento.</td>
-    <td><b>ANTES:</b> Bajo contraste, sin textos alternativos y navegación limitada.<br><b>DESPUÉS:</b> Contraste mejorado, textos alternativos y navegación accesible para todos.</td>
-    <td><b>ANTES:</b> Lenguaje con posibles estereotipos y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje neutro y opciones diversas, respetando la diversidad de usuarios.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o confusas, generando dudas.<br><b>DESPUÉS:</b> Microcopias precisas y útiles, anticipando dudas y guiando al usuario.</td>
-    <td><b>ANTES:</b> Botones poco visibles y textos genéricos.<br><b>DESPUÉS:</b> Botones y enlaces visibles, con textos claros y motivadores.</td>
-    <td><b>ANTES:</b> Tono variable y poco alineado con la marca.<br><b>DESPUÉS:</b> Tono coherente y alineado con la marca, facilitando la comprensión.</td>
-    <td><b>ANTES:</b> Feedback tardío o confuso tras las acciones.<br><b>DESPUÉS:</b> Feedback inmediato y claro, informando al usuario en tiempo real.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/registro/2.png" alt="Antes 2"></td>
-     <td class="img-col"><img src="mejoras bitchat/2.png" alt="Después 2" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco claros, generando dudas y ralentizando el registro.<br><b>DESPUÉS:</b> Textos directos y simplificados, permitiendo que el usuario complete el registro fácilmente.</td>
-    <td><b>ANTES:</b> Iconos y colores inconsistentes, dificultando la navegación.<br><b>DESPUÉS:</b> Consistencia total en iconos, colores y estructura visual, facilitando el aprendizaje.</td>
-    <td><b>ANTES:</b> Indicaciones ambiguas y confusas para los campos.<br><b>DESPUÉS:</b> Indicaciones claras y precisas para cada campo y acción, eliminando confusiones.</td>
-    <td><b>ANTES:</b> Mensajes de error impersonales y poco útiles.<br><b>DESPUÉS:</b> Mensajes de ayuda y error con tono cercano y de apoyo, acompañando al usuario.</td>
-    <td><b>ANTES:</b> Contraste bajo y navegación poco accesible.<br><b>DESPUÉS:</b> Contraste mejorado y navegación accesible para todos los usuarios.</td>
-    <td><b>ANTES:</b> Opciones limitadas y lenguaje poco inclusivo.<br><b>DESPUÉS:</b> Opciones diversas y lenguaje inclusivo, respetando la diversidad.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles.<br><b>DESPUÉS:</b> Microcopias que anticipan dudas y guían al usuario en cada paso.</td>
-    <td><b>ANTES:</b> Botones y enlaces poco visibles y textos genéricos.<br><b>DESPUÉS:</b> CTAs claros, motivadores y ubicados estratégicamente.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos coherentes y alineados con la experiencia de marca.</td>
-    <td><b>ANTES:</b> Feedback tardío o inexistente tras las acciones.<br><b>DESPUÉS:</b> Feedback visual y textual inmediato tras cada acción.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/registro/3.png" alt="Antes 3"></td>
-     <td class="img-col"><img src="mejoras bitchat/3.png" alt="Después 3" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Mensajes redundantes y poco directos, generando confusión.<br><b>DESPUÉS:</b> Mensajes directos y claros, permitiendo avanzar rápidamente.</td>
-    <td><b>ANTES:</b> Formularios con estructura variable y poco intuitiva.<br><b>DESPUÉS:</b> Estructura estandarizada y consistente en campos, botones y mensajes.</td>
-    <td><b>ANTES:</b> Mensajes poco claros en cada paso.<br><b>DESPUÉS:</b> Mensajes claros y precisos para cada paso del proceso.</td>
-    <td><b>ANTES:</b> Errores sin ayuda contextual y tono frío.<br><b>DESPUÉS:</b> Ayuda contextual y mensajes empáticos en los errores.</td>
-    <td><b>ANTES:</b> Elementos poco accesibles y navegación limitada.<br><b>DESPUÉS:</b> Elementos accesibles y navegación optimizada para todos.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje inclusivo y opciones para todos los usuarios.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco explicativas.<br><b>DESPUÉS:</b> Microcopias que explican cada campo y acción, anticipando dudas.</td>
-    <td><b>ANTES:</b> CTAs poco visibles y textos genéricos.<br><b>DESPUÉS:</b> CTAs visibles y motivadores, facilitando la acción.</td>
-    <td><b>ANTES:</b> Textos desalineados con la marca y poco coherentes.<br><b>DESPUÉS:</b> Textos alineados con la marca y coherentes en todo el flujo.</td>
-    <td><b>ANTES:</b> Sin feedback tras las interacciones.<br><b>DESPUÉS:</b> Feedback inmediato tras cada interacción.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/registro/4.png" alt="Antes 4"></td>
-     <td class="img-col"><img src="mejoras bitchat/4.png" alt="Después 4" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco relevantes, dificultando la acción.<br><b>DESPUÉS:</b> Textos breves, directos y relevantes, facilitando la comprensión y la acción.</td>
-    <td><b>ANTES:</b> Botones y colores inconsistentes, generando confusión.<br><b>DESPUÉS:</b> Botones y colores estandarizados, logrando consistencia visual.</td>
-    <td><b>ANTES:</b> Indicaciones poco claras para las acciones.<br><b>DESPUÉS:</b> Indicaciones claras y precisas para cada acción.</td>
-    <td><b>ANTES:</b> Mensajes de error sin empatía.<br><b>DESPUÉS:</b> Validaciones y mensajes de error redactados con empatía.</td>
-    <td><b>ANTES:</b> Contraste bajo y accesibilidad limitada.<br><b>DESPUÉS:</b> Contraste mejorado y accesibilidad para todos los usuarios.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje inclusivo y opciones diversas para todos los perfiles.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles.<br><b>DESPUÉS:</b> Microcopias que guían el flujo de registro y resuelven errores.</td>
-    <td><b>ANTES:</b> CTAs poco claros y motivadores.<br><b>DESPUÉS:</b> CTAs claros y motivadores, ubicados estratégicamente.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos coherentes y alineados con la marca.</td>
-    <td><b>ANTES:</b> Sin feedback tras las acciones.<br><b>DESPUÉS:</b> Feedback visual y textual tras cada acción.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/registro/5.png" alt="Antes 5"></td>
-     <td class="img-col"><img src="mejoras bitchat/5.png" alt="Después 5" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y redundantes, dificultando la comprensión.<br><b>DESPUÉS:</b> Textos simplificados y sin redundancias, facilitando la acción.</td>
-    <td><b>ANTES:</b> Iconos y estructura visual variable.<br><b>DESPUÉS:</b> Consistencia total en iconos y estructura visual.</td>
-    <td><b>ANTES:</b> Mensajes poco claros y confusos.<br><b>DESPUÉS:</b> Mensajes claros y directos para cada acción.</td>
-    <td><b>ANTES:</b> Mensajes de error sin empatía.<br><b>DESPUÉS:</b> Mensajes de error y ayuda redactados con empatía.</td>
-    <td><b>ANTES:</b> Elementos poco accesibles y navegación limitada.<br><b>DESPUÉS:</b> Elementos accesibles y navegación optimizada.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje inclusivo y opciones para todos los usuarios.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles.<br><b>DESPUÉS:</b> Microcopias útiles y precisas, anticipando dudas.</td>
-    <td><b>ANTES:</b> CTAs poco motivadores y ubicación confusa.<br><b>DESPUÉS:</b> CTAs motivadores y ubicados estratégicamente.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos alineados con la marca y coherentes.</td>
-    <td><b>ANTES:</b> Sin feedback tras las interacciones.<br><b>DESPUÉS:</b> Feedback inmediato tras cada interacción.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/registro/6.png" alt="Antes 6"></td>
-     <td class="img-col"><img src="mejoras bitchat/6.png" alt="Después 6" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco directos, generando confusión.<br><b>DESPUÉS:</b> Textos directos y sin redundancias, facilitando la comprensión y la acción.</td>
-    <td><b>ANTES:</b> Colores y botones inconsistentes.<br><b>DESPUÉS:</b> Colores y botones estandarizados, logrando consistencia visual.</td>
-    <td><b>ANTES:</b> Indicaciones poco claras y comprensibles.<br><b>DESPUÉS:</b> Indicaciones claras y comprensibles para cada acción.</td>
-    <td><b>ANTES:</b> Mensajes de error sin empatía.<br><b>DESPUÉS:</b> Validaciones y mensajes de error redactados con empatía.</td>
-    <td><b>ANTES:</b> Contraste bajo y accesibilidad limitada.<br><b>DESPUÉS:</b> Contraste mejorado y accesibilidad para todos los usuarios.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje inclusivo y opciones diversas para todos los perfiles.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles.<br><b>DESPUÉS:</b> Microcopias que guían cada paso y resuelven errores.</td>
-    <td><b>ANTES:</b> CTAs poco claros y motivadores.<br><b>DESPUÉS:</b> CTAs claros y motivadores, ubicados estratégicamente.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos coherentes y alineados con la marca.</td>
-    <td><b>ANTES:</b> Sin feedback tras las acciones.<br><b>DESPUÉS:</b> Feedback visual tras cada acción.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/home/7.png" alt="Antes 7"></td>
-     <td class="img-col"><img src="mejoras bitchat/7.png" alt="Después 7" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco relevantes en la pantalla principal.<br><b>DESPUÉS:</b> Textos breves, directos y relevantes, facilitando la comprensión y la acción.</td>
-    <td><b>ANTES:</b> Iconos y colores de navegación inconsistentes.<br><b>DESPUÉS:</b> Consistencia total en iconos y colores de navegación.</td>
-    <td><b>ANTES:</b> Indicaciones poco claras para los módulos.<br><b>DESPUÉS:</b> Indicaciones claras y precisas para cada módulo.</td>
-    <td><b>ANTES:</b> Ayudas y mensajes de error sin empatía.<br><b>DESPUÉS:</b> Ayudas y mensajes de error redactados con empatía.</td>
-    <td><b>ANTES:</b> Contraste bajo y accesibilidad limitada en la home.<br><b>DESPUÉS:</b> Contraste mejorado y accesibilidad para todos los usuarios.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo en mensajes y opciones.<br><b>DESPUÉS:</b> Lenguaje inclusivo en mensajes y opciones.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles en la navegación.<br><b>DESPUÉS:</b> Microcopias útiles y precisas en la navegación.</td>
-    <td><b>ANTES:</b> CTAs poco visibles y motivadores en la home.<br><b>DESPUÉS:</b> CTAs visibles y motivadores en la home.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos alineados con la marca y coherentes.</td>
-    <td><b>ANTES:</b> Sin feedback en acciones principales.<br><b>DESPUÉS:</b> Feedback inmediato en acciones principales.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/home/8.png" alt="Antes 8"></td>
-     <td class="img-col"><img src="mejoras bitchat/8.png" alt="Después 8" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco directos en la navegación.<br><b>DESPUÉS:</b> Textos directos y sin redundancias, facilitando la acción.</td>
-    <td><b>ANTES:</b> Colores y estructura visual inconsistentes.<br><b>DESPUÉS:</b> Consistencia total en colores y estructura visual.</td>
-    <td><b>ANTES:</b> Indicaciones poco claras para las acciones.<br><b>DESPUÉS:</b> Indicaciones claras y precisas para cada acción.</td>
-    <td><b>ANTES:</b> Ayudas y validaciones sin empatía.<br><b>DESPUÉS:</b> Ayudas y validaciones redactadas con empatía.</td>
-    <td><b>ANTES:</b> Accesibilidad limitada en la navegación.<br><b>DESPUÉS:</b> Accesibilidad mejorada en la navegación.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje inclusivo y opciones diversas.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles en los módulos.<br><b>DESPUÉS:</b> Microcopias útiles y precisas en cada módulo.</td>
-    <td><b>ANTES:</b> CTAs poco claros y motivadores en la navegación.<br><b>DESPUÉS:</b> CTAs claros y motivadores en la navegación.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos alineados con la marca y coherentes.</td>
-    <td><b>ANTES:</b> Sin feedback tras las acciones.<br><b>DESPUÉS:</b> Feedback visual tras cada acción.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/home/9.png" alt="Antes 9"></td>
-     <td class="img-col"><img src="mejoras bitchat/9.png" alt="Después 9" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco relevantes en cada sección.<br><b>DESPUÉS:</b> Textos breves, directos y relevantes, facilitando la comprensión y la acción.</td>
-    <td><b>ANTES:</b> Iconos y colores de navegación inconsistentes.<br><b>DESPUÉS:</b> Consistencia total en iconos y colores de navegación.</td>
-    <td><b>ANTES:</b> Indicaciones poco claras para los módulos.<br><b>DESPUÉS:</b> Indicaciones claras y precisas para cada módulo.</td>
-    <td><b>ANTES:</b> Ayudas y mensajes de error sin empatía.<br><b>DESPUÉS:</b> Ayudas y mensajes de error redactados con empatía.</td>
-    <td><b>ANTES:</b> Contraste bajo y accesibilidad limitada en la home.<br><b>DESPUÉS:</b> Contraste mejorado y accesibilidad para todos los usuarios.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo en mensajes y opciones.<br><b>DESPUÉS:</b> Lenguaje inclusivo en mensajes y opciones.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles en la navegación.<br><b>DESPUÉS:</b> Microcopias útiles y precisas en la navegación.</td>
-    <td><b>ANTES:</b> CTAs poco visibles y motivadores en la home.<br><b>DESPUÉS:</b> CTAs visibles y motivadores en la home.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos alineados con la marca y coherentes.</td>
-    <td><b>ANTES:</b> Sin feedback en acciones principales.<br><b>DESPUÉS:</b> Feedback inmediato en acciones principales.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/home/10.png" alt="Antes 10"></td>
-     <td class="img-col"><img src="mejoras bitchat/10.png" alt="Después 10" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Textos largos y poco directos en la navegación.<br><b>DESPUÉS:</b> Textos directos, relevantes y sin redundancias, facilitando la acción.</td>
-    <td><b>ANTES:</b> Colores y estructura visual inconsistentes.<br><b>DESPUÉS:</b> Consistencia total en colores y estructura visual.</td>
-    <td><b>ANTES:</b> Indicaciones poco claras para las acciones.<br><b>DESPUÉS:</b> Indicaciones claras y precisas para cada acción.</td>
-    <td><b>ANTES:</b> Ayudas y validaciones sin empatía.<br><b>DESPUÉS:</b> Ayudas y validaciones redactadas con empatía.</td>
-    <td><b>ANTES:</b> Accesibilidad limitada en la navegación.<br><b>DESPUÉS:</b> Accesibilidad mejorada en la navegación.</td>
-    <td><b>ANTES:</b> Lenguaje poco inclusivo y opciones limitadas.<br><b>DESPUÉS:</b> Lenguaje inclusivo y opciones diversas.</td>
-    <td><b>ANTES:</b> Microcopias ausentes o poco útiles en los módulos.<br><b>DESPUÉS:</b> Microcopias útiles y precisas en cada módulo.</td>
-    <td><b>ANTES:</b> CTAs poco claros y motivadores en la navegación.<br><b>DESPUÉS:</b> CTAs claros, motivadores y ubicados estratégicamente.</td>
-    <td><b>ANTES:</b> Textos incoherentes y desalineados con la marca.<br><b>DESPUÉS:</b> Textos alineados con la marca y coherentes.</td>
-    <td><b>ANTES:</b> Sin feedback tras las acciones.<br><b>DESPUÉS:</b> Feedback visual tras cada acción y validación en tiempo real.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/utilidades/11.png" alt="Antes 11"></td>
-    <td class="img-col"><img src="mejoras bitchat/11.png" alt="Después 11" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Controles con bajo contraste y objetivos táctiles pequeños; sin labels accesibles.<br><b>DESPUÉS:</b> Botón “Limpiar” con tamaño táctil adecuado y `aria-label`; FAB se reposiciona sobre el teclado para permanecer accesible.</td>
-    <td><b>ANTES:</b> Microcopy técnico o ausente, sin lenguaje neutro.<br><b>DESPUÉS:</b> Texto claro y neutro (“Limpiar pantalla”), iconos comprensibles y microcopy pensado para todos los perfiles.</td>
-    <td><b>ANTES:</b> Mensajes escasos sobre la acción y su reversibilidad.<br><b>DESPUÉS:</b> Microcopias útiles: tooltip/hint “Limpiar pantalla — Deshacer disponible” y texto de ayuda junto al input.</td>
-    <td><b>ANTES:</b> Acción de limpiar poco visible y con bajo affordance.<br><b>DESPUÉS:</b> CTA integrado en el input (acceso inmediato) y FAB claramente distinguible que sube sobre el teclado para utilidades secundarias.</td>
-    <td><b>ANTES:</b> Tono técnico y confirmaciones poco orientadoras.<br><b>DESPUÉS:</b> UX writing directo y tranquilizador: “Pantalla limpiada.” + botón “Deshacer” para reducir incertidumbre.</td>
-    <td><b>ANTES:</b> Textos largos o redundantes alrededor de la acción.<br><b>DESPUÉS:</b> Mensajes breves y precisos que comunican acción y reversibilidad en una sola línea.</td>
-    <td><b>ANTES:</b> Iconografía y posiciones inconsistentes entre pantallas.<br><b>DESPUÉS:</b> Posición y estilo coherente: Clear dentro del input, FAB en la esquina (sube sobre el teclado), mismos iconos y peso visual.</td>
-    <td><b>ANTES:</b> Usuario no sabe si la acción es inmediata o reversible; flujo confuso.<br><b>DESPUÉS:</b> Flujo claro: acción inmediata + snackbar con “Deshacer” (y modal de confirmación solo si el borrado fuera permanente).</td>
-    <td><b>ANTES:</b> Mensajes fríos que no ofrecen recuperación ni contexto.<br><b>DESPUÉS:</b> Mensajes empáticos que explican la acción y ofrecen deshacer para evitar culpabilizar al usuario.</td>
-    <td><b>ANTES:</b> Feedback tardío o inexistente tras limpiar la pantalla.<br><b>DESPUÉS:</b> Feedback instantáneo: micro-animación en la UI, snackbar con “Deshacer” y notificación ARIA (`aria-live`) para lectores de pantalla.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/utilidades/12.png" alt="Antes 12"></td>
-    <td class="img-col"><img src="mejoras bitchat/12.png" alt="Después 12" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-    <td><b>ANTES:</b> Controles con bajo contraste y objetivos táctiles pequeños; sin labels accesibles.<br><b>DESPUÉS:</b> Botones con tamaño táctil adecuado, colores accesibles y `aria-label` para lectores de pantalla.</td>
-    <td><b>ANTES:</b> Microcopy técnico o inexistente, sin lenguaje inclusivo.<br><b>DESPUÉS:</b> Texto neutro y claro que evita tecnicismos, con iconos comprensibles para todos los perfiles.</td>
-    <td><b>ANTES:</b> Sin mensajes de apoyo ni explicación sobre la acción.<br><b>DESPUÉS:</b> Microcopias efectivas: tooltips y hints que anticipan la función y su reversibilidad.</td>
-    <td><b>ANTES:</b> CTAs poco visibles, bajo affordance y dispersos en la interfaz.<br><b>DESPUÉS:</b> CTAs destacados y consistentes, con jerarquía visual clara que orienta la acción principal.</td>
-    <td><b>ANTES:</b> Tono rígido y sin acompañamiento al usuario.<br><b>DESPUÉS:</b> UX Writing cercano, que guía con frases breves y seguras: “Acción completada” + opción de deshacer.</td>
-    <td><b>ANTES:</b> Mensajes redundantes o demasiado extensos.<br><b>DESPUÉS:</b> Concisión: se resume la acción y el feedback en una sola línea clara y directa.</td>
-    <td><b>ANTES:</b> Inconsistencias de estilo en botones e iconografía.<br><b>DESPUÉS:</b> Consistencia en diseño y posición: mismos iconos, pesos visuales y patrones entre pantallas.</td>
-    <td><b>ANTES:</b> Flujo poco entendible, sin distinguir si la acción era reversible.<br><b>DESPUÉS:</b> Claridad: acción inmediata + snackbar con “Deshacer”, manteniendo la lógica del sistema.</td>
-    <td><b>ANTES:</b> Mensajes impersonales y fríos.<br><b>DESPUÉS:</b> Empatía: mensajes que acompañan al usuario y explican la acción sin culpabilizar.</td>
-    <td><b>ANTES:</b> Sin confirmación clara tras ejecutar la acción.<br><b>DESPUÉS:</b> Feedback instantáneo: animación de transición, snackbar de confirmación y soporte para `aria-live`.</td>
-      </tr>
-      <tr>
-        <td class="img-col"><img src="bitchat/utilidades/13.png" alt="Antes 13"></td>
-        <td class="img-col"><img src="mejoras bitchat/13.png" alt="Después 13" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-        <td><b>ANTES:</b> Interfaz con comandos escritos manualmente, poco intuitivos para usuarios con menos experiencia.<br><b>DESPUÉS:</b> Botones accesibles con etiquetas claras, contraste mejorado y soporte para lectores de pantalla.</td>
-        <td><b>ANTES:</b> Lenguaje técnico (“/fav anon64”) que no es inclusivo ni fácil de entender.<br><b>DESPUÉS:</b> Opciones con lenguaje neutro y universal: “Agregar”, “Favorito”, “Bloquear”.</td>
-        <td><b>ANTES:</b> Sin explicaciones sobre la acción o sus efectos.<br><b>DESPUÉS:</b> Microcopias efectivas: mensajes emergentes (“Agregado a favoritos”) y tooltips en los botones.</td>
-        <td><b>ANTES:</b> CTA dependía de recordar comandos de texto.<br><b>DESPUÉS:</b> CTAs visibles y directos, con jerarquía clara en el menú radial (acción principal destacada).</td>
-        <td><b>ANTES:</b> Comunicación fría y técnica sin guiar al usuario.<br><b>DESPUÉS:</b> UX Writing cercano y empático: “Elige qué hacer con este contacto” + retroalimentación clara tras cada acción.</td>
-        <td><b>ANTES:</b> Interacciones largas y poco eficientes.<br><b>DESPUÉS:</b> Concisión: opciones resumidas en una sola palabra que transmiten la acción sin ambigüedad.</td>
-        <td><b>ANTES:</b> Estilos distintos entre comandos y botones, sin coherencia visual.<br><b>DESPUÉS:</b> Consistencia: mismo estilo, tipografía y color en botones y menús en toda la app.</td>
-        <td><b>ANTES:</b> El flujo era confuso: no estaba claro si el comando funcionaba o no.<br><b>DESPUÉS:</b> Claridad: menú visual que muestra todas las acciones posibles y confirma la ejecución.</td>
-        <td><b>ANTES:</b> Mensajes impersonales y de error (“can’t find peer”) que generan frustración.<br><b>DESPUÉS:</b> Empatía: mensajes que explican de forma amable (“Este usuario no está disponible por ahora”).</td>
-        <td><b>ANTES:</b> Sin confirmación visible tras ejecutar un comando.<br><b>DESPUÉS:</b> Feedback inmediato: animación de menú + notificación de acción realizada, compatible con `aria-live`.</td>
-    </tr>
-    <tr>
-      <td class="img-col"><img src="bitchat/utilidades/14.png" alt="Antes 14"></td>
-      <td class="img-col"><img src="mejoras bitchat/14.png" alt="Después 14" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-      <td><b>ANTES:</b> Comando de texto (/w) como única vía; difícil para personas con movilidad o lectores de pantalla.<br><b>DESPUÉS:</b> Menú visual con botones grandes y tamaño táctil adecuado; `aria-label` en cada opción y soporte para navegación por teclado/gestos.</td>
-      <td><b>ANTES:</b> Terminología técnica y en inglés en el placeholder (“see who's online”), potencial barrera lingüística.<br><b>DESPUÉS:</b> Texto claro y neutro en español y símbolos universales: “Usuarios online”, íconos identificables y alternativas de texto para todas las etiquetas.</td>
-      <td><b>ANTES:</b> No hay explicación de la acción al escribir el comando.<br><b>DESPUÉS:</b> Microcopias concisas junto al menú: “Ver usuarios conectados (w)” y pequeñas ayudas/contexto en tooltips: “Toca para ver acciones disponibles”.</td>
-      <td><b>ANTES:</b> CTA oculto (escribir y recordar comando).<br><b>DESPUÉS:</b> CTAs visibles con jerarquía (primario: “Usuarios Online”, secundario: “Favorito”, “Bloquear”), colores y affordance claros para tocar rápidamente.</td>
-      <td><b>ANTES:</b> Mensajes fríos y técnicos (“no one else is online right now”).<br><b>DESPUÉS:</b> UX Writing cercano y orientador: “Ahora no hay nadie en línea. Revisa más tarde o invita a alguien.”, con tono consistente en toda la pantalla.</td>
-      <td><b>ANTES:</b> Dependencia de comandos abreviados y placeholders crípticos.<br><b>DESPUÉS:</b> Opciones y microcopias reducidas a 1–2 palabras claras (“Favorito”, “Bloquear”), evitando saturar la pantalla de texto.</td>
-      <td><b>ANTES:</b> Mezcla de consola/placeholder y mensajes de sistema; estilos discordantes.<br><b>DESPUÉS:</b> Patrones visuales consistentes con otras pantallas: mismos botones redondeados, tipografías y peso visual que unifican la interacción.</td>
-      <td><b>ANTES:</b> Usuario puede dudar si el comando funcionó o qué acciones están disponibles.<br><b>DESPUÉS:</b> El menú muestra explícitamente acciones disponibles y confirma visualmente la selección (icono + etiqueta), dejando claro el flujo.</td>
-      <td><b>ANTES:</b> Mensajes impersonales que no brindan alternativas (“no one else is online right now”).<br><b>DESPUÉS:</b> Mensajes empáticos y útiles: “Parece que nadie está en línea ahora. Puedes enviar una invitación o revisar la lista de contactos.”</td>
-      <td><b>ANTES:</b> Sin confirmación visual al ejecutar <code>/w</code> o acciones derivadas.<br><b>DESPUÉS:</b> Feedback inmediato: animación del menú, listado emergente con usuarios, snackbar con texto (ej. “Anon64 agregado a Favoritos”) y `aria-live` para lectores de pantalla.</td>
-    </tr>
-    <tr>
-      <td class="img-col"><img src="bitchat/utilidades/15.png" alt="Antes 15"></td>
-      <td class="img-col"><img src="mejoras bitchat/15.png" alt="Después 15" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-      <td><b>ANTES:</b> Solo se dependía de escribir <code>/unblock anon64</code>, lo que complica el acceso a usuarios con barreras motrices o lectores de pantalla.<br><b>DESPUÉS:</b> Acción visible "Desbloquear" en formato botón, foco accesible, tamaño táctil optimizado y atributos `aria` para soporte asistido.</td>
-      <td><b>ANTES:</b> Mensajes y comandos en inglés o jerga técnica que excluyen a algunos usuarios.<br><b>DESPUÉS:</b> Etiquetas en español claro y neutro, textos alternativos en los iconos y opciones que evitan tecnicismos para todos los perfiles.</td>
-      <td><b>ANTES:</b> El error "cannot unblock anon64: not found" no orienta ni ofrece solución.<br><b>DESPUÉS:</b> Microcopias prácticas junto al control: "Contacto bloqueado", "Pulsa Desbloquear para revertir", y un hint que indica si la acción es reversible.</td>
-      <td><b>ANTES:</b> La CTA estaba oculta tras la consola, sin jerarquía ni visibilidad.<br><b>DESPUÉS:</b> CTA principal resaltada (Desbloquear), CTAs secundarias claras y ordenadas para priorizar la acción más frecuente.</td>
-      <td><b>ANTES:</b> Texto frío y técnico sin guiar al usuario sobre el siguiente paso.<br><b>DESPUÉS:</b> Mensajes que explican el contexto con tono cercano: "Este contacto está bloqueado. Puedes desbloquearlo desde aquí.", facilitando la interacción.</td>
-      <td><b>ANTES:</b> Flujo redundante: teclear comandos largos para una tarea simple.<br><b>DESPUÉS:</b> Interacciones resumidas en botones de una o dos palabras ("Desbloquear", "Bloquear", "Favorito") para acelerar la tarea.</td>
-      <td><b>ANTES:</b> Estética inconsistente entre línea de comandos y UI gráfica.<br><b>DESPUÉS:</b> Componentes visuales unificados: mismos estilos de botón, pesos tipográficos y espaciado que mantienen coherencia en la app.</td>
-      <td><b>ANTES:</b> Poco claro cuándo el desbloqueo era posible o por qué fallaba.<br><b>DESPUÉS:</b> Al abrir el menú aparece la tarjeta "Contacto bloqueado: anon64" y el botón "Desbloquear" sólo se activa si el contacto existe en la lista de bloqueados.</td>
-      <td><b>ANTES:</b> Mensajes que suenan acusatorios o crípticos para el usuario.<br><b>DESPUÉS:</b> Comunicación empática: "No encontramos a anon64 en tu lista de bloqueados" o "Anon64 fue desbloqueado correctamente", evitando culpabilizar.</td>
-      <td><b>ANTES:</b> Solo un mensaje de consola como confirmación o error, sin cambio visual evidente.<br><b>DESPUÉS:</b> Respuesta inmediata en la interfaz: animación de la tarjeta, snackbar con "Anon64 desbloqueado" + botón "Deshacer" y anuncio `aria-live` para lectores de pantalla.</td>
-    </tr>
-    <tr>
-      <td class="img-col"><img src="bitchat/utilidades/16.png" alt="Antes 16"></td>
-      <td class="img-col"><img src="mejoras bitchat/16.png" alt="Después 16" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-      <td><b>ANTES:</b> La única acción posible era escribir <code>/unfav anon64</code>, lo que dificulta su uso con ayudas técnicas.<br><b>DESPUÉS:</b> Botón táctil "Quitar" visible, con `aria-label`, foco claro y área de toque ampliada para accesibilidad.</td>
-      <td><b>ANTES:</b> Comandos y mensajes técnicos que pueden excluir a usuarios no técnicos.<br><b>DESPUÉS:</b> Texto en español claro y neutro: "Quitar de favoritos", con iconos y texto alternativo para todos los perfiles.</td>
-      <td><b>ANTES:</b> No se explica qué hace <code>/unfav</code> ni si es reversible.<br><b>DESPUÉS:</b> Microcopias inmediatas: "Quitar de favoritos" + nota "Puedes volver a marcarlo cuando quieras" y tooltip explicativo.</td>
-      <td><b>ANTES:</b> CTA oculta en la consola; baja discoverability.<br><b>DESPUÉS:</b> CTA principal destacada (Quitar) y CTAs secundarias ordenadas (Favorito, Bloquear) con jerarquía visual clara.</td>
-      <td><b>ANTES:</b> Mensajes secos que no orientan al usuario sobre el siguiente paso.<br><b>DESPUÉS:</b> UX Writing cercano: "Contacto eliminado de Favoritos" y una breve instrucción para revertir si fue un error.</td>
-      <td><b>ANTES:</b> Flujo largo y propenso a errores por teclear comandos completos.<br><b>DESPUÉS:</b> Concisión: acciones presentadas en botones de una o dos palabras que aceleran la tarea.</td>
-      <td><b>ANTES:</b> Mezcla visual entre consola y elementos gráficos sin coherencia.<br><b>DESPUÉS:</b> Consistencia en diseño: mismas tarjetas, botones redondeados y tipografía uniforme en todas las pantallas.</td>
-      <td><b>ANTES:</b> Estado del favorito no era evidente después de la acción.<br><b>DESPUÉS:</b> Claridad: la interfaz muestra el estado (Favorito: activo/inactivo) y el botón refleja el cambio inmediatamente.</td>
-      <td><b>ANTES:</b> Mensajes crípticos o acusatorios en caso de fallo.<br><b>DESPUÉS:</b> Mensaje empático: "No encontramos a anon64 en Favoritos" o "Anon64 quitado de Favoritos — deshacer", evitando culpabilizar.</td>
-      <td><b>ANTES:</b> Confirmación solo por consola; sin señal visual evidente.<br><b>DESPUÉS:</b> Feedback inmediato: animación en la tarjeta, snackbar "Anon64 quitado de Favoritos" + botón "Deshacer" y `aria-live` para lectores de pantalla.</td>
-    </tr>
-    
-    <tr>
-      <td class="img-col"><img src="bitchat/utilidades/17.png" alt="Antes 17"></td>
-      <td class="img-col"><img src="mejoras bitchat/17.png" alt="Después 17" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-      <td><b>ANTES:</b> Solo era posible escribir <code>/hug anon64</code>, lo cual no siempre es accesible para personas con limitaciones motoras o visuales.<br><b>DESPUÉS:</b> Se incluye botón táctil "Saludar" con área de toque amplia, icono visible y soporte para <code>aria-label</code>, facilitando accesibilidad.</td>
-      <td><b>ANTES:</b> El comando en inglés podía excluir a usuarios no técnicos o con menor dominio del idioma.<br><b>DESPUÉS:</b> Texto claro en español (“Saludar”) y neutral, comprensible para cualquier perfil.</td>
-      <td><b>ANTES:</b> La instrucción "send someone a warm hug" era poco visible y sin aclarar errores.<br><b>DESPUÉS:</b> Microcopia más clara y en contexto: “Envía un saludo a este usuario” + mensajes de error mejorados (“No encontramos a este contacto, revisa el nombre”).</td>
-      <td><b>ANTES:</b> El CTA principal estaba escondido en la línea de comando.<br><b>DESPUÉS:</b> CTA visible (“Saludar”) y destacado con iconografía, mejorando descubribilidad e interacción.</td>
-      <td><b>ANTES:</b> Los mensajes eran secos y técnicos, sin orientación al usuario.<br><b>DESPUÉS:</b> UX Writing más humano y cálido: “Saludaste a anon64 👋” en lugar de solo “not found”.</td>
-      <td><b>ANTES:</b> Para saludar era necesario escribir el comando completo, lo que hacía el flujo más lento.<br><b>DESPUÉS:</b> Concisión: acción directa con un botón de una sola palabra.</td>
-      <td><b>ANTES:</b> Inconsistencia entre comandos en inglés y mensajes de la interfaz en español.<br><b>DESPUÉS:</b> Consistencia en idioma, estilo visual y elementos interactivos (botón redondeado, tipografía uniforme).</td>
-      <td><b>ANTES:</b> El error “not found” era ambiguo y poco orientativo.<br><b>DESPUÉS:</b> Claridad: se explica el motivo (“Usuario no encontrado”) y se sugiere acción (“Verifica el nombre”).</td>
-      <td><b>ANTES:</b> Mensajes poco empáticos que pueden generar frustración.<br><b>DESPUÉS:</b> Empatía: tono más cercano (“Parece que no encontramos a anon64, ¿quieres intentar de nuevo?”).</td>
-      <td><b>ANTES:</b> Únicamente feedback en consola, sin refuerzo visual.<br><b>DESPUÉS:</b> Feedback inmediato: animación del botón, confirmación en pantalla (“Has saludado a anon64”) y soporte para lectores de pantalla.</td>
-    </tr>
-    
-    <tr>
-      <td class="img-col"><img src="bitchat/utilidades/18.png" alt="Antes 18"></td>
-      <td class="img-col"><img src="mejoras bitchat/18.png" alt="Después 18" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-      <td><b>ANTES:</b> El aviso de error aparece en texto plano y pequeño, difícil de detectar.<br><b>DESPUÉS:</b> Se usa un recuadro visual con icono de candado rojo que destaca el problema y facilita la lectura.</td>
-      <td><b>ANTES:</b> El mensaje técnico en inglés excluye a muchos usuarios.<br><b>DESPUÉS:</b> Se muestra un texto en español acompañado de elementos visuales comprensibles para todos.</td>
-      <td><b>ANTES:</b> El error “anon64 not found” no explica qué pasó ni qué hacer.<br><b>DESPUÉS:</b> Microcopia descriptiva dentro del recuadro: “Para: anon64 / Mensaje…”, que contextualiza mejor la acción.</td>
-      <td><b>ANTES:</b> No hay forma directa de actuar frente al error, solo queda borrar y probar otra vez.<br><b>DESPUÉS:</b> Aparecen botones claros para gestionar la acción (reenviar, cancelar o eliminar).</td>
-      <td><b>ANTES:</b> El sistema responde con un código críptico que genera frustración.<br><b>DESPUÉS:</b> Se utiliza UX Writing más humano con mensajes visuales que acompañan el error.</td>
-      <td><b>ANTES:</b> Se obliga al usuario a repetir el comando manualmente.<br><b>DESPUÉS:</b> Se simplifica con accesos directos en botones que reducen pasos.</td>
-      <td><b>ANTES:</b> La consola negra con texto verde rompe la coherencia con otras pantallas más gráficas.<br><b>DESPUÉS:</b> Se mantiene consistencia visual con íconos, colores y estilo uniforme en la aplicación.</td>
-      <td><b>ANTES:</b> El mensaje “not found” no deja claro que se trata de un usuario inexistente.<br><b>DESPUÉS:</b> La interfaz indica explícitamente a quién iba dirigido el mensaje y qué pasó.</td>
-      <td><b>ANTES:</b> La respuesta técnica puede sonar fría y confusa.<br><b>DESPUÉS:</b> Se transmite empatía mostrando de forma más amable que no se encontró el destinatario.</td>
-      <td><b>ANTES:</b> El sistema solo devuelve una línea estática de error.<br><b>DESPUÉS:</b> El feedback se refuerza con iconografía (candado, mano, papelera) y mensajes de acción inmediatos.</td>
-    </tr>
+    <div class="container">
+        <h1>Plantilla de Optimización y Mejoras</h1>
 
-      <tr>
-        <td class="img-col"><img src="bitchat/utilidades/19.png" alt="Antes 19"></td>
-        <td class="img-col"><img src="mejoras bitchat/19.png" alt="Después 19" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-        <td><b>ANTES:</b> Uso de comando <code>/slap</code> que no aporta valor ni tiene equivalencia accesible.<br><b>DESPUÉS:</b> Eliminación del comando, reduciendo fricción y evitando barreras para usuarios con ayudas técnicas.</td>
-        <td><b>ANTES:</b> Acción confusa y poco inclusiva que puede excluir a usuarios no técnicos.<br><b>DESPUÉS:</b> Eliminación de funciones innecesarias que no aportan a la comunicación inclusiva.</td>
-        <td><b>ANTES:</b> Mensaje técnico <code>cannot slap: not found</code> sin explicación útil.<br><b>DESPUÉS:</b> Microcopia innecesaria eliminada, evitando confusión y ruido en la interfaz.</td>
-        <td><b>ANTES:</b> CTA inexistente o poco claro, obligando a comandos irrelevantes.<br><b>DESPUÉS:</b> Mejora por supresión: no se ofrece CTA irrelevante, se priorizan solo acciones útiles y claras.</td>
-        <td><b>ANTES:</b> Experiencia con mensajes fríos y sin sentido para el flujo de conversación.<br><b>DESPUÉS:</b> UX Writing más coherente: se eliminan interacciones absurdas, reforzando mensajes orientados al valor real.</td>
-        <td><b>ANTES:</b> Se requieren comandos adicionales que no tienen efecto práctico.<br><b>DESPUÉS:</b> Concisión absoluta: eliminar la función evita redundancia y simplifica el flujo.</td>
-        <td><b>ANTES:</b> Inconsistencia con otras pantallas que priorizan comunicación real.<br><b>DESPUÉS:</b> Consistencia: todas las interacciones están alineadas a funciones útiles y coherentes.</td>
-        <td><b>ANTES:</b> Poco claro para el usuario si la acción tiene algún propósito.<br><b>DESPUÉS:</b> Claridad por omisión: al no existir el comando, se evita malentendido y el flujo es más lógico.</td>
-        <td><b>ANTES:</b> Mensaje “cannot slap” puede interpretarse como error agresivo o inútil.<br><b>DESPUÉS:</b> Eliminación de mensajes innecesarios evita frustración y mejora la empatía con el usuario.</td>
-        <td><b>ANTES:</b> Feedback inútil que solo comunica fallo de una acción irrelevante.<br><b>DESPUÉS:</b> Mejor feedback al usuario al no mostrar comandos sin valor, manteniendo limpia la interfaz.</td>
-    </tr>
+        <h2>¿Qué es esta plantilla?</h2>
+        <p>
+            Esta plantilla de optimización es un documento que detalla las mejoras aplicadas a la estructura y el contenido del archivo <code>index_diagramas_con_imagenes.html</code>. El objetivo es mejorar la organización, la semántica del HTML y la experiencia de usuario, facilitando la mantenibilidad y la escalabilidad del proyecto. A continuación, se describen los cambios y cómo se conectan con el archivo HTML principal.
+        </p>
 
-    <tr>
-      <td class="img-col"><img src="bitchat/verificacion/20.png" alt="Antes 20"></td>
-      <td class="img-col"><img src="mejoras bitchat/20.png" alt="Después 20" style="border: 3px solid #6c63ff; box-shadow: 0 0 16px #6c63ff88;"></td>
-      
-      <td><b>ANTES:</b> Texto técnico en inglés con cadenas largas poco legibles.<br><b>DESPUÉS:</b> Instrucciones claras en español, con lenguaje sencillo y accesible.</td>
-      <td><b>ANTES:</b> El contenido en inglés excluye a usuarios hispanohablantes.<br><b>DESPUÉS:</b> Uso de un mensaje inclusivo que todos entienden sin conocimientos técnicos.</td>
-      <td><b>ANTES:</b> Mensaje “scan to verify me” poco claro y sin contexto.<br><b>DESPUÉS:</b> Microcopia precisa: “Escanea este código para confirmar mi identidad en Bitchat”.</td>
-      <td><b>ANTES:</b> Botón ambiguo “scan someone else qr” sin resaltar la acción principal.<br><b>DESPUÉS:</b> CTA claro y útil: “Escanear QR de otra persona” y “Compartir QR”.</td>
-      <td><b>ANTES:</b> Textos fríos y técnicos que no generan confianza.<br><b>DESPUÉS:</b> UX Writing más humano y confiable: se explica que solo se comparte la clave pública.</td>
-      <td><b>ANTES:</b> Se muestra un string técnico innecesario que confunde.<br><b>DESPUÉS:</b> Concisión: solo se muestra el QR acompañado de un mensaje relevante.</td>
-      <td><b>ANTES:</b> Estilo visual inconsistente con otras pantallas.<br><b>DESPUÉS:</b> Consistencia: diseño alineado al resto de la app con botones y tipografía unificados.</td>
-      <td><b>ANTES:</b> No queda claro qué información se comparte al mostrar el QR.<br><b>DESPUÉS:</b> Claridad total: se especifica que solo comparte la clave pública, no datos privados.</td>
-      <td><b>ANTES:</b> No considera la preocupación del usuario por la privacidad.<br><b>DESPUÉS:</b> Empatía: anticipa dudas explicando que los datos privados nunca se exponen.</td>
-      <td><b>ANTES:</b> No hay confirmación de que el QR se generó o de cómo usarlo.<br><b>DESPUÉS:</b> Feedback implícito: el QR aparece centrado con contexto explicativo.</td>
-    </tr>
+        <h2>Mejoras Realizadas</h2>
+        <ul>
+            <li>
+                <strong>Estructura Semántica:</strong> Se ha mejorado la estructura del HTML para utilizar etiquetas más semánticas. Por ejemplo, se ha añadido un <code>&lt;header&gt;</code> para el título principal y se han agrupado las entregas en secciones <code>&lt;div class="delivery-frame"&gt;</code> para una mejor organización.
+            </li>
+            <li>
+                <strong>Organización del Contenido:</strong> El contenido se ha dividido en dos entregas claras ("Entrega 1" y "Entrega 2"), cada una con su propio contenedor y título. Esto mejora la legibilidad y la navegación dentro de la página.
+            </li>
+            <li>
+                <strong>Componente de Tarjeta (Card):</strong> Se ha creado un componente de tarjeta reutilizable para cada elemento de la lista. Cada tarjeta tiene una cabecera, un contenido y un pie de página, lo que permite una presentación consistente y modular.
+            </li>
+            <li>
+                <strong>Estilos CSS:</strong> Se han mejorado los estilos para ser más modernos y atractivos. Se han utilizado degradados, sombras y se ha mejorado la tipografía para una mejor experiencia visual. Los estilos están ahora más organizados y son más fáciles de mantener.
+            </li>
+        </ul>
 
-    </tbody>
-  </table>
+        <h2>Conexión con el HTML Mejorado</h2>
+        <p>
+            Esta plantilla se conecta directamente con el archivo <code>index_diagramas_con_imagenes.html</code>. Las mejoras descritas aquí se han implementado en ese archivo. Por ejemplo, si inspecciona el código fuente de la página principal, verá la nueva estructura con las clases <code>.delivery-frame</code>, <code>.card</code>, y la organización en dos entregas.
+        </p>
+        <p>
+            El siguiente fragmento de código muestra la estructura de una de las tarjetas en el HTML mejorado:
+        </p>
+        <div class="code">
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;
+                    &lt;h3&gt;Título de la Tarjeta&lt;/h3&gt;
+                    &lt;span class="tag proposal"&gt;Etiqueta&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="card-content"&gt;
+                    &lt;p&gt;Descripción del contenido de la tarjeta.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="card-footer"&gt;
+                    &lt;a href="..." class="btn"&gt;Ver Más&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        </div>
+
+        <div class="btn-container">
+            <a href="index_diagramas_con_imagenes.html" class="btn">Volver al Inicio</a>
+        </div>
+    </div>
 </body>
 </html>

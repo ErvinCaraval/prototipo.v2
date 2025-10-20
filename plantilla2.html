@@ -165,7 +165,7 @@
       </tr>
       <!-- Fila 4 -->
       <tr>
-        <td class="img-col"><img src="bitchat/registro/4.png" alt="Antes 4"></td>
+        <td class="img-col"><img src="bitchat/registro/5.png" alt="Antes 4"></td>
         <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/4.png" alt="Optimización Avance 4"></td>
         <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/4.png" alt="Optimización Final 4"></td>
         <td>El manual de voz y tono indica que la comunicación debe ser inspiradora. El '¡Casi listo!' y la personalización con el nombre de usuario siguen esta pauta.</td>
@@ -184,7 +184,7 @@
       </tr>
       <!-- Fila 5 -->
       <tr>
-        <td class="img-col"><img src="bitchat/registro/5.png" alt="Antes 5"></td>
+        <td class="img-col"><img src="bitchat/registro/6.png" alt="Antes 5"></td>
         <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/5.png" alt="Optimización Avance 5"></td>
         <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/5.png" alt="Optimización Final 5"></td>
         <td>El manual de usuario indica que las pantallas de carga deben ser informativas. La versión final añade un texto que explica lo que está pasando ('Creando tu cuenta...').</td>
@@ -200,6 +200,291 @@
         <td><b>Optimización:</b> Este es un paso de sistema no reversible, pero el flujo está diseñado para llevar automáticamente al home una vez completado.</td>
         <td><b>Optimización:</b> Comunicar lo que sucede en segundo plano ('Creando tu cuenta') muestra empatía por el tiempo y la incertidumbre del usuario.</td>
         <td><b>Optimización:</b> La propia animación es un feedback constante de que el sistema está trabajando y no se ha colgado.</td>
+      </tr>
+      <!-- Fila 6: Chat principal -->
+      <tr>
+        <td class="img-col"><img src="bitchat/home/7.png" alt="Antes 6"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/6.png" alt="Optimización Avance 6"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/6.png" alt="Optimización Final 6"></td>
+        <td>Siguiendo el manual, se implementó un diseño limpio y organizado para la lista de chats, con una jerarquía clara entre nombres, mensajes y timestamps.</td>
+        <td>De la lluvia de ideas surgió añadir estados de mensaje (enviado, leído) y organizar chats por "Recientes" y "Todos".</td>
+        <td>Los usuarios pedían poder distinguir chats no leídos más fácilmente, por lo que se añadió un indicador visual más prominente.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 7: Menú de opciones -->
+      <tr>
+        <td class="img-col"><img src="bitchat/home/7.png" alt="Antes 7"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/7.png" alt="Optimización Avance 7"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/7.png" alt="Optimización Final 7"></td>
+        <td>Se alinea con el manual al usar iconos universales y etiquetas descriptivas para cada opción del menú.</td>
+        <td>La lluvia de ideas resultó en agrupar funciones relacionadas y añadir accesos directos a funciones frecuentes.</td>
+        <td>Los usuarios solicitaron poder personalizar las opciones del menú según su uso, funcionalidad que se implementó.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 8: Configuración -->
+      <tr>
+        <td class="img-col"><img src="bitchat/home/8.png" alt="Antes 8"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/8.png" alt="Optimización Avance 8"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/8.png" alt="Optimización Final 8"></td>
+        <td>El manual guió la organización de las opciones de configuración en categorías lógicas y comprensibles.</td>
+        <td>La lluvia de ideas aportó nuevas opciones de personalización y accesibilidad solicitadas por usuarios.</td>
+        <td>Los usuarios pidieron explicaciones más claras para opciones técnicas, lo cual se implementó con tooltips y ejemplos.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 9: Perfil de usuario -->
+      <tr>
+        <td class="img-col"><img src="bitchat/home/9.png" alt="Antes 9"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/20.png" alt="Optimización Avance 9"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/20.png" alt="Optimización Final 9"></td>
+        <td>El manual de voz y tono guió la presentación de información personal de manera profesional pero amigable.</td>
+        <td>La lluvia de ideas incorporó nuevas opciones de privacidad y personalización del perfil.</td>
+        <td>Los usuarios solicitaron más control sobre su información visible, lo cual se implementó con controles granulares.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 10: Búsqueda -->
+      <tr>
+        <td class="img-col"><img src="bitchat/home/10.png" alt="Antes 10"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/10.png" alt="Optimización Avance 10"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/10.png" alt="Optimización Final 10"></td>
+        <td>El manual guió la implementación de filtros de búsqueda claros y eficientes con etiquetas descriptivas.</td>
+        <td>La lluvia de ideas aportó funciones de búsqueda avanzada y filtros personalizables.</td>
+        <td>Los usuarios solicitaron búsqueda por categorías y resultados más relevantes primero.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 11: Notificaciones -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/11.png" alt="Antes 11"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/11.png" alt="Optimización Avance 11"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/11.png" alt="Optimización Final 11"></td>
+        <td>El manual estableció pautas claras para notificaciones no intrusivas y personalizables.</td>
+        <td>La lluvia de ideas incorporó categorización y priorización de notificaciones.</td>
+        <td>Los usuarios pidieron mejor control sobre el tipo y frecuencia de notificaciones.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 12: Grupos -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/12.png" alt="Antes 12"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/12.png" alt="Optimización Avance 12"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/12.png" alt="Optimización Final 12"></td>
+        <td>El manual guió la estructuración clara de la información y gestión de grupos.</td>
+        <td>La lluvia de ideas aportó nuevas funciones de organización y roles en grupos.</td>
+        <td>Los usuarios solicitaron mejor visibilidad de los permisos y roles en grupos.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 13: Archivos compartidos -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/13.png" alt="Antes 13"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/13.png" alt="Optimización Avance 13"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/13.png" alt="Optimización Final 13"></td>
+        <td>El manual estableció pautas para mostrar claramente el estado y permisos de archivos compartidos.</td>
+        <td>La lluvia de ideas incorporó vista previa y organización mejorada de archivos.</td>
+        <td>Los usuarios pidieron mejor gestión de permisos y acceso a archivos compartidos.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 14: Llamadas -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/14.png" alt="Antes 14"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/14.png" alt="Optimización Avance 14"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/14.png" alt="Optimización Final 14"></td>
+        <td>El manual guió la implementación de controles de llamada intuitivos y accesibles.</td>
+        <td>La lluvia de ideas aportó nuevas funciones de control de calidad y gestión de llamadas.</td>
+        <td>Los usuarios solicitaron mejor visibilidad del estado de la conexión y calidad.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 15: Videollamadas -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/15.png" alt="Antes 15"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/15.png" alt="Optimización Avance 15"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/15.png" alt="Optimización Final 15"></td>
+        <td>El manual estableció pautas para controles de videollamada claros y accesibles.</td>
+        <td>La lluvia de ideas incorporó nuevas funciones de control y personalización.</td>
+        <td>Los usuarios pidieron mejor gestión de calidad de video y ancho de banda.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 16: Estados -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/16.png" alt="Antes 16"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/16.png" alt="Optimización Avance 16"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/16.png" alt="Optimización Final 16"></td>
+        <td>El manual guió la implementación de estados de usuario claros y comprensibles.</td>
+        <td>La lluvia de ideas aportó nuevos estados personalizados y controles de privacidad.</td>
+        <td>Los usuarios solicitaron mayor control sobre quién puede ver su estado.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 17: Multimedia -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/17.png" alt="Antes 17"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/17.png" alt="Optimización Avance 17"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/17.png" alt="Optimización Final 17"></td>
+        <td>El manual estableció pautas para la gestión clara de contenido multimedia.</td>
+        <td>La lluvia de ideas incorporó nuevas opciones de organización y edición.</td>
+        <td>Los usuarios pidieron mejor previsualización y gestión de archivos multimedia.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 18: Seguridad -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/18.png" alt="Antes 18"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/18.png" alt="Optimización Avance 18"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/18.png" alt="Optimización Final 18"></td>
+        <td>El manual guió la presentación clara de opciones de seguridad y privacidad.</td>
+        <td>La lluvia de ideas aportó nuevas características de seguridad y control.</td>
+        <td>Los usuarios solicitaron más transparencia en configuraciones de seguridad.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 19: Respaldo -->
+      <tr>
+        <td class="img-col"><img src="bitchat/utilidades/19.png" alt="Antes 19"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/19.png" alt="Optimización Avance 19"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/19.png" alt="Optimización Final 19"></td>
+        <td>El manual estableció pautas para opciones de respaldo claras y seguras.</td>
+        <td>La lluvia de ideas incorporó nuevas opciones de respaldo y recuperación.</td>
+        <td>Los usuarios pidieron mejor visibilidad del progreso de respaldo/restauración.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
+      </tr>
+      <!-- Fila 20: Ayuda -->
+      <tr>
+        <td class="img-col"><img src="bitchat/verificacion/20.png" alt="Antes 20"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v1/9.png" alt="Optimización Avance 20"></td>
+        <td class="img-col"><img src="PANTALLAS BITCHAT LAST-v2/9.png" alt="Optimización Final 20"></td>
+        <td>El manual guió la implementación de ayuda contextual y accesible.</td>
+        <td>La lluvia de ideas aportó nuevas formas de asistencia y documentación.</td>
+        <td>Los usuarios solicitaron ayuda más contextual y ejemplos prácticos.</td>
+        <td><b>Antes:</b> contraste y jerarquía visual bajos; elementos sin labels ni roles ARIA; navegación por teclado limitada. <b>Optimización Final:</b> contraste aumentado, tap targets y tamaños legibles, atributos ARIA y soporte completo para teclado y lectores de pantalla.</td>
+        <td><b>Antes:</b> texto técnico o poco localizado que puede excluir usuarios. <b>Optimización Final:</b> lenguaje neutro y localizado, alternativas y variantes para distintos perfiles culturales y lingüísticos.</td>
+        <td><b>Antes:</b> microcopias escasas o vagas que no explican la acción. <b>Optimización Final:</b> microcopias cortas, contextuales y predictivas que describen la acción y la reversibilidad cuando aplica.</td>
+        <td><b>Antes:</b> CTAs poco visibles y con bajo affordance. <b>Optimización Final:</b> CTAs jerarquizados, con labels claros, contraste y tamaño táctil adecuados.</td>
+        <td><b>Antes:</b> tono frío y tecnicista sin guía al usuario. <b>Optimización Final:</b> UX Writing cercano, coherente y orientador que guía al usuario paso a paso.</td>
+        <td><b>Antes:</b> textos largos y redundantes. <b>Optimización Final:</b> mensajes concisos que conservan el contexto necesario y reducen la carga cognitiva.</td>
+        <td><b>Antes:</b> inconsistencias en iconografía y disposición. <b>Optimización Final:</b> sistema visual y componentes coherentes en todas las pantallas.</td>
+        <td><b>Antes:</b> flujos confusos, falta de señales visuales y reversibilidad, lo que generaba incertidumbre y errores difíciles de corregir. <b>Optimización Final:</b> se implementaron señales visuales y textuales en cada paso, confirmaciones claras y opción de deshacer. El usuario comprende el estado de cada acción, puede revertir errores fácilmente y navega con mayor confianza y autonomía.</td>
+        <td><b>Antes:</b> mensajes impersonales o acusatorios, generando distancia y poca empatía. <b>Optimización Final:</b> comunicación empática que explica y ofrece alternativas sin culpabilizar al usuario, generando confianza, tranquilidad y acompañamiento en cada interacción.</td>
+        <td><b>Antes:</b> feedback tardío o sólo en consola; no accesible, lo que dificultaba la corrección de errores y la comprensión del resultado. <b>Optimización Final:</b> feedback inmediato y accesible (animaciones, snackbars, soporte `aria-live`), confirmaciones visuales y auditivas que permiten al usuario saber el resultado de sus acciones y corregir errores rápidamente, mejorando la experiencia y la autonomía.</td>
       </tr>
     </tbody>
   </table>

@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,16 +102,54 @@
             display: inline-block;
         }
 
-        .tag.direct { background-color: #ffcdd2; color: #c62828; }
-        .tag.indirect { background-color: #c8e6c9; color: #2e7d32; }
-        .tag.proposal { background-color: #b3e5fc; color: #0277bd; }
-        .tag.analysis { background-color: #fff9c4; color: #f57f17; }
-        .tag.documentation { background-color: #d1c4e9; color: #4527a0; }
-        .tag.design { background-color: #c5cae9; color: #283593; }
+        .tag.direct {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
 
-        .card-content { padding: 20px; flex-grow: 1; }
-        .card-content p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
-        .card-footer { padding: 20px; background-color: #f9f9f9; display: flex; justify-content: center; border-top: 1px solid #eee; }
+        .tag.indirect {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .tag.proposal {
+            background-color: #b3e5fc;
+            color: #0277bd;
+        }
+
+        .tag.analysis {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+
+        .tag.documentation {
+            background-color: #d1c4e9;
+            color: #4527a0;
+        }
+
+        .tag.design {
+            background-color: #c5cae9;
+            color: #283593;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            padding: 20px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #eee;
+        }
 
         .btn {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -125,19 +163,23 @@
             border: none;
             cursor: pointer;
         }
-        .btn:hover { opacity: 0.9; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+
+        .btn:hover {
+            opacity: 0.9;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
         /* Modal Styles */
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
+            display: none;
+            position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.6);
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
             align-items: center;
             justify-content: center;
         }
@@ -149,7 +191,7 @@
             border: 0;
             width: 90%;
             height: 90%;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border-radius: 10px;
             overflow: hidden;
         }
@@ -164,36 +206,125 @@
             transition: 0.3s;
             z-index: 1001;
         }
-        .close-btn:hover, .close-btn:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
         #modal-iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
-
     </style>
 </head>
+
 <body>
 
     <div class="header">
         <h1>Análisis Competitivo y Propuesta de Diseño</h1>
-        <p>Una colección de diagramas de flujo, análisis comparativos y manuales de estilo para el desarrollo de la aplicación Bitchat.</p>
+        <p>Una colección de diagramas de flujo, análisis comparativos y manuales de estilo para el desarrollo de la
+            aplicación Bitchat.</p>
     </div>
 
     <!-- Entrega 1 -->
     <div class="delivery-frame">
         <h2>Entrega 1</h2>
         <div class="container">
-            <div class="card"><div class="card-header"><h3>WhatsApp</h3><span class="tag direct">Competidor Directo</span></div><div class="card-content"><p>Diagrama de flujo que muestra la navegación y funciones principales de WhatsApp.</p></div><div class="card-footer"><a href="whatsapp_flow_diagram_with_images.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Discord</h3><span class="tag direct">Competidor Directo</span></div><div class="card-content"><p>Análisis del flujo de usuario en Discord, enfocado en la interacción y creación de comunidades.</p></div><div class="card-footer"><a href="discord_flow_diagram_with_images.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Messenger</h3><span class="tag direct">Competidor Directo</span></div><div class="card-content"><p>Flujo de navegación de Facebook Messenger, detallando sus características integradas.</p></div><div class="card-footer"><a href="messenger_flow_diagram_with_images.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Session</h3><span class="tag indirect">Competidor Indirecto</span></div><div class="card-content"><p>Diagrama de Session, una app con enfoque en la privacidad y el minimalismo.</p></div><div class="card-footer"><a href="session_flow_diagram_with_images.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Signal</h3><span class="tag indirect">Competidor Indirecto</span></div><div class="card-content"><p>Flujo de Signal, destacando su arquitectura centrada en la seguridad y la privacidad del usuario.</p></div><div class="card-footer"><a href="signal_flow_diagram_with_images.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>BitChat</h3><span class="tag proposal">App Propuesta</span></div><div class="card-content"><p>Diagrama de flujo de la aplicación propuesta, Bitchat, mostrando su arquitectura y navegación.</p></div><div class="card-footer"><a href="bitchat_flow_diagram_with_images.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Plantilla de Optimización</h3><span class="tag analysis">Análisis</span></div><div class="card-content"><p>Reporte profesional de optimización con capturas de Bitchat y análisis de UX.</p></div><div class="card-footer"><a href="plantilla.html" class="btn">Ver Reporte</a></div></div>
-            <div class="card"><div class="card-header"><h3>Matriz Comparativa</h3><span class="tag analysis">Análisis</span></div><div class="card-content"><p>Tabla comparativa que evalúa todas las apps según criterios de UX, accesibilidad y funcionalidad.</p></div><div class="card-footer"><a href="matriz_comparativa_benchmark.html" class="btn">Ver Matriz</a></div></div>
-            <div class="card"><div class="card-header"><h3>Reporte Matrix Benchmark</h3><span class="tag analysis">Análisis</span></div><div class="card-content"><p>Análisis profesional y detallado de la matriz de benchmark, comparando funcionalidades clave.</p></div><div class="card-footer"><a href="reporte_benchmark_profesional.html" class="btn">Ver Reporte</a></div></div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>WhatsApp</h3><span class="tag direct">Competidor Directo</span>
+                </div>
+                <div class="card-content">
+                    <p>Diagrama de flujo que muestra la navegación y funciones principales de WhatsApp.</p>
+                </div>
+                <div class="card-footer"><a href="whatsapp_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Discord</h3><span class="tag direct">Competidor Directo</span>
+                </div>
+                <div class="card-content">
+                    <p>Análisis del flujo de usuario en Discord, enfocado en la interacción y creación de comunidades.
+                    </p>
+                </div>
+                <div class="card-footer"><a href="discord_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Messenger</h3><span class="tag direct">Competidor Directo</span>
+                </div>
+                <div class="card-content">
+                    <p>Flujo de navegación de Facebook Messenger, detallando sus características integradas.</p>
+                </div>
+                <div class="card-footer"><a href="messenger_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Session</h3><span class="tag indirect">Competidor Indirecto</span>
+                </div>
+                <div class="card-content">
+                    <p>Diagrama de Session, una app con enfoque en la privacidad y el minimalismo.</p>
+                </div>
+                <div class="card-footer"><a href="session_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Signal</h3><span class="tag indirect">Competidor Indirecto</span>
+                </div>
+                <div class="card-content">
+                    <p>Flujo de Signal, destacando su arquitectura centrada en la seguridad y la privacidad del usuario.
+                    </p>
+                </div>
+                <div class="card-footer"><a href="signal_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>BitChat</h3><span class="tag proposal">App Propuesta</span>
+                </div>
+                <div class="card-content">
+                    <p>Diagrama de flujo de la aplicación propuesta, Bitchat, mostrando su arquitectura y navegación.
+                    </p>
+                </div>
+                <div class="card-footer"><a href="bitchat_flow_diagram_with_images.html" class="btn">Ver Diagrama</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Plantilla de Optimización</h3><span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>Reporte profesional de optimización con capturas de Bitchat y análisis de UX.</p>
+                </div>
+                <div class="card-footer"><a href="plantilla.html" class="btn">Ver Reporte</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Matriz Comparativa</h3><span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>Tabla comparativa que evalúa todas las apps según criterios de UX, accesibilidad y funcionalidad.
+                    </p>
+                </div>
+                <div class="card-footer"><a href="matriz_comparativa_benchmark.html" class="btn">Ver Matriz</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Reporte Matrix Benchmark</h3><span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>Análisis profesional y detallado de la matriz de benchmark, comparando funcionalidades clave.</p>
+                </div>
+                <div class="card-footer"><a href="reporte_benchmark_profesional.html" class="btn">Ver Reporte</a></div>
+            </div>
         </div>
     </div>
 
@@ -201,15 +332,107 @@
     <div class="delivery-frame">
         <h2>Entrega 2</h2>
         <div class="container">
-            <div class="card"><div class="card-header"><h3>Diagrama de Flujo v1</h3><span class="tag design">Diseño</span></div><div class="card-content"><p>Primera versión del diagrama de flujo interactivo de la aplicación Bitchat.</p></div><div class="card-footer"><a href="diagrama_flujo_v1.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Diagrama de Flujo v2</h3><span class="tag design">Diseño</span></div><div class="card-content"><p>Segunda versión mejorada del diagrama de flujo, con más detalles y estructura refinada.</p></div><div class="card-footer"><a href="diagrama_flujo_v2.html" class="btn">Ver Diagrama</a></div></div>
-            <div class="card"><div class="card-header"><h3>Manual de Voz y Tono</h3><span class="tag documentation">Documentación</span></div><div class="card-content"><p>Define la personalidad de la marca y guía la comunicación en la app y materiales de marketing.</p></div><div class="card-footer"><button class="btn modal-trigger" data-src="https://prezi.com/p/embed/agcKXJcK3adecPk1tdZG/">Ver Manual</button></div></div>
-            <div class="card"><div class="card-header"><h3>Lluvia y selección de ideas</h3><span class="tag design">Diseño</span></div><div class="card-content"><p>Proceso de brainstorming y refinamiento de ideas para la comunicación y el branding de la aplicación.</p></div><div class="card-footer"><button class="btn modal-trigger" data-src="https://www.canva.com/design/DAG2N2X9j90/qDpUPlRjklI39VNhQ2h6GA/view?embed">Ver Proceso</button></div></div>
-             <div class="card"><div class="card-header"><h3>Enlace a prototipo resultante</h3><span class="tag proposal">Prototipo</span></div><div class="card-content"><p>Este es el enlace al prototipo interactivo ejecutable de la apicacion BitChat puede verce tanta en pc de escritorio laptops y smartphones.</p></div><div class="card-footer"><a href="https://evi-ivory.vercel.app/" class="btn" target="_blank">Ver Prototipo</a></div></div>
-             <div class="card"><div class="card-header"><h3>Registro audio visual</h3><span class="tag analysis">Análisis</span></div><div class="card-content"><p>En ella se explica que lo que se encuentra ahí son las grabaciones de las entrevistas realizadas a cinco usuarios acerca de las vistas de la app BitChat optimizadas.</p></div><div class="card-footer"><a href="https://drive.google.com/drive/folders/1OjWI-4n0yUt-5sLsd_Qa6Vwk35RbRAzG?usp=drive_link" class="btn" target="_blank">Ver Grabaciones</a></div></div>
-             <div class="card"><div class="card-header"><h3>Plantilla de optimización</h3><span class="tag analysis">Análisis</span></div><div class="card-content"><p>Plantilla detallada de optimización con descripción y conexión al HTML mejorado.</p></div><div class="card-footer"><a href="plantilla2.html" class="btn">Ver Plantilla</a></div></div>
-            <div class="card"><div class="card-header"><h3>Informe</h3><span class="tag documentation">Documentación</span></div><div class="card-content"><p>En este informe está descrita la metodología para hacer evaluaciones de usabilidad de los usuarios.</p></div><div class="card-footer"><a href="reporte.pdf" class="btn" target="_blank">Ver Informe</a></div></div>
-       </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Diagrama de Flujo v1</h3><span class="tag design">Diseño</span>
+                </div>
+                <div class="card-content">
+                    <p>Primera versión del diagrama de flujo interactivo de la aplicación Bitchat.</p>
+                </div>
+                <div class="card-footer"><a href="diagrama_flujo_v1.html" class="btn">Ver Diagrama</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Diagrama de Flujo v2</h3><span class="tag design">Diseño</span>
+                </div>
+                <div class="card-content">
+                    <p>Segunda versión mejorada del diagrama de flujo, con más detalles y estructura refinada.</p>
+                </div>
+                <div class="card-footer"><a href="diagrama_flujo_v2.html" class="btn">Ver Diagrama</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Manual de Voz y Tono</h3><span class="tag documentation">Documentación</span>
+                </div>
+                <div class="card-content">
+                    <p>Define la personalidad de la marca y guía la comunicación en la app y materiales de marketing.
+                    </p>
+                </div>
+                <div class="card-footer"><button class="btn modal-trigger"
+                        data-src="https://prezi.com/p/embed/agcKXJcK3adecPk1tdZG/">Ver Manual</button></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Lluvia y selección de ideas</h3><span class="tag design">Diseño</span>
+                </div>
+                <div class="card-content">
+                    <p>Proceso de brainstorming y refinamiento de ideas para la comunicación y el branding de la
+                        aplicación.</p>
+                </div>
+                <div class="card-footer"><button class="btn modal-trigger"
+                        data-src="https://www.canva.com/design/DAG2N2X9j90/qDpUPlRjklI39VNhQ2h6GA/view?embed">Ver
+                        Proceso</button></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Enlace a prototipo resultante</h3><span class="tag proposal">Prototipo</span>
+                </div>
+                <div class="card-content">
+                    <p>Este es el enlace al prototipo interactivo ejecutable de la apicacion BitChat puede verce tanta
+                        en pc de escritorio laptops y smartphones.</p>
+                </div>
+                <div class="card-footer"><a href="https://evi-ivory.vercel.app/" class="btn" target="_blank">Ver
+                        Prototipo</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Registro audio visual</h3><span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>En ella se explica que lo que se encuentra ahí son las grabaciones de las entrevistas realizadas
+                        a cinco usuarios acerca de las vistas de la app BitChat optimizadas.</p>
+                </div>
+                <div class="card-footer"><a
+                        href="https://drive.google.com/drive/folders/1OjWI-4n0yUt-5sLsd_Qa6Vwk35RbRAzG?usp=drive_link"
+                        class="btn" target="_blank">Ver Grabaciones</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Plantilla de optimización</h3><span class="tag analysis">Análisis</span>
+                </div>
+                <div class="card-content">
+                    <p>Plantilla detallada de optimización con descripción y conexión al HTML mejorado.</p>
+                </div>
+                <div class="card-footer"><a href="plantilla2.html" class="btn">Ver Plantilla</a></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Informe</h3><span class="tag documentation">Documentación</span>
+                </div>
+                <div class="card-content">
+                    <p>En este informe está descrita la metodología para hacer evaluaciones de usabilidad de los
+                        usuarios.</p>
+                </div>
+                <div class="card-footer"><a href="reporte.pdf" class="btn" target="_blank">Ver Informe</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Entrega 4 -->
+    <div class="delivery-frame">
+        <h2>Entrega 4 : manual de usuario e informe técnico</h2>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Manual de Usuario</h3><span class="tag documentation">Documentación</span>
+                </div>
+                <div class="card-content">
+                    <p>Manual de usuario de la app llamada BitChat versión final.</p>
+                </div>
+                <div class="card-footer"><a href="https://bitchat-modern-manual.vercel.app/" class="btn"
+                        target="_blank">Ver Manual</a></div>
+            </div>
+        </div>
     </div>
 
 
@@ -222,14 +445,14 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var modal = document.getElementById("myModal");
             var modalIframe = document.getElementById("modal-iframe");
             var triggers = document.getElementsByClassName("modal-trigger");
             var span = document.getElementsByClassName("close-btn")[0];
 
             for (var i = 0; i < triggers.length; i++) {
-                triggers[i].onclick = function(e) {
+                triggers[i].onclick = function (e) {
                     e.preventDefault();
                     var src = this.getAttribute('data-src');
                     modalIframe.setAttribute('src', src);
@@ -237,12 +460,12 @@
                 }
             }
 
-            span.onclick = function() {
+            span.onclick = function () {
                 modal.style.display = "none";
                 modalIframe.setAttribute('src', '');
             }
 
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                     modalIframe.setAttribute('src', '');
@@ -252,4 +475,5 @@
     </script>
 
 </body>
+
 </html>
